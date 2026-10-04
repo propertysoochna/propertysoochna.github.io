@@ -98,6 +98,27 @@
       font: 700 21px/1.35 Georgia, Cambria, serif;
     }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .schedule-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 22px;
+      padding: 8px 12px;
+      border: 1px solid #b8e2dc;
+      border-radius: 999px;
+      color: #075e54;
+      background: var(--teal-light);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .schedule-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 0 4px rgba(217,119,6,.14);
+    }
     .trust-row { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 28px; color: var(--muted); font-size: 13px; }
     .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--teal); font-weight: 900; }
     .price-card {
@@ -247,9 +268,10 @@
             deadlines change.
           </p>
           <div class="hero-actions">
-            <a class="button checkout-link" href="#join">Get every issue for Rs 9/month</a>
+            <a class="button checkout-link" href="#join">Get every bulletin for Rs 9/month</a>
             <a class="button secondary" href="./sample/">Read the free sample</a>
           </div>
+          <div class="schedule-badge">New verified bulletin every Monday</div>
           <div class="trust-row">
             <span>Official-source links</span>
             <span>Checked-at timestamps</span>
@@ -260,7 +282,7 @@
           <div class="eyebrow">Founding plan</div>
           <div class="price">Rs 9 <small>/ month</small></div>
           <ul class="price-list">
-            <li>Four verified weekly issues</li>
+            <li>One complete bulletin every Monday</li>
             <li>Urgent opening and deadline alerts</li>
             <li>Extensions and corrections</li>
             <li>Monthly combined PDF</li>
@@ -308,7 +330,7 @@
         <div class="cards">
           <article class="card"><div class="card-icon">1</div><h3>One place</h3><p>Stop checking fragmented authority websites, PDF circulars and separate auction portals.</p></article>
           <article class="card"><div class="card-icon">✓</div><h3>Officially sourced</h3><p>Every actionable fact links back to the authority page, brochure, circular or application portal.</p></article>
-          <article class="card"><div class="card-icon">⏱</div><h3>Time aware</h3><p>Every issue shows when the source was checked, the safe deadline and any official conflict.</p></article>
+          <article class="card"><div class="card-icon">⏱</div><h3>Time aware</h3><p>Every bulletin shows when the source was checked, the safe deadline and any official conflict.</p></article>
           <article class="card"><div class="card-icon">₹</div><h3>Complete cost</h3><p>Headline price is separated from deposits, maintenance, stamp duty, conversion and other charges.</p></article>
           <article class="card"><div class="card-icon">∆</div><h3>Change detection</h3><p>New inventory, deadline extensions, corrigenda, results and refunds are compared with the prior run.</p></article>
           <article class="card"><div class="card-icon">!</div><h3>No false certainty</h3><p>Login-gated balances, inaccessible pages and unverified claims are labelled instead of guessed.</p></article>
@@ -326,7 +348,7 @@
           <article class="step"><h3>Scan</h3><p>Mandatory authority pages, live portals, notices and result surfaces are checked.</p></article>
           <article class="step"><h3>Verify</h3><p>Deadlines, prices, inventory and eligibility are traced to official documents.</p></article>
           <article class="step"><h3>Explain</h3><p>The process, complete cost, restrictions and risks are converted into plain language.</p></article>
-          <article class="step"><h3>Alert</h3><p>The complete issue and urgent changes are published to paid members.</p></article>
+          <article class="step"><h3>Alert</h3><p>The Monday bulletin and urgent changes are published to paid members.</p></article>
         </div>
       </div>
     </section>
@@ -338,7 +360,7 @@
             <div class="eyebrow" style="color:#8fe3d7">Free sample</div>
             <h2>See the format before paying.</h2>
             <p>The sample shows the exact separation between government plots, DDA flats and regulated private flats, with official links and checked-at evidence.</p>
-            <a class="button" href="./sample/">Open sample issue</a>
+            <a class="button" href="./sample/">Open sample bulletin</a>
           </div>
           <div class="sample-box">
             <div class="sample-stat"><strong>Government plots</strong><span>26 open</span></div>
@@ -354,10 +376,11 @@
       <div class="container faq">
         <div class="eyebrow">Questions</div>
         <h2>Before you join</h2>
-        <details open><summary>Is PropertySoochna a government service?</summary><p>No. It is an independent information publication and is not affiliated with any authority.</p></details>
-        <details><summary>Do you accept application or booking money?</summary><p>No. Property payments must be made only through the official authority portal or process linked in the issue.</p></details>
+        <details open><summary>When is the bulletin published?</summary><p>A complete verified bulletin is published every Monday in India Standard Time. Urgent booking alerts, deadline changes and material corrections are posted between Monday bulletins when needed.</p></details>
+        <details><summary>Is PropertySoochna a government service?</summary><p>No. It is an independent information publication and is not affiliated with any authority.</p></details>
+        <details><summary>Do you accept application or booking money?</summary><p>No. Property payments must be made only through the official authority portal or process linked in the bulletin.</p></details>
         <details><summary>Do you guarantee live inventory?</summary><p>No. We state whether inventory was verified live, announced in a static list, or hidden behind authenticated login.</p></details>
-        <details><summary>Will I receive four issues?</summary><p>The founding plan is designed for one complete weekly issue, urgent corrections and alerts, plus a month-end compilation.</p></details>
+        <details><summary>What does the monthly membership include?</summary><p>You receive every Monday bulletin published while your membership is active, urgent corrections and alerts between bulletins, plus the month-end compilation.</p></details>
         <details><summary>Do I need a separate website login?</summary><p>No custom PropertySoochna login is planned for the MVP. Telegram and the payment provider manage access. Checkout may still request contact details.</p></details>
       </div>
     </section>
@@ -365,7 +388,7 @@
     <section id="join" class="join">
       <div class="container">
         <div class="eyebrow" style="color:#8fe3d7">Founding membership</div>
-        <h2>All Delhi NCR residential issues for Rs 9/month.</h2>
+        <h2>Every Monday residential bulletin for Rs 9/month.</h2>
         <p>Pay through the managed checkout and join the private Telegram channel. The live payment link will be inserted after the complete Rs 9 payment and renewal test.</p>
         <a class="button checkout-link" href="#join">Pay Rs 9 and join</a>
         <div id="checkout-note" class="checkout-note" role="status"></div>
@@ -377,7 +400,7 @@
     <div class="container">
       <p><strong>PropertySoochna</strong> is an independent information service and is not affiliated with DDA, HSVP, GDA, MDA, YEIDA, TCP Haryana, or any other authority.</p>
       <p>Verify availability and make application or booking payments only through official authority links. Nothing published promises allotment, appreciation or profit.</p>
-      <p><a id="support-link" href="#join">Support</a> · <a href="./sample/">Sample issue</a></p>
+      <p>Contact: <a id="support-link" href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a> · <a href="./sample/">Sample bulletin</a></p>
     </div>
   </footer>
 

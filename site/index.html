@@ -3,8 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Verified Delhi NCR government and development-authority residential opportunities, official deadlines, costs and application links.">
+  <meta name="description" content="Verified Delhi NCR residential property opportunities from HSVP, GDA, MDA, YEIDA, DDA and TCP Haryana, with official deadlines, costs and application links.">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://tusharsk.github.io/property-soochna-site/">
+  <link rel="icon" href="./assets/logo-e-radar-roof.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PropertySoochna">
+  <meta property="og:title" content="PropertySoochna - Delhi NCR Residential Opportunities">
+  <meta property="og:description" content="Find verified Delhi NCR residential opportunities early, understand the process and open the official source.">
+  <meta property="og:url" content="https://tusharsk.github.io/property-soochna-site/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PropertySoochna - Delhi NCR Residential Opportunities">
+  <meta name="twitter:description" content="Verified Monday bulletins and urgent official alerts for Delhi NCR residential opportunities.">
   <title>PropertySoochna - Delhi NCR Residential Opportunities</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PropertySoochna",
+      "url": "https://tusharsk.github.io/property-soochna-site/",
+      "email": "propertysoochna@gmail.com",
+      "sameAs": [
+        "https://t.me/propertysoochna",
+        "https://www.instagram.com/propertysoochnaofficial/"
+      ]
+    }
+  </script>
+  <script>document.documentElement.classList.add("js");</script>
   <style>
     :root {
       --navy: #102a43;
@@ -19,9 +45,11 @@
       --text: #243b53;
       --muted: #627d98;
       --white: #ffffff;
+      --teal-bright: #14b8a6;
+      --sky: #e7f5ff;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       margin: 0;
       color: var(--text);
@@ -30,6 +58,20 @@
       overflow-x: hidden;
     }
     a { color: inherit; }
+    section[id] { scroll-margin-top: 88px; }
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 7px;
+      color: white;
+      background: var(--navy);
+      transform: translateY(-150%);
+      transition: transform .15s ease;
+    }
+    .skip-link:focus { transform: none; }
     .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
     .nav {
       position: sticky;
@@ -38,6 +80,27 @@
       border-bottom: 1px solid rgba(217,226,236,.85);
       background: rgba(255,255,255,.95);
       backdrop-filter: blur(12px);
+      transition: box-shadow .25s ease, background .25s ease;
+    }
+    .nav.scrolled { box-shadow: 0 9px 28px rgba(16,42,67,.1); background: rgba(255,255,255,.98); }
+    .scroll-progress {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 3px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .scroll-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber), var(--teal-bright), var(--teal));
+      box-shadow: 0 0 14px rgba(20,184,166,.5);
+      transform: scaleX(0);
+      transform-origin: left center;
+      will-change: transform;
     }
     .nav-inner {
       display: flex;
@@ -50,6 +113,9 @@
     .nav-links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 700; }
     .nav-links a { text-decoration: none; }
     .button {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -58,13 +124,31 @@
       border: 0;
       border-radius: 8px;
       color: white;
-      background: var(--teal);
+      background: linear-gradient(135deg, var(--teal), #0b8f83);
       box-shadow: 0 8px 20px rgba(15,118,110,.18);
       font-weight: 800;
       text-decoration: none;
       cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .button:hover { background: #0b625c; }
+    .button:not(.secondary)::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -40%;
+      left: -35%;
+      width: 28%;
+      height: 180%;
+      background: rgba(255,255,255,.24);
+      transform: rotate(18deg) translateX(-280%);
+      transition: transform .55s ease;
+    }
+    .button:not(.secondary):hover::before { transform: rotate(18deg) translateX(620%); }
+    .button:hover { background: #0b625c; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(15,118,110,.25); }
+    .button:focus-visible, summary:focus-visible, .nav-links a:focus-visible {
+      outline: 3px solid #f6ad55;
+      outline-offset: 3px;
+    }
     .button.secondary {
       color: var(--navy);
       background: white;
@@ -73,13 +157,71 @@
     }
     .button.disabled { opacity: .68; cursor: not-allowed; }
     .hero {
+      position: relative;
       overflow: hidden;
       padding: 80px 0 74px;
       background:
         radial-gradient(circle at 90% 12%, rgba(15,118,110,.18), transparent 32%),
+        radial-gradient(circle at 8% 80%, rgba(217,119,6,.1), transparent 27%),
+        linear-gradient(rgba(15,118,110,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,118,110,.035) 1px, transparent 1px),
         linear-gradient(180deg, #f9fbfd, #ffffff);
+      background-size: auto, auto, 38px 38px, 38px 38px, auto;
     }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -170px;
+      top: -190px;
+      border: 1px solid rgba(15,118,110,.14);
+      box-shadow:
+        0 0 0 46px rgba(15,118,110,.04),
+        0 0 0 92px rgba(15,118,110,.025);
+      animation: radarDrift 12s ease-in-out infinite alternate;
+    }
+    .hero::after {
+      width: 210px;
+      height: 210px;
+      left: -95px;
+      bottom: -120px;
+      background: rgba(217,119,6,.055);
+      filter: blur(2px);
+      animation: floatOrb 9s ease-in-out infinite alternate;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
+    .hero-content { animation: fadeUp .75s cubic-bezier(.2,.7,.2,1) both; }
+    .live-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 8px;
+      padding: 7px 11px;
+      border: 1px solid #b8e2dc;
+      border-radius: 999px;
+      color: #075e54;
+      background: rgba(223,247,243,.82);
+      box-shadow: 0 8px 22px rgba(15,118,110,.08);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .75px;
+      text-transform: uppercase;
+      animation: chipFloat 3.6s ease-in-out infinite;
+    }
+    .live-chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal-bright);
+      box-shadow: 0 0 0 0 rgba(20,184,166,.4);
+      animation: livePulse 2s ease-out infinite;
+    }
     .eyebrow {
       color: var(--teal);
       font-size: 12px;
@@ -89,6 +231,12 @@
     }
     h1, h2, h3 { color: var(--navy); font-family: Georgia, Cambria, serif; line-height: 1.18; }
     h1 { max-width: 780px; margin: 10px 0 20px; font-size: clamp(40px, 5.4vw, 68px); letter-spacing: -1.8px; }
+    .accent-text {
+      color: transparent;
+      background: linear-gradient(120deg, var(--navy) 5%, var(--teal) 58%, #139d8f);
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
     h2 { margin: 8px 0 16px; font-size: clamp(29px, 3.6vw, 44px); }
     h3 { font-size: 21px; }
     .hero-copy { max-width: 700px; color: #486581; font-size: 19px; }
@@ -118,18 +266,82 @@
       border-radius: 50%;
       background: var(--amber);
       box-shadow: 0 0 0 4px rgba(217,119,6,.14);
+      animation: signalPulse 2.4s ease-out infinite;
     }
     .trust-row { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 28px; color: var(--muted); font-size: 13px; }
     .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--teal); font-weight: 900; }
     .price-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       padding: 30px;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(15,118,110,.18);
       border-radius: 18px;
       background: white;
       box-shadow: 0 22px 60px rgba(16,42,67,.1);
+      animation: fadeUp .75s .12s cubic-bezier(.2,.7,.2,1) both;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .price-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      top: -130px;
+      right: -110px;
+      background: radial-gradient(circle, rgba(20,184,166,.22), rgba(20,184,166,0) 70%);
+      transform: translate3d(var(--glow-x, 0), var(--glow-y, 0), 0);
+      transition: transform .25s ease;
+    }
+    .price-card::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 18px;
+      bottom: 17px;
+      width: 72px;
+      height: 72px;
+      border: 1px solid rgba(217,119,6,.24);
+      border-radius: 20px;
+      transform: rotate(14deg);
+      animation: cornerFloat 6s ease-in-out infinite alternate;
+    }
+    .price-card:hover { transform: translateY(-7px) scale(1.008); box-shadow: 0 30px 74px rgba(16,42,67,.16); }
+    .price-anchor {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin: 13px 0 9px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .price-anchor s {
+      color: var(--navy-2);
+      font-size: 22px;
+      text-decoration-color: var(--red);
+      text-decoration-thickness: 3px;
+    }
+    .price-anchor span {
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #075e54;
+      background: var(--teal-light);
+      font-size: 10px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      animation: badgeGlow 2.8s ease-in-out infinite;
     }
     .price { color: var(--navy); font: 700 58px/1 Georgia, serif; }
-    .price small { color: var(--muted); font: 600 16px "Segoe UI", Arial, sans-serif; }
+    .price small {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font: 700 16px/1.4 "Segoe UI", Arial, sans-serif;
+    }
     .price-list { margin: 24px 0; padding: 0; list-style: none; }
     .price-list li { padding: 8px 0 8px 27px; position: relative; }
     .price-list li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 900; }
@@ -139,11 +351,27 @@
     .section-head { max-width: 750px; margin-bottom: 35px; }
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .card {
+      position: relative;
+      overflow: hidden;
       padding: 25px;
       border: 1px solid var(--line);
       border-radius: 13px;
       background: white;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
     }
+    .card::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -38px;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(15,118,110,.045);
+      transition: transform .3s ease, background .3s ease;
+    }
+    .card:hover { transform: translateY(-7px); border-color: #b8e2dc; box-shadow: 0 18px 38px rgba(16,42,67,.11); }
+    .card:hover::after { transform: scale(1.35); background: rgba(15,118,110,.08); }
     .card-icon {
       display: grid;
       place-items: center;
@@ -163,12 +391,196 @@
       border-radius: 10px;
       background: white;
       box-shadow: 0 8px 24px rgba(16,42,67,.06);
+      transition: transform .22s ease, box-shadow .22s ease;
     }
+    .stream:hover { transform: translateY(-7px) scale(1.01); box-shadow: 0 18px 40px rgba(16,42,67,.11); }
     .stream:nth-child(2) { border-top-color: var(--amber); }
     .stream:nth-child(3) { border-top-color: var(--navy); }
     .stream small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; font-weight: 800; }
+    .authority-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 17px;
+    }
+    .authority-pills span {
+      padding: 5px 9px;
+      border: 1px solid #b8e2dc;
+      border-radius: 999px;
+      color: #075e54;
+      background: var(--teal-light);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .45px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .authority-pills span:hover { transform: translateY(-2px); background: #c9efe9; }
+    .authorities {
+      padding-top: 32px;
+      background: linear-gradient(180deg, #ffffff, #f5fbfa);
+    }
+    .coverage-ticker {
+      padding: 0;
+      border-top: 1px solid rgba(217,226,236,.8);
+      border-bottom: 1px solid rgba(217,226,236,.8);
+      background: linear-gradient(90deg, #ffffff, #f3fbfa, #ffffff);
+    }
+    .ticker-shell {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      min-height: 64px;
+      gap: 20px;
+    }
+    .ticker-label {
+      position: relative;
+      z-index: 2;
+      padding-right: 20px;
+      color: var(--navy);
+      background: white;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .85px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .ticker-label::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      transform: translateY(-50%);
+      box-shadow: 0 0 0 5px rgba(217,119,6,.12);
+    }
+    .ticker-window { overflow: hidden; }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerMove 26s linear infinite;
+      will-change: transform;
+    }
+    .ticker-window:hover .ticker-track { animation-play-state: paused; }
+    .ticker-set { display: flex; align-items: center; gap: 10px; padding-right: 10px; }
+    .ticker-set span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      border: 1px solid #cfe5e1;
+      border-radius: 999px;
+      color: #075e54;
+      background: rgba(255,255,255,.88);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .ticker-set span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal-bright);
+    }
+    .authority-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      border: 1px solid #cfe5e1;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 95% 10%, rgba(15,118,110,.12), transparent 30%),
+        white;
+      box-shadow: 0 20px 55px rgba(16,42,67,.08);
+    }
+    .authority-shell::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40%;
+      width: 32%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      animation: scanLine 7s linear infinite;
+    }
+    .authority-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+    .authority-heading p { max-width: 720px; margin-bottom: 0; color: var(--muted); }
+    .authority-count {
+      flex: 0 0 120px;
+      padding: 16px;
+      border-radius: 14px;
+      text-align: center;
+      color: white;
+      background: var(--navy);
+    }
+    .authority-count strong { display: block; font: 700 38px/1 Georgia, Cambria, serif; }
+    .authority-count span { display: block; margin-top: 6px; color: #d9e2ec; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
+    .authority-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .authority-card {
+      appearance: none;
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      text-align: left;
+      color: var(--text);
+      background: white;
+      cursor: pointer;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .authority-card:hover, .authority-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: #8bcfc4;
+      box-shadow: 0 12px 26px rgba(16,42,67,.08);
+      outline: none;
+    }
+    .authority-card.active {
+      border-color: var(--teal);
+      background: linear-gradient(135deg, var(--teal-light), #edfdfa);
+      box-shadow: inset 0 0 0 1px var(--teal);
+    }
+    .authority-card strong { display: block; color: var(--navy); font-size: 16px; }
+    .authority-card span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+    .authority-detail {
+      position: relative;
+      min-height: 128px;
+      margin-top: 16px;
+      padding: 22px;
+      border-radius: 13px;
+      background: var(--navy);
+      color: #d9e2ec;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .authority-detail.changing { opacity: .35; transform: translateY(4px); }
+    .authority-detail small { color: #8fe3d7; font-weight: 900; letter-spacing: .8px; text-transform: uppercase; }
+    .authority-detail h3 { margin: 5px 0 8px; color: white; }
+    .authority-detail p { margin: 0; }
+    .coming-soon {
+      margin-top: 16px;
+      padding: 13px 16px;
+      border: 1px dashed #e5b468;
+      border-radius: 10px;
+      color: #7c4a03;
+      background: var(--amber-light);
+      font-size: 13px;
+    }
     .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: steps; }
     .step { position: relative; padding: 22px; border: 1px solid var(--line); border-radius: 12px; }
+    .step { transition: transform .22s ease, box-shadow .22s ease; }
+    .step:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(16,42,67,.1); }
     .step::before {
       counter-increment: steps;
       content: counter(steps);
@@ -183,16 +595,32 @@
       font-weight: 900;
     }
     .sample-panel {
+      position: relative;
+      overflow: hidden;
       display: grid;
       grid-template-columns: .8fr 1.2fr;
       gap: 40px;
       align-items: center;
       padding: 36px;
       border-radius: 18px;
-      background: var(--navy);
+      background:
+        radial-gradient(circle at 88% 15%, rgba(20,184,166,.32), transparent 28%),
+        linear-gradient(135deg, var(--navy), #173f5f);
       color: #d9e2ec;
     }
     .sample-panel h2 { color: white; }
+    .sample-panel::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      right: -80px;
+      bottom: -90px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 30px rgba(255,255,255,.035);
+      animation: floatOrb 8s ease-in-out infinite alternate;
+    }
     .sample-box {
       padding: 22px;
       border-radius: 12px;
@@ -201,28 +629,144 @@
       box-shadow: 0 14px 34px rgba(0,0,0,.18);
     }
     .sample-box strong { color: var(--navy); }
+    .sample-note {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
     .sample-stat { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
     .sample-stat:last-child { border-bottom: 0; }
     .faq { max-width: 860px; }
-    details { padding: 18px 0; border-bottom: 1px solid var(--line); }
-    summary { color: var(--navy); font-weight: 800; cursor: pointer; }
-    details p { color: var(--muted); }
+    details {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    details:hover { border-color: #b8e2dc; transform: translateY(-1px); }
+    details[open] { border-color: #9dd8cf; box-shadow: 0 12px 30px rgba(16,42,67,.07); }
+    summary {
+      position: relative;
+      padding: 17px 52px 17px 18px;
+      color: var(--navy);
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      color: var(--teal);
+      background: var(--teal-light);
+      font-size: 19px;
+      line-height: 1;
+      transform: translateY(-50%);
+      transition: transform .2s ease, background .2s ease;
+    }
+    details[open] summary::after { content: "−"; background: #c9efe9; transform: translateY(-50%) rotate(180deg); }
+    details p { margin: 0; padding: 0 18px 18px; color: var(--muted); }
     .join {
       text-align: center;
       color: white;
       background:
-        radial-gradient(circle at 20% 20%, rgba(15,118,110,.6), transparent 36%),
-        var(--navy);
+        radial-gradient(circle at 20% 20%, rgba(20,184,166,.58), transparent 34%),
+        radial-gradient(circle at 86% 72%, rgba(217,119,6,.25), transparent 28%),
+        linear-gradient(120deg, var(--navy), #173f5f, #0d5f5a);
+      background-size: 120% 120%;
+      animation: joinGradient 12s ease-in-out infinite alternate;
     }
     .join h2 { color: white; }
     .join p { max-width: 660px; margin: 0 auto 26px; color: #d9e2ec; }
-    .checkout-note { min-height: 20px; margin-top: 12px; color: #f8c471; font-size: 13px; }
+    .channel-note { min-height: 20px; margin-top: 12px; color: #f8c471; font-size: 13px; }
+    .js .reveal {
+      opacity: 1;
+      transform: translateY(22px);
+      transition: transform .65s cubic-bezier(.2,.7,.2,1);
+    }
+    .js .reveal.is-visible { opacity: 1; transform: none; }
+    .js .reveal .stream,
+    .js .reveal .card,
+    .js .reveal .step,
+    .js .reveal .authority-card {
+      transform: translateY(14px) scale(.985);
+      transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+    }
+    .js .reveal.is-visible .stream,
+    .js .reveal.is-visible .card,
+    .js .reveal.is-visible .step,
+    .js .reveal.is-visible .authority-card { transform: none; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(2) { transition-delay: .06s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(3) { transition-delay: .12s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(4) { transition-delay: .18s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(5) { transition-delay: .24s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(6) { transition-delay: .3s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes signalPulse {
+      0% { box-shadow: 0 0 0 0 rgba(217,119,6,.3); }
+      70%, 100% { box-shadow: 0 0 0 8px rgba(217,119,6,0); }
+    }
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(20,184,166,.4); }
+      70%, 100% { box-shadow: 0 0 0 8px rgba(20,184,166,0); }
+    }
+    @keyframes chipFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    @keyframes badgeGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(15,118,110,0); }
+      50% { box-shadow: 0 0 22px rgba(15,118,110,.2); }
+    }
+    @keyframes cornerFloat {
+      from { transform: translate3d(0,0,0) rotate(14deg); }
+      to { transform: translate3d(-10px,-8px,0) rotate(22deg); }
+    }
+    @keyframes tickerMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes joinGradient {
+      from { background-position: 0% 50%; }
+      to { background-position: 100% 50%; }
+    }
+    @keyframes radarDrift {
+      from { transform: translate3d(0,0,0) scale(.96); }
+      to { transform: translate3d(-24px,20px,0) scale(1.04); }
+    }
+    @keyframes floatOrb {
+      from { transform: translate3d(0,0,0); }
+      to { transform: translate3d(32px,-18px,0); }
+    }
+    @keyframes scanLine {
+      from { transform: translateX(0); }
+      to { transform: translateX(440%); }
+    }
     footer { padding: 36px 0; color: var(--muted); background: #081c2c; font-size: 12px; }
     footer strong { color: white; }
     footer a { color: #b9f0e8; }
     @media (max-width: 850px) {
       .hero-grid, .sample-panel { grid-template-columns: 1fr; }
       .cards, .streams { grid-template-columns: 1fr; }
+      .authority-selector { grid-template-columns: repeat(2, 1fr); }
       .process { grid-template-columns: repeat(2, 1fr); }
       .nav-links a:not(.button) { display: none; }
     }
@@ -232,34 +776,58 @@
       h1 { font-size: 34px; letter-spacing: -1px; }
       .hero-copy { font-size: 17px; }
       .process { grid-template-columns: 1fr; }
+      .authority-shell { padding: 22px; }
+      .authority-heading { display: block; }
+      .authority-count { width: 110px; margin-top: 20px; }
+      .authority-selector { grid-template-columns: 1fr; }
       .price-card, .sample-panel { padding: 22px; }
+      .price { font-size: 52px; }
       .nav-inner { gap: 8px; }
-      .nav-logo { max-width: 60vw; }
-      .nav .button { min-height: 40px; padding: 0 10px; font-size: 12px; white-space: nowrap; }
+      .nav-logo { max-width: 45vw; }
+      .nav .button { min-height: 40px; padding: 0 8px; font-size: 11px; white-space: nowrap; }
+      .ticker-shell { display: block; padding-top: 12px; padding-bottom: 12px; }
+      .ticker-label { display: inline-block; margin-bottom: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .js .reveal { opacity: 1; transform: none; }
+      .ticker-track, .live-chip, .price-card::after, .sample-panel::after, .join {
+        animation: none !important;
+      }
+      .ticker-window { overflow-x: auto; scrollbar-width: none; }
+      .ticker-set:last-child { display: none; }
     }
   </style>
 </head>
-<body>
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <nav class="nav" aria-label="Primary">
     <div class="container nav-inner">
       <a href="#top" aria-label="PropertySoochna home">
-        <img class="nav-logo" src="./assets/property-soochna-logo.svg" alt="PropertySoochna">
+        <img class="nav-logo" src="./assets/property-soochna-logo.svg" width="760" height="144" alt="PropertySoochna">
       </a>
       <div class="nav-links">
-        <a href="#coverage">Coverage</a>
+        <a href="#authorities">Authorities</a>
         <a href="#why">Why us</a>
         <a href="#sample">Sample</a>
-        <a class="button checkout-link" href="#join">Join Rs 9</a>
+        <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram</a>
       </div>
     </div>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
   </nav>
 
-  <main id="top">
+  <main id="main-content">
     <header class="hero">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-content">
+          <div class="live-chip">Early Access is live</div>
           <div class="eyebrow">Weekly official-source property intelligence</div>
-          <h1>Delhi NCR Residential Opportunity Bulletin</h1>
+          <h1>Delhi NCR Residential <span class="accent-text">Opportunity Bulletin</span></h1>
           <p class="hero-tagline">Find it early. Verify it officially.</p>
           <p class="hero-copy">
             One reliable place for opportunities hidden across government and
@@ -268,7 +836,7 @@
             deadlines change.
           </p>
           <div class="hero-actions">
-            <a class="button checkout-link" href="#join">Get every bulletin for Rs 9/month</a>
+            <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
             <a class="button secondary" href="./sample/">Read the free sample</a>
           </div>
           <div class="schedule-badge">New verified bulletin every Monday</div>
@@ -278,34 +846,70 @@
             <span>Public corrections</span>
           </div>
         </div>
-        <aside class="price-card" aria-label="Membership pricing">
-          <div class="eyebrow">Founding plan</div>
-          <div class="price">Rs 9 <small>/ month</small></div>
+        <aside class="price-card" aria-label="Early Access offer">
+          <div class="eyebrow">Limited Early Access</div>
+          <div class="price-anchor"><s>Rs 29/month</s><span>Early Access offer</span></div>
+          <div class="price">Free <small>for the first 100 members</small></div>
           <ul class="price-list">
             <li>One complete bulletin every Monday</li>
             <li>Urgent opening and deadline alerts</li>
             <li>Extensions and corrections</li>
             <li>Monthly combined PDF</li>
-            <li>Paid Telegram archive access</li>
+            <li>Searchable Telegram archive</li>
           </ul>
-          <a class="button checkout-link" href="#join" style="width:100%">Pay and join Telegram</a>
-          <p class="micro">Payment and membership access will be managed by Cosmofeed/SuperProfile. Cancel according to the checkout plan terms.</p>
+          <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer" style="width:100%">Join free Early Access</a>
+          <p class="micro">Limited to the first 100 community members.</p>
         </aside>
       </div>
     </header>
 
+    <section class="coverage-ticker" aria-label="Authorities currently monitored">
+      <div class="container ticker-shell">
+        <div class="ticker-label">Monitoring now</div>
+        <div class="ticker-window">
+          <div class="ticker-track">
+            <div class="ticker-set">
+              <span>HSVP / HUDA</span>
+              <span>GDA Ghaziabad</span>
+              <span>MDA Meerut</span>
+              <span>YEIDA</span>
+              <span>DDA plots</span>
+              <span>DDA public flats</span>
+              <span>TCP Haryana e-Draw</span>
+            </div>
+            <div class="ticker-set" aria-hidden="true">
+              <span>HSVP / HUDA</span>
+              <span>GDA Ghaziabad</span>
+              <span>MDA Meerut</span>
+              <span>YEIDA</span>
+              <span>DDA plots</span>
+              <span>DDA public flats</span>
+              <span>TCP Haryana e-Draw</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="coverage">
-      <div class="container">
+      <div class="container reveal">
         <div class="section-head">
           <div class="eyebrow">Focused first edition</div>
           <h2>Residential opportunities, kept in the correct category</h2>
-          <p>We do not mix private affordable projects with government plots. Each stream has its own availability count and evidence.</p>
+          <p>We do not mix private-builder e-Draw projects with government plots. Each stream has its own availability count and evidence.</p>
         </div>
         <div class="streams">
           <article class="stream">
             <small>Stream 1</small>
             <h3>Government residential plots</h3>
             <p>HSVP, GDA, MDA, YEIDA and DDA schemes, auctions and public results.</p>
+            <div class="authority-pills" aria-label="Government plot authorities monitored">
+              <span>HSVP</span>
+              <span>GDA</span>
+              <span>MDA</span>
+              <span>YEIDA</span>
+              <span>DDA</span>
+            </div>
           </article>
           <article class="stream">
             <small>Stream 2</small>
@@ -314,15 +918,83 @@
           </article>
           <article class="stream">
             <small>Stream 3</small>
-            <h3>TCP-regulated affordable flats</h3>
-            <p>Private-builder e-Draw projects, licence/RERA checks, results, waitlists and refunds.</p>
+            <h3>TCP Haryana e-Draw private-builder flats</h3>
+            <p>All official e-Draw opportunities and outcomes we can verify, with TCP licence/RERA checks, results, waitlists and refunds. The portal currently covers Affordable Group Housing projects. These are not government-owned flats.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <section id="authorities" class="authorities">
+      <div class="container reveal">
+        <div class="authority-shell">
+          <div class="authority-heading">
+            <div>
+              <div class="eyebrow">Currently monitored</div>
+              <h2>Six authority systems. One clear Monday bulletin.</h2>
+              <p>Choose an authority to see exactly what PropertySoochna monitors today. More Delhi NCR authorities and property categories are coming soon.</p>
+            </div>
+            <div class="authority-count" aria-label="Six authority systems currently monitored">
+              <strong>6</strong>
+              <span>authority systems</span>
+            </div>
+          </div>
+          <div class="authority-selector" role="group" aria-label="Currently monitored authorities">
+            <button class="authority-card active" type="button" aria-pressed="true"
+              data-name="HSVP / HUDA"
+              data-stream="Haryana government residential plots"
+              data-description="Residential plot auctions, authority notices, deadlines, closed events and upcoming public opportunities across Haryana urban estates.">
+              <strong>HSVP / HUDA</strong>
+              <span>Haryana urban estates</span>
+            </button>
+            <button class="authority-card" type="button" aria-pressed="false"
+              data-name="GDA"
+              data-stream="Ghaziabad government residential plots"
+              data-description="Individual residential plot auctions, corrigenda, brochure terms, registration deadlines and official auction outcomes.">
+              <strong>GDA</strong>
+              <span>Ghaziabad</span>
+            </button>
+            <button class="authority-card" type="button" aria-pressed="false"
+              data-name="MDA"
+              data-stream="Meerut government residential plots"
+              data-description="Residential auction inventory, EMD and payment windows, auction results, refunds and authority notices.">
+              <strong>MDA</strong>
+              <span>Meerut</span>
+            </button>
+            <button class="authority-card" type="button" aria-pressed="false"
+              data-name="YEIDA"
+              data-stream="Yamuna Expressway residential plots"
+              data-description="New and live residential plot schemes, application windows, draw or auction results and official linked portals.">
+              <strong>YEIDA</strong>
+              <span>Yamuna Expressway</span>
+            </button>
+            <button class="authority-card" type="button" aria-pressed="false"
+              data-name="DDA"
+              data-stream="Delhi plots and public flats"
+              data-description="Residential land disposal and e-auctions, plus separate tracking of DDA public-flat launches, new inventory and FCFS booking changes.">
+              <strong>DDA</strong>
+              <span>Delhi</span>
+            </button>
+            <button class="authority-card" type="button" aria-pressed="false"
+              data-name="TCP Haryana"
+              data-stream="Private-builder flats via official e-Draw"
+              data-description="All official TCP Haryana e-Draw applications and outcomes we can verify, with TCP licence and Haryana RERA checks. The portal currently carries Affordable Group Housing projects; these are private-builder, not government-owned flats.">
+              <strong>TCP Haryana</strong>
+              <span>Official e-Draw</span>
+            </button>
+          </div>
+          <div class="authority-detail" aria-live="polite">
+            <small id="authority-stream">Haryana government residential plots</small>
+            <h3 id="authority-name">HSVP / HUDA</h3>
+            <p id="authority-description">Residential plot auctions, authority notices, deadlines, closed events and upcoming public opportunities across Haryana urban estates.</p>
+          </div>
+          <div class="coming-soon"><strong>Coming soon:</strong> more NCR authorities, followed by commercial, medical, institutional and other property-opportunity profiles.</div>
+        </div>
+      </div>
+    </section>
+
     <section id="why" class="alt">
-      <div class="container">
+      <div class="container reveal">
         <div class="section-head">
           <div class="eyebrow">Why PropertySoochna</div>
           <h2>Not more property content. Better discovery and verification.</h2>
@@ -339,7 +1011,7 @@
     </section>
 
     <section>
-      <div class="container">
+      <div class="container reveal">
         <div class="section-head">
           <div class="eyebrow">How it works</div>
           <h2>From scattered notices to a useful weekly decision brief</h2>
@@ -348,24 +1020,25 @@
           <article class="step"><h3>Scan</h3><p>Mandatory authority pages, live portals, notices and result surfaces are checked.</p></article>
           <article class="step"><h3>Verify</h3><p>Deadlines, prices, inventory and eligibility are traced to official documents.</p></article>
           <article class="step"><h3>Explain</h3><p>The process, complete cost, restrictions and risks are converted into plain language.</p></article>
-          <article class="step"><h3>Alert</h3><p>The Monday bulletin and urgent changes are published to paid members.</p></article>
+          <article class="step"><h3>Alert</h3><p>Monday bulletins and urgent changes are shared with the Early Access community.</p></article>
         </div>
       </div>
     </section>
 
     <section id="sample" class="alt">
-      <div class="container">
+      <div class="container reveal">
         <div class="sample-panel">
           <div>
             <div class="eyebrow" style="color:#8fe3d7">Free sample</div>
-            <h2>See the format before paying.</h2>
+            <h2>See the format before joining.</h2>
             <p>The sample shows the exact separation between government plots, DDA flats and regulated private flats, with official links and checked-at evidence.</p>
             <a class="button" href="./sample/">Open sample bulletin</a>
           </div>
           <div class="sample-box">
-            <div class="sample-stat"><strong>Government plots</strong><span>26 open</span></div>
-            <div class="sample-stat"><strong>DDA public flats</strong><span>384 upcoming</span></div>
-            <div class="sample-stat"><strong>TCP private flats</strong><span>0 open</span></div>
+            <div class="sample-note">Historical sample · Checked 4 Oct 2026 · Not live availability</div>
+            <div class="sample-stat"><strong>Government plots</strong><span>26 open in sample</span></div>
+            <div class="sample-stat"><strong>DDA public flats</strong><span>384 upcoming in sample</span></div>
+            <div class="sample-stat"><strong>TCP Haryana private flats</strong><span>0 open in sample</span></div>
             <div class="sample-stat"><strong>Evidence</strong><span>Official circulars</span></div>
           </div>
         </div>
@@ -373,25 +1046,29 @@
     </section>
 
     <section>
-      <div class="container faq">
+      <div class="container faq reveal">
         <div class="eyebrow">Questions</div>
         <h2>Before you join</h2>
-        <details open><summary>When is the bulletin published?</summary><p>A complete verified bulletin is published every Monday in India Standard Time. Urgent booking alerts, deadline changes and material corrections are posted between Monday bulletins when needed.</p></details>
-        <details><summary>Is PropertySoochna a government service?</summary><p>No. It is an independent information publication and is not affiliated with any authority.</p></details>
-        <details><summary>Do you accept application or booking money?</summary><p>No. Property payments must be made only through the official authority portal or process linked in the bulletin.</p></details>
-        <details><summary>Do you guarantee live inventory?</summary><p>No. We state whether inventory was verified live, announced in a static list, or hidden behind authenticated login.</p></details>
-        <details><summary>What does the monthly membership include?</summary><p>You receive every Monday bulletin published while your membership is active, urgent corrections and alerts between bulletins, plus the month-end compilation.</p></details>
-        <details><summary>Do I need a separate website login?</summary><p>No custom PropertySoochna login is planned for the MVP. Telegram and the payment provider manage access. Checkout may still request contact details.</p></details>
+        <details open><summary>When is the bulletin published?</summary><p>A complete verified bulletin is published every Monday in India Standard Time. Urgent booking alerts, deadline changes and material corrections are posted between bulletins when needed.</p></details>
+        <details><summary>Which authorities and opportunities do you cover?</summary><p>We monitor HSVP/HUDA, GDA, MDA, YEIDA and DDA residential opportunities. We separately track DDA public flats and TCP Haryana's official e-Draw private-builder flats. More NCR authorities and categories are coming soon.</p></details>
+        <details><summary>Is PropertySoochna a government service?</summary><p>No. PropertySoochna is an independent information publication and is not affiliated with any government authority.</p></details>
+        <details><summary>How do you handle availability and payments?</summary><p>We label whether availability was verified live, announced in a static list or hidden behind login. Property application and booking payments must be made only through the official authority process linked in the bulletin.</p></details>
+        <details><summary>How does Early Access work?</summary><p>The first 100 members receive the Monday bulletin, urgent alerts and the public archive free. Future membership will be Rs 29/month; joining details will be shared before payments open.</p></details>
+        <details><summary>Where should I follow PropertySoochna?</summary><p>Join Telegram for complete Monday bulletins and urgent alerts. Follow Instagram for short explainers, polls and shareable updates.</p></details>
+        <details><summary>What if I need help?</summary><p>Email <a href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a>. Never send passwords, OTPs, complete bank details or identity documents.</p></details>
       </div>
     </section>
 
     <section id="join" class="join">
-      <div class="container">
-        <div class="eyebrow" style="color:#8fe3d7">Founding membership</div>
-        <h2>Every Monday residential bulletin for Rs 9/month.</h2>
-        <p>Pay through the managed checkout and join the private Telegram channel. The live payment link will be inserted after the complete Rs 9 payment and renewal test.</p>
-        <a class="button checkout-link" href="#join">Pay Rs 9 and join</a>
-        <div id="checkout-note" class="checkout-note" role="status"></div>
+      <div class="container reveal">
+        <div class="eyebrow" style="color:#8fe3d7">Free Early Access</div>
+        <h2>Join the first 100 PropertySoochna members.</h2>
+        <p>Join Telegram for complete Monday bulletins and urgent alerts. Follow Instagram for quick explainers, polls and updates. Early Access is free for the first 100 members.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
+          <a class="button secondary instagram-link" href="https://www.instagram.com/propertysoochnaofficial/" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
+        </div>
+        <div id="channel-note" class="channel-note" role="status" aria-live="polite"></div>
       </div>
     </section>
   </main>
@@ -400,7 +1077,7 @@
     <div class="container">
       <p><strong>PropertySoochna</strong> is an independent information service and is not affiliated with DDA, HSVP, GDA, MDA, YEIDA, TCP Haryana, or any other authority.</p>
       <p>Verify availability and make application or booking payments only through official authority links. Nothing published promises allotment, appreciation or profit.</p>
-      <p>Contact: <a id="support-link" href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a> · <a href="./sample/">Sample bulletin</a></p>
+      <p>Contact: <a id="support-link" href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a> · <a class="telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Telegram</a> · <a class="instagram-link" href="https://www.instagram.com/propertysoochnaofficial/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="./sample/">Sample bulletin</a></p>
     </div>
   </footer>
 
@@ -408,28 +1085,105 @@
   <script>
     (function () {
       const config = window.PROPERTY_SOOCHNA_CONFIG || {};
-      const checkoutLinks = document.querySelectorAll(".checkout-link");
-      const note = document.getElementById("checkout-note");
+      const telegramLinks = document.querySelectorAll(".telegram-link");
+      const instagramLinks = document.querySelectorAll(".instagram-link");
+      const note = document.getElementById("channel-note");
+      const nav = document.querySelector(".nav");
+      const scrollProgress = document.getElementById("scroll-progress-bar");
+      const priceCard = document.querySelector(".price-card");
+      const authorityCards = document.querySelectorAll(".authority-card");
+      const authorityDetail = document.querySelector(".authority-detail");
+      const authorityStream = document.getElementById("authority-stream");
+      const authorityName = document.getElementById("authority-name");
+      const authorityDescription = document.getElementById("authority-description");
 
-      checkoutLinks.forEach((link) => {
-        if (config.cosmofeedPaymentUrl) {
-          link.href = config.cosmofeedPaymentUrl;
+      telegramLinks.forEach((link) => {
+        if (config.freeTelegramUrl) {
+          link.href = config.freeTelegramUrl;
           link.target = "_blank";
-          link.rel = "noopener";
+          link.rel = "noopener noreferrer";
         } else {
           link.classList.add("disabled");
           link.addEventListener("click", (event) => {
             event.preventDefault();
             document.getElementById("join").scrollIntoView();
-            note.textContent = "Checkout is not live yet. Add the tested Cosmofeed/SuperProfile URL in site-config.js.";
+            if (note) {
+              note.textContent = "The Telegram link is temporarily unavailable. Please email " + (config.supportEmail || "propertysoochna@gmail.com") + ".";
+            }
           });
         }
       });
 
+      instagramLinks.forEach((link) => {
+        if (config.instagramUrl) {
+          link.href = config.instagramUrl;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        }
+      });
+
       const support = document.getElementById("support-link");
-      if (config.supportEmail) {
+      if (support && config.supportEmail) {
         support.href = "mailto:" + config.supportEmail;
       }
+
+      authorityCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          authorityCards.forEach((item) => {
+            item.classList.remove("active");
+            item.setAttribute("aria-pressed", "false");
+          });
+          card.classList.add("active");
+          card.setAttribute("aria-pressed", "true");
+          authorityDetail.classList.add("changing");
+          window.setTimeout(() => {
+            authorityStream.textContent = card.dataset.stream;
+            authorityName.textContent = card.dataset.name;
+            authorityDescription.textContent = card.dataset.description;
+            authorityDetail.classList.remove("changing");
+          }, 130);
+        });
+      });
+
+      const revealElements = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach((element) => observer.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("is-visible"));
+      }
+
+      if (priceCard && window.matchMedia("(pointer: fine)").matches) {
+        priceCard.addEventListener("pointermove", (event) => {
+          const bounds = priceCard.getBoundingClientRect();
+          const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 18;
+          const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 18;
+          priceCard.style.setProperty("--glow-x", x.toFixed(1) + "px");
+          priceCard.style.setProperty("--glow-y", y.toFixed(1) + "px");
+        });
+        priceCard.addEventListener("pointerleave", () => {
+          priceCard.style.removeProperty("--glow-x");
+          priceCard.style.removeProperty("--glow-y");
+        });
+      }
+
+      const updateScrollEffects = () => {
+        nav.classList.toggle("scrolled", window.scrollY > 8);
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+        scrollProgress.style.transform = "scaleX(" + progress + ")";
+      };
+      updateScrollEffects();
+      window.addEventListener("scroll", updateScrollEffects, { passive: true });
+      window.addEventListener("resize", updateScrollEffects, { passive: true });
     }());
   </script>
 </body>

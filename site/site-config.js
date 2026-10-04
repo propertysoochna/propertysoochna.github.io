@@ -1,5 +1,5 @@
 window.PROPERTY_SOOCHNA_CONFIG = {
-  cosmofeedPaymentUrl: "",
-  freeTelegramUrl: "",
+  instagramUrl: "https://www.instagram.com/propertysoochnaofficial/",
+  freeTelegramUrl: "https://t.me/propertysoochna",
   supportEmail: "propertysoochna@gmail.com"
 };

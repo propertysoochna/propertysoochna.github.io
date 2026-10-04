@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verified Delhi NCR government and development-authority residential opportunities, official deadlines, costs and application links.">
+  <title>PropertySoochna - Delhi NCR Residential Opportunities</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --navy-2: #243b53;
+      --teal: #0f766e;
+      --teal-light: #dff7f3;
+      --amber: #d97706;
+      --amber-light: #fff8eb;
+      --red: #b91c1c;
+      --mist: #f5f7fa;
+      --line: #d9e2ec;
+      --text: #243b53;
+      --muted: #627d98;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+      font: 16px/1.6 "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(217,226,236,.85);
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 24px;
+    }
+    .nav-logo { width: 270px; max-width: 55vw; height: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 700; }
+    .nav-links a { text-decoration: none; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 8px;
+      color: white;
+      background: var(--teal);
+      box-shadow: 0 8px 20px rgba(15,118,110,.18);
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .button:hover { background: #0b625c; }
+    .button.secondary {
+      color: var(--navy);
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .button.disabled { opacity: .68; cursor: not-allowed; }
+    .hero {
+      overflow: hidden;
+      padding: 80px 0 74px;
+      background:
+        radial-gradient(circle at 90% 12%, rgba(15,118,110,.18), transparent 32%),
+        linear-gradient(180deg, #f9fbfd, #ffffff);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
+    .eyebrow {
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { color: var(--navy); font-family: Georgia, Cambria, serif; line-height: 1.18; }
+    h1 { max-width: 780px; margin: 10px 0 20px; font-size: clamp(40px, 5.4vw, 68px); letter-spacing: -1.8px; }
+    h2 { margin: 8px 0 16px; font-size: clamp(29px, 3.6vw, 44px); }
+    h3 { font-size: 21px; }
+    .hero-copy { max-width: 700px; color: #486581; font-size: 19px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 28px; color: var(--muted); font-size: 13px; }
+    .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--teal); font-weight: 900; }
+    .price-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 22px 60px rgba(16,42,67,.1);
+    }
+    .price { color: var(--navy); font: 700 58px/1 Georgia, serif; }
+    .price small { color: var(--muted); font: 600 16px "Segoe UI", Arial, sans-serif; }
+    .price-list { margin: 24px 0; padding: 0; list-style: none; }
+    .price-list li { padding: 8px 0 8px 27px; position: relative; }
+    .price-list li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 900; }
+    .micro { color: var(--muted); font-size: 12px; }
+    section { padding: 76px 0; }
+    section.alt { background: var(--mist); }
+    .section-head { max-width: 750px; margin-bottom: 35px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: white;
+    }
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      color: var(--teal);
+      background: var(--teal-light);
+      font-size: 21px;
+      font-weight: 900;
+    }
+    .card p { margin-bottom: 0; color: var(--muted); }
+    .streams { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .stream {
+      padding: 24px;
+      border-top: 5px solid var(--teal);
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 8px 24px rgba(16,42,67,.06);
+    }
+    .stream:nth-child(2) { border-top-color: var(--amber); }
+    .stream:nth-child(3) { border-top-color: var(--navy); }
+    .stream small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; font-weight: 800; }
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: steps; }
+    .step { position: relative; padding: 22px; border: 1px solid var(--line); border-radius: 12px; }
+    .step::before {
+      counter-increment: steps;
+      content: counter(steps);
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      color: white;
+      background: var(--navy);
+      font-weight: 900;
+    }
+    .sample-panel {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+      padding: 36px;
+      border-radius: 18px;
+      background: var(--navy);
+      color: #d9e2ec;
+    }
+    .sample-panel h2 { color: white; }
+    .sample-box {
+      padding: 22px;
+      border-radius: 12px;
+      color: var(--text);
+      background: white;
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+    .sample-box strong { color: var(--navy); }
+    .sample-stat { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .sample-stat:last-child { border-bottom: 0; }
+    .faq { max-width: 860px; }
+    details { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    summary { color: var(--navy); font-weight: 800; cursor: pointer; }
+    details p { color: var(--muted); }
+    .join {
+      text-align: center;
+      color: white;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(15,118,110,.6), transparent 36%),
+        var(--navy);
+    }
+    .join h2 { color: white; }
+    .join p { max-width: 660px; margin: 0 auto 26px; color: #d9e2ec; }
+    .checkout-note { min-height: 20px; margin-top: 12px; color: #f8c471; font-size: 13px; }
+    footer { padding: 36px 0; color: var(--muted); background: #081c2c; font-size: 12px; }
+    footer strong { color: white; }
+    footer a { color: #b9f0e8; }
+    @media (max-width: 850px) {
+      .hero-grid, .sample-panel { grid-template-columns: 1fr; }
+      .cards, .streams { grid-template-columns: 1fr; }
+      .process { grid-template-columns: repeat(2, 1fr); }
+      .nav-links a:not(.button) { display: none; }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 24px, 1120px); }
+      .hero { padding: 54px 0; }
+      h1 { font-size: 34px; letter-spacing: -1px; }
+      .hero-copy { font-size: 17px; }
+      .process { grid-template-columns: 1fr; }
+      .price-card, .sample-panel { padding: 22px; }
+      .nav-inner { gap: 8px; }
+      .nav-logo { max-width: 60vw; }
+      .nav .button { min-height: 40px; padding: 0 10px; font-size: 12px; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a href="#top" aria-label="PropertySoochna home">
+        <img class="nav-logo" src="./assets/property-soochna-logo.svg" alt="PropertySoochna">
+      </a>
+      <div class="nav-links">
+        <a href="#coverage">Coverage</a>
+        <a href="#why">Why us</a>
+        <a href="#sample">Sample</a>
+        <a class="button checkout-link" href="#join">Join Rs 9</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Delhi NCR Residential Opportunity Bulletin</div>
+          <h1>One reliable place for property opportunities hidden across government websites.</h1>
+          <p class="hero-copy">
+            We monitor official authority portals, verify what is open, explain
+            the complete cost and application process, and alert you when
+            inventory or deadlines change.
+          </p>
+          <div class="hero-actions">
+            <a class="button checkout-link" href="#join">Get every issue for Rs 9/month</a>
+            <a class="button secondary" href="./sample/">Read the free sample</a>
+          </div>
+          <div class="trust-row">
+            <span>Official-source links</span>
+            <span>Checked-at timestamps</span>
+            <span>Public corrections</span>
+          </div>
+        </div>
+        <aside class="price-card" aria-label="Membership pricing">
+          <div class="eyebrow">Founding plan</div>
+          <div class="price">Rs 9 <small>/ month</small></div>
+          <ul class="price-list">
+            <li>Four verified weekly issues</li>
+            <li>Urgent opening and deadline alerts</li>
+            <li>Extensions and corrections</li>
+            <li>Monthly combined PDF</li>
+            <li>Paid Telegram archive access</li>
+          </ul>
+          <a class="button checkout-link" href="#join" style="width:100%">Pay and join Telegram</a>
+          <p class="micro">Payment and membership access will be managed by Cosmofeed/SuperProfile. Cancel according to the checkout plan terms.</p>
+        </aside>
+      </div>
+    </header>
+
+    <section id="coverage">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Focused first edition</div>
+          <h2>Residential opportunities, kept in the correct category</h2>
+          <p>We do not mix private affordable projects with government plots. Each stream has its own availability count and evidence.</p>
+        </div>
+        <div class="streams">
+          <article class="stream">
+            <small>Stream 1</small>
+            <h3>Government residential plots</h3>
+            <p>HSVP, GDA, MDA, YEIDA and DDA schemes, auctions and public results.</p>
+          </article>
+          <article class="stream">
+            <small>Stream 2</small>
+            <h3>DDA public flats</h3>
+            <p>FCFS launches, new blocks, booking dates, extensions and availability evidence.</p>
+          </article>
+          <article class="stream">
+            <small>Stream 3</small>
+            <h3>TCP-regulated affordable flats</h3>
+            <p>Private-builder e-Draw projects, licence/RERA checks, results, waitlists and refunds.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Why PropertySoochna</div>
+          <h2>Not more property content. Better discovery and verification.</h2>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-icon">1</div><h3>One place</h3><p>Stop checking fragmented authority websites, PDF circulars and separate auction portals.</p></article>
+          <article class="card"><div class="card-icon">✓</div><h3>Officially sourced</h3><p>Every actionable fact links back to the authority page, brochure, circular or application portal.</p></article>
+          <article class="card"><div class="card-icon">⏱</div><h3>Time aware</h3><p>Every issue shows when the source was checked, the safe deadline and any official conflict.</p></article>
+          <article class="card"><div class="card-icon">₹</div><h3>Complete cost</h3><p>Headline price is separated from deposits, maintenance, stamp duty, conversion and other charges.</p></article>
+          <article class="card"><div class="card-icon">∆</div><h3>Change detection</h3><p>New inventory, deadline extensions, corrigenda, results and refunds are compared with the prior run.</p></article>
+          <article class="card"><div class="card-icon">!</div><h3>No false certainty</h3><p>Login-gated balances, inaccessible pages and unverified claims are labelled instead of guessed.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">How it works</div>
+          <h2>From scattered notices to a useful weekly decision brief</h2>
+        </div>
+        <div class="process">
+          <article class="step"><h3>Scan</h3><p>Mandatory authority pages, live portals, notices and result surfaces are checked.</p></article>
+          <article class="step"><h3>Verify</h3><p>Deadlines, prices, inventory and eligibility are traced to official documents.</p></article>
+          <article class="step"><h3>Explain</h3><p>The process, complete cost, restrictions and risks are converted into plain language.</p></article>
+          <article class="step"><h3>Alert</h3><p>The complete issue and urgent changes are published to paid members.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sample" class="alt">
+      <div class="container">
+        <div class="sample-panel">
+          <div>
+            <div class="eyebrow" style="color:#8fe3d7">Free sample</div>
+            <h2>See the format before paying.</h2>
+            <p>The sample shows the exact separation between government plots, DDA flats and regulated private flats, with official links and checked-at evidence.</p>
+            <a class="button" href="./sample/">Open sample issue</a>
+          </div>
+          <div class="sample-box">
+            <div class="sample-stat"><strong>Government plots</strong><span>26 open</span></div>
+            <div class="sample-stat"><strong>DDA public flats</strong><span>384 upcoming</span></div>
+            <div class="sample-stat"><strong>TCP private flats</strong><span>0 open</span></div>
+            <div class="sample-stat"><strong>Evidence</strong><span>Official circulars</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container faq">
+        <div class="eyebrow">Questions</div>
+        <h2>Before you join</h2>
+        <details open><summary>Is PropertySoochna a government service?</summary><p>No. It is an independent information publication and is not affiliated with any authority.</p></details>
+        <details><summary>Do you accept application or booking money?</summary><p>No. Property payments must be made only through the official authority portal or process linked in the issue.</p></details>
+        <details><summary>Do you guarantee live inventory?</summary><p>No. We state whether inventory was verified live, announced in a static list, or hidden behind authenticated login.</p></details>
+        <details><summary>Will I receive four issues?</summary><p>The founding plan is designed for one complete weekly issue, urgent corrections and alerts, plus a month-end compilation.</p></details>
+        <details><summary>Do I need a separate website login?</summary><p>No custom PropertySoochna login is planned for the MVP. Telegram and the payment provider manage access. Checkout may still request contact details.</p></details>
+      </div>
+    </section>
+
+    <section id="join" class="join">
+      <div class="container">
+        <div class="eyebrow" style="color:#8fe3d7">Founding membership</div>
+        <h2>All Delhi NCR residential issues for Rs 9/month.</h2>
+        <p>Pay through the managed checkout and join the private Telegram channel. The live payment link will be inserted after the complete Rs 9 payment and renewal test.</p>
+        <a class="button checkout-link" href="#join">Pay Rs 9 and join</a>
+        <div id="checkout-note" class="checkout-note" role="status"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>PropertySoochna</strong> is an independent information service and is not affiliated with DDA, HSVP, GDA, MDA, YEIDA, TCP Haryana, or any other authority.</p>
+      <p>Verify availability and make application or booking payments only through official authority links. Nothing published promises allotment, appreciation or profit.</p>
+      <p><a id="support-link" href="#join">Support</a> · <a href="./sample/">Sample issue</a></p>
+    </div>
+  </footer>
+
+  <script src="./site-config.js"></script>
+  <script>
+    (function () {
+      const config = window.PROPERTY_SOOCHNA_CONFIG || {};
+      const checkoutLinks = document.querySelectorAll(".checkout-link");
+      const note = document.getElementById("checkout-note");
+
+      checkoutLinks.forEach((link) => {
+        if (config.cosmofeedPaymentUrl) {
+          link.href = config.cosmofeedPaymentUrl;
+          link.target = "_blank";
+          link.rel = "noopener";
+        } else {
+          link.classList.add("disabled");
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            document.getElementById("join").scrollIntoView();
+            note.textContent = "Checkout is not live yet. Add the tested Cosmofeed/SuperProfile URL in site-config.js.";
+          });
+        }
+      });
+
+      const support = document.getElementById("support-link");
+      if (config.supportEmail) {
+        support.href = "mailto:" + config.supportEmail;
+      }
+    }());
+  </script>
+</body>
+</html>

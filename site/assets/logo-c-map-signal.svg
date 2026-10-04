@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="144" viewBox="0 0 760 144" role="img" aria-labelledby="title desc">
+  <title id="title">PropertySoochna logo option C</title>
+  <desc id="desc">A map pin broadcasting verified property signals.</desc>
+  <rect width="760" height="144" rx="20" fill="#ffffff"/>
+  <g transform="translate(20 16)">
+    <rect width="112" height="112" rx="56" fill="#102A43"/>
+    <path d="M55 23c-17 0-31 13-31 30 0 24 31 48 31 48s31-24 31-48c0-17-14-30-31-30z" fill="#ffffff"/>
+    <circle cx="55" cy="53" r="12" fill="#0F766E"/>
+    <path d="M78 31a31 31 0 0 1 10 23M85 23a43 43 0 0 1 14 31" fill="none" stroke="#D97706" stroke-width="5" stroke-linecap="round"/>
+    <path d="M48 53l6 6 12-15" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="158" y="67" fill="#102A43" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800">PropertySoochna</text>
+  <text x="160" y="100" fill="#486581" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="0.8">OPPORTUNITIES, VERIFIED AT THE SOURCE</text>
+</svg>

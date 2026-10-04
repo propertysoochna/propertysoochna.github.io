@@ -159,7 +159,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 80px 0 74px;
+      padding: 62px 0 64px;
       background:
         radial-gradient(circle at 90% 12%, rgba(15,118,110,.18), transparent 32%),
         radial-gradient(circle at 8% 80%, rgba(217,119,6,.1), transparent 27%),
@@ -772,8 +772,17 @@
     }
     @media (max-width: 520px) {
       .container { width: min(100% - 24px, 1120px); }
-      .hero { padding: 54px 0; }
-      h1 { font-size: 34px; letter-spacing: -1px; }
+      .hero { padding: 30px 0 46px; }
+      .hero-content { display: flex; flex-direction: column; }
+      .hero-content > .live-chip { order: 1; align-self: flex-start; }
+      .hero-content > .eyebrow { order: 2; }
+      .hero-content > h1 { order: 3; }
+      .hero-content > .hero-tagline { order: 4; }
+      .hero-content > .hero-actions { order: 5; margin-top: 14px; }
+      .hero-content > .hero-copy { order: 6; margin: 20px 0 0; }
+      .hero-content > .schedule-badge { order: 7; }
+      .hero-content > .trust-row { order: 8; }
+      h1 { font-size: 32px; letter-spacing: -.8px; }
       .hero-copy { font-size: 17px; }
       .process { grid-template-columns: 1fr; }
       .authority-shell { padding: 22px; }

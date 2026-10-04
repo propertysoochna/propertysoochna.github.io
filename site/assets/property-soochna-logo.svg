@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="144" viewBox="0 0 760 144" role="img" aria-labelledby="title desc">
   <title id="title">PropertySoochna</title>
-  <desc id="desc">A document and radar mark beside the PropertySoochna wordmark.</desc>
+  <desc id="desc">A home, radar signal and notification badge beside the PropertySoochna wordmark.</desc>
   <rect width="760" height="144" rx="20" fill="#ffffff"/>
   <g transform="translate(20 16)">
-    <rect width="112" height="112" rx="22" fill="#102A43"/>
-    <path d="M34 24h35l19 19v45H34z" fill="#ffffff" opacity="0.98"/>
-    <path d="M69 24v20h19" fill="none" stroke="#9FB3C8" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M45 73a24 24 0 0 1 24-24" fill="none" stroke="#0F766E" stroke-width="6" stroke-linecap="round"/>
-    <path d="M45 86a37 37 0 0 1 37-37" fill="none" stroke="#0F766E" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
-    <circle cx="69" cy="73" r="6" fill="#D97706"/>
-    <path d="M50 88l9 9 20-25" fill="none" stroke="#102A43" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect width="112" height="112" rx="22" fill="#0F766E"/>
+    <path d="M20 63L54 34l34 29v27H67V69H43v21H20z" fill="#ffffff"/>
+    <path d="M54 22a41 41 0 0 1 41 41M54 33a30 30 0 0 1 30 30" fill="none" stroke="#F8C471" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="54" cy="62" r="6" fill="#D97706"/>
+    <circle cx="91" cy="23" r="15" fill="#D97706" stroke="#ffffff" stroke-width="3"/>
+    <path d="M91 14c-4 0-7 3-7 7v5l-3 4h20l-3-4v-5c0-4-3-7-7-7z" fill="#ffffff"/>
+    <circle cx="91" cy="33" r="2.5" fill="#ffffff"/>
   </g>
-  <text x="158" y="70" fill="#102A43" font-family="Georgia, Cambria, serif" font-size="46" font-weight="700">PropertySoochna</text>
-  <text x="160" y="103" fill="#486581" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="0.8">OFFICIAL SOURCES. VERIFIED OPPORTUNITIES. CLEAR NEXT STEPS.</text>
+  <text x="158" y="66" fill="#102A43" font-family="Segoe UI, Arial, sans-serif" font-size="43" font-weight="800">Property<tspan fill="#0F766E">Soochna</tspan></text>
+  <text x="160" y="100" fill="#486581" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="0.75">FIND IT EARLY. VERIFY IT OFFICIALLY.</text>
 </svg>

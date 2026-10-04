@@ -92,6 +92,11 @@
     h2 { margin: 8px 0 16px; font-size: clamp(29px, 3.6vw, 44px); }
     h3 { font-size: 21px; }
     .hero-copy { max-width: 700px; color: #486581; font-size: 19px; }
+    .hero-tagline {
+      margin: -6px 0 18px;
+      color: var(--teal);
+      font: 700 21px/1.35 Georgia, Cambria, serif;
+    }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
     .trust-row { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 28px; color: var(--muted); font-size: 13px; }
     .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--teal); font-weight: 900; }
@@ -232,12 +237,14 @@
     <header class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Delhi NCR Residential Opportunity Bulletin</div>
-          <h1>One reliable place for property opportunities hidden across government websites.</h1>
+          <div class="eyebrow">Weekly official-source property intelligence</div>
+          <h1>Delhi NCR Residential Opportunity Bulletin</h1>
+          <p class="hero-tagline">Find it early. Verify it officially.</p>
           <p class="hero-copy">
-            We monitor official authority portals, verify what is open, explain
-            the complete cost and application process, and alert you when
-            inventory or deadlines change.
+            One reliable place for opportunities hidden across government and
+            authority websites. We verify what is open, explain the complete
+            cost and application process, and alert you when inventory or
+            deadlines change.
           </p>
           <div class="hero-actions">
             <a class="button checkout-link" href="#join">Get every issue for Rs 9/month</a>

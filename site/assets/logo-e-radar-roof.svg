@@ -1,12 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="144" viewBox="0 0 760 144" role="img" aria-labelledby="title desc">
   <title id="title">PropertySoochna logo option E</title>
-  <desc id="desc">A roof and radar symbol beside a compact wordmark.</desc>
+  <desc id="desc">A home, radar signal and notification badge beside a compact wordmark.</desc>
   <rect width="760" height="144" rx="20" fill="#ffffff"/>
   <g transform="translate(20 16)">
     <rect width="112" height="112" rx="22" fill="#0F766E"/>
-    <path d="M22 60L56 31l34 29v29H68V67H44v22H22z" fill="#ffffff"/>
-    <path d="M56 20a42 42 0 0 1 42 42M56 31a31 31 0 0 1 31 31" fill="none" stroke="#F8C471" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="56" cy="61" r="6" fill="#D97706"/>
+    <path d="M20 63L54 34l34 29v27H67V69H43v21H20z" fill="#ffffff"/>
+    <path d="M54 22a41 41 0 0 1 41 41M54 33a30 30 0 0 1 30 30" fill="none" stroke="#F8C471" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="54" cy="62" r="6" fill="#D97706"/>
+    <circle cx="91" cy="23" r="15" fill="#D97706" stroke="#ffffff" stroke-width="3"/>
+    <path d="M91 14c-4 0-7 3-7 7v5l-3 4h20l-3-4v-5c0-4-3-7-7-7z" fill="#ffffff"/>
+    <circle cx="91" cy="33" r="2.5" fill="#ffffff"/>
   </g>
   <text x="158" y="66" fill="#102A43" font-family="Segoe UI, Arial, sans-serif" font-size="43" font-weight="800">Property<tspan fill="#0F766E">Soochna</tspan></text>
   <text x="160" y="100" fill="#486581" font-family="Segoe UI, Arial, sans-serif" font-size="18" letter-spacing="0.75">FIND IT EARLY. VERIFY IT OFFICIALLY.</text>

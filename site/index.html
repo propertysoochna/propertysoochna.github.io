@@ -159,7 +159,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 62px 0 64px;
+      padding: 44px 0 50px;
       background:
         radial-gradient(circle at 90% 12%, rgba(15,118,110,.18), transparent 32%),
         radial-gradient(circle at 8% 80%, rgba(217,119,6,.1), transparent 27%),
@@ -230,7 +230,13 @@
       text-transform: uppercase;
     }
     h1, h2, h3 { color: var(--navy); font-family: Georgia, Cambria, serif; line-height: 1.18; }
-    h1 { max-width: 780px; margin: 10px 0 20px; font-size: clamp(40px, 5.4vw, 68px); letter-spacing: -1.8px; }
+    h1 {
+      max-width: 780px;
+      margin: 8px 0 16px;
+      font-size: clamp(40px, 4.7vw, 58px);
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+    }
     .accent-text {
       color: transparent;
       background: linear-gradient(120deg, var(--navy) 5%, var(--teal) 58%, #139d8f);
@@ -239,13 +245,13 @@
     }
     h2 { margin: 8px 0 16px; font-size: clamp(29px, 3.6vw, 44px); }
     h3 { font-size: 21px; }
-    .hero-copy { max-width: 700px; color: #486581; font-size: 19px; }
+    .hero-copy { max-width: 700px; margin: 24px 0 0; color: #486581; font-size: 19px; }
     .hero-tagline {
       margin: -6px 0 18px;
       color: var(--teal);
       font: 700 21px/1.35 Georgia, Cambria, serif;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
     .schedule-badge {
       display: inline-flex;
       align-items: center;
@@ -838,16 +844,16 @@
           <div class="eyebrow">Weekly official-source property intelligence</div>
           <h1>Delhi NCR Residential <span class="accent-text">Opportunity Bulletin</span></h1>
           <p class="hero-tagline">Find it early. Verify it officially.</p>
+          <div class="hero-actions">
+            <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
+            <a class="button secondary" href="./sample/">Read the free sample</a>
+          </div>
           <p class="hero-copy">
             One reliable place for opportunities hidden across government and
             authority websites. We verify what is open, explain the complete
             cost and application process, and alert you when inventory or
             deadlines change.
           </p>
-          <div class="hero-actions">
-            <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
-            <a class="button secondary" href="./sample/">Read the free sample</a>
-          </div>
           <div class="schedule-badge">New verified bulletin every Monday</div>
           <div class="trust-row">
             <span>Official-source links</span>

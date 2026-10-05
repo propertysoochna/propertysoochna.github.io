@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    if (window.location.hostname === "tusharsk.github.io") {
+      const path = window.location.pathname.replace(/^\/property-soochna-site/, "") || "/";
+      window.location.replace("https://propertysoochna.github.io" + path + window.location.search + window.location.hash);
+    }
+  </script>
   <meta name="description" content="Verified Delhi NCR residential property opportunities from HSVP, GDA, MDA, YEIDA, DDA and TCP Haryana, with official deadlines, costs and application links.">
   <meta name="theme-color" content="#0f766e">
   <meta name="robots" content="index,follow">

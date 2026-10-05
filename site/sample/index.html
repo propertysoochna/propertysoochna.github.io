@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    if (window.location.hostname === "tusharsk.github.io") {
+      const path = window.location.pathname.replace(/^\/property-soochna-site/, "") || "/";
+      window.location.replace("https://propertysoochna.github.io" + path + window.location.search + window.location.hash);
+    }
+  </script>
   <meta name="description" content="Historical sample of the PropertySoochna Delhi NCR residential opportunity bulletin.">
   <meta name="robots" content="noindex,follow">
   <link rel="icon" href="../assets/logo-e-radar-roof.svg" type="image/svg+xml">

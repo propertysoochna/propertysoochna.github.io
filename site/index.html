@@ -651,6 +651,60 @@
     }
     .sample-stat { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
     .sample-stat:last-child { border-bottom: 0; }
+    .history-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+    .history-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: inherit;
+      background: linear-gradient(145deg, #ffffff, #f8fbfc);
+      box-shadow: 0 10px 28px rgba(16,42,67,.06);
+      text-decoration: none;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .history-card::after {
+      content: "";
+      position: absolute;
+      right: -34px;
+      bottom: -34px;
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: rgba(15,118,110,.06);
+    }
+    .history-card:hover {
+      transform: translateY(-5px);
+      border-color: #9dd8cf;
+      box-shadow: 0 17px 38px rgba(16,42,67,.11);
+    }
+    .history-card span {
+      display: inline-flex;
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: #7c4a03;
+      background: #fef3c7;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+    .history-card strong {
+      display: block;
+      margin: 13px 0 8px;
+      color: var(--navy);
+      font: 700 20px/1.3 Georgia, Cambria, serif;
+    }
+    .history-card small { color: var(--teal); font-weight: 800; }
+    .history-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .archive-action { margin-top: 24px; }
     .faq { max-width: 860px; }
     details {
       margin: 10px 0;
@@ -777,7 +831,7 @@
     footer a { color: #b9f0e8; }
     @media (max-width: 850px) {
       .hero-grid, .sample-panel { grid-template-columns: 1fr; }
-      .cards, .streams { grid-template-columns: 1fr; }
+      .cards, .streams, .history-grid { grid-template-columns: 1fr; }
       .authority-selector { grid-template-columns: repeat(2, 1fr); }
       .process { grid-template-columns: repeat(2, 1fr); }
       .nav-links a:not(.button) { display: none; }
@@ -836,6 +890,7 @@
         <a href="#authorities">Authorities</a>
         <a href="#why">Why us</a>
         <a href="#latest">Latest bulletin</a>
+        <a href="#history">Archive</a>
         <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram</a>
       </div>
     </div>
@@ -1062,6 +1117,39 @@
             <div class="sample-stat"><strong>TCP Haryana private flats</strong><span>0 open</span></div>
             <div class="sample-stat"><strong>Evidence</strong><span>Official circulars</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="history">
+      <div class="container reveal">
+        <div class="section-head">
+          <div class="eyebrow">Published history</div>
+          <h2>Past bulletins. Visible track record.</h2>
+          <p>See what PropertySoochna found, changed and verified in earlier scans. Past bulletins are clearly marked so expired opportunities are never presented as current.</p>
+        </div>
+        <div class="history-grid">
+          <a class="history-card" href="./bulletins/2026-09-25/">
+            <span>Past bulletin</span>
+            <strong>No government plot open; one TCP project closing soon</strong>
+            <small>25 September 2026</small>
+            <p>Mansha Evernest entered its closing window while MDA's auction had completed.</p>
+          </a>
+          <a class="history-card" href="./bulletins/2026-09-08/">
+            <span>Past bulletin</span>
+            <strong>MDA's 67-property auction became urgent</strong>
+            <small>8 September 2026</small>
+            <p>The earlier noon deadline was used safely, while Anantya remained open.</p>
+          </a>
+          <a class="history-card" href="./bulletins/2026-09-03/">
+            <span>Past bulletin</span>
+            <strong>Baseline found MDA plots and Anantya open</strong>
+            <small>3 September 2026</small>
+            <p>The first complete scan established the separate plot and e-Draw streams.</p>
+          </a>
+        </div>
+        <div class="archive-action">
+          <a class="button secondary" href="./bulletins/">View all bulletins</a>
         </div>
       </div>
     </section>

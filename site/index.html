@@ -409,6 +409,135 @@
     .stream:nth-child(2) { border-top-color: var(--amber); }
     .stream:nth-child(3) { border-top-color: var(--navy); }
     .stream small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; font-weight: 800; }
+    .location-browser {
+      background:
+        radial-gradient(circle at 94% 8%, rgba(20,184,166,.13), transparent 25%),
+        linear-gradient(180deg, #f7fbfc, #eef8f6);
+    }
+    .location-shell {
+      padding: 32px;
+      border: 1px solid #cfe5e1;
+      border-radius: 20px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 20px 55px rgba(16,42,67,.08);
+    }
+    .location-label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-weight: 900;
+    }
+    .location-search-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+    .location-search {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 17px;
+      border: 1px solid #b8cec9;
+      border-radius: 12px;
+      color: var(--text);
+      background: white;
+      font: inherit;
+      box-shadow: inset 0 1px 2px rgba(16,42,67,.04);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .location-search:focus {
+      border-color: var(--teal);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(15,118,110,.12);
+    }
+    .location-clear {
+      min-height: 52px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--navy);
+      background: white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .location-clear:disabled { opacity: .45; cursor: default; }
+    .location-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0 12px;
+    }
+    .location-chip {
+      padding: 7px 11px;
+      border: 1px solid #b8e2dc;
+      border-radius: 999px;
+      color: #075e54;
+      background: white;
+      font-size: 12px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .18s ease, color .18s ease, background .18s ease;
+    }
+    .location-chip:hover { transform: translateY(-2px); }
+    .location-chip[aria-pressed="true"] { color: white; background: var(--teal); }
+    .location-meta { min-height: 22px; color: var(--muted); font-size: 13px; }
+    .location-results {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .location-card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      box-shadow: 0 9px 24px rgba(16,42,67,.06);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .location-card:hover {
+      transform: translateY(-5px);
+      border-color: #9dd8cf;
+      box-shadow: 0 17px 36px rgba(16,42,67,.11);
+    }
+    .location-card[hidden] { display: none; }
+    .location-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .location-card-head small {
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .location-status {
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .55px;
+      text-transform: uppercase;
+    }
+    .location-status.open { color: #075e54; background: #dcfce7; }
+    .location-status.upcoming { color: #92400e; background: #fef3c7; }
+    .location-status.watch { color: #1e40af; background: #dbeafe; }
+    .location-status.none { color: #52606d; background: #e9eef3; }
+    .location-card h3 { margin: 15px 0 8px; }
+    .location-card p { margin: 0 0 15px; color: var(--muted); font-size: 14px; }
+    .location-card a { color: var(--teal); font-size: 13px; font-weight: 900; text-decoration: none; }
+    .location-empty {
+      margin: 18px 0 0;
+      padding: 16px;
+      border: 1px dashed #d4a75f;
+      border-radius: 10px;
+      color: #7c4a03;
+      background: var(--amber-light);
+    }
+    .location-disclaimer { margin: 17px 0 0; color: var(--muted); font-size: 12px; }
     .authority-pills {
       display: flex;
       flex-wrap: wrap;
@@ -765,7 +894,8 @@
     .js .reveal .stream,
     .js .reveal .card,
     .js .reveal .step,
-    .js .reveal .authority-card {
+    .js .reveal .authority-card,
+    .js .reveal .location-card {
       transform: translateY(14px) scale(.985);
       transition:
         transform .55s cubic-bezier(.2,.7,.2,1),
@@ -776,12 +906,13 @@
     .js .reveal.is-visible .stream,
     .js .reveal.is-visible .card,
     .js .reveal.is-visible .step,
-    .js .reveal.is-visible .authority-card { transform: none; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(2) { transition-delay: .06s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(3) { transition-delay: .12s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(4) { transition-delay: .18s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(5) { transition-delay: .24s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card):nth-child(6) { transition-delay: .3s; }
+    .js .reveal.is-visible .authority-card,
+    .js .reveal.is-visible .location-card { transform: none; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(2) { transition-delay: .06s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(3) { transition-delay: .12s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(4) { transition-delay: .18s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(5) { transition-delay: .24s; }
+    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(6) { transition-delay: .3s; }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: none; }
@@ -832,6 +963,7 @@
     @media (max-width: 850px) {
       .hero-grid, .sample-panel { grid-template-columns: 1fr; }
       .cards, .streams, .history-grid { grid-template-columns: 1fr; }
+      .location-results { grid-template-columns: repeat(2, 1fr); }
       .authority-selector { grid-template-columns: repeat(2, 1fr); }
       .process { grid-template-columns: repeat(2, 1fr); }
       .nav-links a:not(.button) { display: none; }
@@ -855,6 +987,9 @@
       .authority-heading { display: block; }
       .authority-count { width: 110px; margin-top: 20px; }
       .authority-selector { grid-template-columns: 1fr; }
+      .location-shell { padding: 22px; }
+      .location-results { grid-template-columns: 1fr; }
+      .location-search-row { grid-template-columns: 1fr; }
       .price-card, .sample-panel { padding: 22px; }
       .price { font-size: 52px; }
       .nav-inner { gap: 8px; }
@@ -887,6 +1022,7 @@
         <img class="nav-logo" src="./assets/property-soochna-logo.svg" width="760" height="144" alt="PropertySoochna">
       </a>
       <div class="nav-links">
+        <a href="#locations">Browse cities</a>
         <a href="#authorities">Authorities</a>
         <a href="#why">Why us</a>
         <a href="#latest">Latest bulletin</a>
@@ -997,6 +1133,98 @@
             <h3>TCP Haryana e-Draw private-builder flats</h3>
             <p>All official e-Draw opportunities and outcomes we can verify, with TCP licence/RERA checks, results, waitlists and refunds. The portal currently covers Affordable Group Housing projects. These are not government-owned flats.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="locations" class="location-browser">
+      <div class="container reveal">
+        <div class="location-shell">
+          <div class="section-head">
+            <div class="eyebrow">Browse by location</div>
+            <h2>Search the latest Delhi NCR findings</h2>
+            <p>Search by city, authority, sector or project name. Results below reflect the latest published bulletin—not a live property inventory.</p>
+          </div>
+          <label class="location-label" for="city-search">Search city, authority or sector</label>
+          <div class="location-search-row">
+            <input
+              id="city-search"
+              class="location-search"
+              type="search"
+              autocomplete="off"
+              enterkeyhint="search"
+              placeholder="Try Delhi, Ghaziabad, MDA, Narela or Faridabad"
+            >
+            <button id="city-clear" class="location-clear" type="button" disabled>Clear</button>
+          </div>
+          <div class="location-chips" role="group" aria-label="Filter by location">
+            <button class="location-chip" type="button" data-filter="" aria-pressed="true">All NCR</button>
+            <button class="location-chip" type="button" data-filter="delhi" aria-pressed="false">Delhi</button>
+            <button class="location-chip" type="button" data-filter="ghaziabad" aria-pressed="false">Ghaziabad</button>
+            <button class="location-chip" type="button" data-filter="meerut" aria-pressed="false">Meerut</button>
+            <button class="location-chip" type="button" data-filter="faridabad" aria-pressed="false">Faridabad</button>
+            <button class="location-chip" type="button" data-filter="haryana" aria-pressed="false">Haryana</button>
+            <button class="location-chip" type="button" data-filter="yamuna" aria-pressed="false">Yamuna Expressway</button>
+          </div>
+          <div id="location-meta" class="location-meta" role="status" aria-live="polite">6 monitored location cards in the latest bulletin.</div>
+          <div id="location-results" class="location-results">
+            <article class="location-card" data-search="delhi new delhi narela dda pocket 11 block x 1 bhk public flats">
+              <div class="location-card-head">
+                <small>Delhi · DDA</small>
+                <span class="location-status upcoming">384 upcoming</span>
+              </div>
+              <h3>Narela, Pocket 11</h3>
+              <p>Block X one-bedroom public flats with FCFS booking opening on 11 October.</p>
+              <a href="./latest/#dda-block-x">See latest DDA finding →</a>
+            </article>
+            <article class="location-card" data-search="ghaziabad indirapuram gda notice 888 government residential plots">
+              <div class="location-card-head">
+                <small>Ghaziabad · GDA</small>
+                <span class="location-status open">26 open</span>
+              </div>
+              <h3>Indirapuram</h3>
+              <p>Individual residential plots under GDA Notice 888, with the application deadline approaching.</p>
+              <a href="./latest/#status-board">See latest GDA finding →</a>
+            </article>
+            <article class="location-card" data-search="meerut mda residential plots auction result">
+              <div class="location-card-head">
+                <small>Meerut · MDA</small>
+                <span class="location-status watch">Result published</span>
+              </div>
+              <h3>Meerut</h3>
+              <p>No new application window in the latest bulletin; the September auction result was published.</p>
+              <a href="./latest/#status-board">See latest MDA finding →</a>
+            </article>
+            <article class="location-card" data-search="faridabad sector 110a sector 114 tcp haryana e draw anantya mansha evernest private builder flats">
+              <div class="location-card-head">
+                <small>Faridabad · TCP Haryana</small>
+                <span class="location-status watch">Draw watch</span>
+              </div>
+              <h3>Faridabad</h3>
+              <p>No project open for new applications; Projects 230 and 231 remained under draw tracking.</p>
+              <a href="./latest/#status-board">See latest e-Draw finding →</a>
+            </article>
+            <article class="location-card" data-search="haryana hsvp huda gurugram gurgaon faridabad panchkula panipat rohtak urban estates residential plots">
+              <div class="location-card-head">
+                <small>Haryana · HSVP/HUDA</small>
+                <span class="location-status none">None open</span>
+              </div>
+              <h3>Haryana urban estates</h3>
+              <p>No qualifying general-public residential plot auction was found in the latest bulletin.</p>
+              <a href="./latest/#status-board">See latest HSVP finding →</a>
+            </article>
+            <article class="location-card" data-search="yamuna expressway greater noida noida yeida residential plots">
+              <div class="location-card-head">
+                <small>Yamuna Expressway · YEIDA</small>
+                <span class="location-status none">None open</span>
+              </div>
+              <h3>Yamuna Expressway</h3>
+              <p>YEIDA's official residential surfaces showed no active qualifying scheme.</p>
+              <a href="./latest/#status-board">See latest YEIDA finding →</a>
+            </article>
+          </div>
+          <p id="location-empty" class="location-empty" hidden>No monitored location matches that search. Try a city, authority or sector such as Delhi, GDA, Meerut, Narela or Faridabad.</p>
+          <p class="location-disclaimer">Availability can change after publication. Open the linked bulletin and recheck the official authority portal before acting.</p>
         </div>
       </div>
     </section>
@@ -1205,6 +1433,12 @@
       const authorityStream = document.getElementById("authority-stream");
       const authorityName = document.getElementById("authority-name");
       const authorityDescription = document.getElementById("authority-description");
+      const citySearch = document.getElementById("city-search");
+      const cityClear = document.getElementById("city-clear");
+      const locationCards = document.querySelectorAll(".location-card");
+      const locationChips = document.querySelectorAll(".location-chip");
+      const locationMeta = document.getElementById("location-meta");
+      const locationEmpty = document.getElementById("location-empty");
 
       telegramLinks.forEach((link) => {
         if (config.freeTelegramUrl) {
@@ -1234,6 +1468,58 @@
       const support = document.getElementById("support-link");
       if (support && config.supportEmail) {
         support.href = "mailto:" + config.supportEmail;
+      }
+
+      const applyLocationFilter = (value, selectedChip) => {
+        const query = value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        locationCards.forEach((card) => {
+          const matches = !query || card.dataset.search.toLowerCase().includes(query);
+          card.hidden = !matches;
+          if (matches) {
+            visibleCount += 1;
+          }
+        });
+
+        locationChips.forEach((chip) => {
+          chip.setAttribute("aria-pressed", chip === selectedChip ? "true" : "false");
+        });
+        if (!selectedChip && !query && locationChips.length) {
+          locationChips[0].setAttribute("aria-pressed", "true");
+        }
+
+        if (locationMeta) {
+          locationMeta.textContent = query
+            ? visibleCount + (visibleCount === 1 ? " matching location." : " matching locations.")
+            : locationCards.length + " monitored location cards in the latest bulletin.";
+        }
+        if (locationEmpty) {
+          locationEmpty.hidden = visibleCount !== 0;
+        }
+        if (cityClear) {
+          cityClear.disabled = !query;
+        }
+      };
+
+      if (citySearch && cityClear) {
+        citySearch.addEventListener("input", () => {
+          applyLocationFilter(citySearch.value, null);
+        });
+        citySearch.addEventListener("search", () => {
+          applyLocationFilter(citySearch.value, null);
+        });
+        cityClear.addEventListener("click", () => {
+          citySearch.value = "";
+          applyLocationFilter("", locationChips[0]);
+          citySearch.focus();
+        });
+        locationChips.forEach((chip) => {
+          chip.addEventListener("click", () => {
+            citySearch.value = chip.dataset.filter;
+            applyLocationFilter(chip.dataset.filter, chip);
+          });
+        });
       }
 
       authorityCards.forEach((card) => {

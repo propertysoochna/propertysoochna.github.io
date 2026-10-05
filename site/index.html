@@ -358,7 +358,8 @@
     .price-list li { padding: 6px 0 6px 27px; position: relative; }
     .price-list li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 900; }
     .micro { color: var(--muted); font-size: 12px; }
-    section { padding: 76px 0; }
+    .offer-limit { margin-bottom: 0; color: #7c4a03; font-weight: 800; }
+    section { padding: 64px 0; }
     section.alt { background: var(--mist); }
     .section-head { max-width: 750px; margin-bottom: 35px; }
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -982,21 +983,28 @@
       .hero-content > .trust-row { order: 8; }
       h1 { font-size: 32px; letter-spacing: -.8px; }
       .hero-copy { font-size: 17px; }
-      .process { grid-template-columns: 1fr; }
       .authority-shell { padding: 22px; }
       .authority-heading { display: block; }
       .authority-count { width: 110px; margin-top: 20px; }
-      .authority-selector { grid-template-columns: 1fr; }
+      .authority-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .authority-card { padding: 11px; }
+      .authority-card strong { font-size: 14px; }
+      .authority-card span { font-size: 10px; }
       .location-shell { padding: 22px; }
       .location-results { grid-template-columns: 1fr; }
       .location-search-row { grid-template-columns: 1fr; }
+      .location-card { padding: 15px; }
+      .location-card h3 { margin: 9px 0 6px; font-size: 18px; }
+      .location-card p { display: none; }
+      .location-card a { font-size: 12px; }
+      .history-card { padding: 17px; }
+      .history-card strong { margin: 10px 0 6px; font-size: 18px; }
+      .history-card p { display: none; }
       .price-card, .sample-panel { padding: 22px; }
       .price { font-size: 52px; }
       .nav-inner { gap: 8px; }
       .nav-logo { max-width: 45vw; }
       .nav .button { min-height: 40px; padding: 0 8px; font-size: 11px; white-space: nowrap; }
-      .ticker-shell { display: block; padding-top: 12px; padding-bottom: 12px; }
-      .ticker-label { display: inline-block; margin-bottom: 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -1022,10 +1030,10 @@
         <img class="nav-logo" src="./assets/property-soochna-logo.svg" width="760" height="144" alt="PropertySoochna">
       </a>
       <div class="nav-links">
+        <a href="#latest">Latest bulletin</a>
         <a href="#locations">Browse cities</a>
         <a href="#authorities">Authorities</a>
         <a href="#why">Why us</a>
-        <a href="#latest">Latest bulletin</a>
         <a href="#history">Archive</a>
         <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram</a>
       </div>
@@ -1042,8 +1050,8 @@
           <h1>Delhi NCR Residential <span class="accent-text">Opportunity Bulletin</span></h1>
           <p class="hero-tagline">Find it early. Verify it officially.</p>
           <div class="hero-actions">
-            <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
-            <a class="button secondary" href="./latest/">Read this week's bulletin</a>
+            <a class="button" href="./latest/">Read this week's bulletin</a>
+            <a class="button secondary telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
           </div>
           <p class="hero-copy">
             One reliable place for opportunities hidden across government and
@@ -1061,7 +1069,7 @@
         <aside class="price-card" aria-label="Early Access offer">
           <div class="eyebrow">Limited Early Access</div>
           <div class="price-anchor"><s>Rs 9/month</s><span>Early Access offer</span></div>
-          <div class="price">Free <small>for the first 100 members</small></div>
+          <div class="price">Free</div>
           <ul class="price-list">
             <li>One complete bulletin every Monday</li>
             <li>Urgent opening and deadline alerts</li>
@@ -1070,10 +1078,30 @@
             <li>Searchable Telegram archive</li>
           </ul>
           <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer" style="width:100%">Join free Early Access</a>
-          <p class="micro">Limited to the first 100 community members.</p>
+          <p class="micro offer-limit">Early Access closes at 100 members.</p>
         </aside>
       </div>
     </header>
+
+    <section id="latest" class="alt">
+      <div class="container reveal">
+        <div class="sample-panel">
+          <div>
+            <div class="eyebrow" style="color:#8fe3d7">Latest Monday bulletin</div>
+            <h2>See what's available this week.</h2>
+            <p>This week's bulletin separates government plots, DDA public flats and TCP Haryana e-Draw opportunities, with official links and checked-at evidence.</p>
+            <a class="button" href="./latest/">Read this week's bulletin</a>
+          </div>
+          <div class="sample-box">
+            <div class="sample-note">Latest bulletin · Checked 4 Oct 2026 · Recheck live availability</div>
+            <div class="sample-stat"><strong>Government plots</strong><span>26 open</span></div>
+            <div class="sample-stat"><strong>DDA public flats</strong><span>384 upcoming</span></div>
+            <div class="sample-stat"><strong>TCP Haryana private flats</strong><span>0 open</span></div>
+            <div class="sample-stat"><strong>Evidence</strong><span>Official circulars</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="coverage-ticker" aria-label="Authorities currently monitored">
       <div class="container ticker-shell">
@@ -1301,50 +1329,12 @@
       <div class="container reveal">
         <div class="section-head">
           <div class="eyebrow">Why PropertySoochna</div>
-          <h2>Not more property content. Better discovery and verification.</h2>
+          <h2>Find it. Verify it. Know the next step.</h2>
         </div>
         <div class="cards">
-          <article class="card"><div class="card-icon">1</div><h3>One place</h3><p>Stop checking fragmented authority websites, PDF circulars and separate auction portals.</p></article>
-          <article class="card"><div class="card-icon">✓</div><h3>Officially sourced</h3><p>Every actionable fact links back to the authority page, brochure, circular or application portal.</p></article>
-          <article class="card"><div class="card-icon">⏱</div><h3>Time aware</h3><p>Every bulletin shows when the source was checked, the safe deadline and any official conflict.</p></article>
-          <article class="card"><div class="card-icon">₹</div><h3>Complete cost</h3><p>Headline price is separated from deposits, maintenance, stamp duty, conversion and other charges.</p></article>
-          <article class="card"><div class="card-icon">∆</div><h3>Change detection</h3><p>New inventory, deadline extensions, corrigenda, results and refunds are compared with the prior run.</p></article>
-          <article class="card"><div class="card-icon">!</div><h3>No false certainty</h3><p>Login-gated balances, inaccessible pages and unverified claims are labelled instead of guessed.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container reveal">
-        <div class="section-head">
-          <div class="eyebrow">How it works</div>
-          <h2>From scattered notices to a useful weekly decision brief</h2>
-        </div>
-        <div class="process">
-          <article class="step"><h3>Scan</h3><p>Mandatory authority pages, live portals, notices and result surfaces are checked.</p></article>
-          <article class="step"><h3>Verify</h3><p>Deadlines, prices, inventory and eligibility are traced to official documents.</p></article>
-          <article class="step"><h3>Explain</h3><p>The process, complete cost, restrictions and risks are converted into plain language.</p></article>
-          <article class="step"><h3>Alert</h3><p>Monday bulletins and urgent changes are shared with the Early Access community.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="latest" class="alt">
-      <div class="container reveal">
-        <div class="sample-panel">
-          <div>
-            <div class="eyebrow" style="color:#8fe3d7">Latest Monday bulletin</div>
-            <h2>See what changed this week.</h2>
-            <p>This week's bulletin separates government plots, DDA public flats and TCP Haryana e-Draw opportunities, with official links and checked-at evidence.</p>
-            <a class="button" href="./latest/">Read this week's bulletin</a>
-          </div>
-          <div class="sample-box">
-            <div class="sample-note">Latest bulletin · Checked 4 Oct 2026 · Recheck live availability</div>
-            <div class="sample-stat"><strong>Government plots</strong><span>26 open</span></div>
-            <div class="sample-stat"><strong>DDA public flats</strong><span>384 upcoming</span></div>
-            <div class="sample-stat"><strong>TCP Haryana private flats</strong><span>0 open</span></div>
-            <div class="sample-stat"><strong>Evidence</strong><span>Official circulars</span></div>
-          </div>
+          <article class="card"><div class="card-icon">1</div><h3>One place</h3><p>We scan six authority systems, notices and linked portals so relevant openings are easier to find.</p></article>
+          <article class="card"><div class="card-icon">✓</div><h3>Official and current</h3><p>Every actionable fact links to an official source, with safe deadlines and unknowns clearly labelled.</p></article>
+          <article class="card"><div class="card-icon">₹</div><h3>Decision-ready</h3><p>Understand eligibility, application steps, complete cost factors and the clearest next action.</p></article>
         </div>
       </div>
     </section>
@@ -1386,13 +1376,10 @@
       <div class="container faq reveal">
         <div class="eyebrow">Questions</div>
         <h2>Before you join</h2>
-        <details open><summary>When is the bulletin published?</summary><p>A complete verified bulletin is published every Monday in India Standard Time. Urgent booking alerts, deadline changes and material corrections are posted between bulletins when needed.</p></details>
-        <details><summary>Which authorities and opportunities do you cover?</summary><p>We monitor HSVP/HUDA, GDA, MDA, YEIDA and DDA residential opportunities. We separately track DDA public flats and TCP Haryana's official e-Draw private-builder flats. More NCR authorities and categories are coming soon.</p></details>
-        <details><summary>Is PropertySoochna a government service?</summary><p>No. PropertySoochna is an independent information publication and is not affiliated with any government authority.</p></details>
-        <details><summary>How do you handle availability and payments?</summary><p>We label whether availability was verified live, announced in a static list or hidden behind login. Property application and booking payments must be made only through the official authority process linked in the bulletin.</p></details>
-        <details><summary>How does Early Access work?</summary><p>The first 100 members receive the Monday bulletin, urgent alerts and the public archive free. Future membership will be Rs 9/month; joining details will be shared before payments open.</p></details>
-        <details><summary>Where should I follow PropertySoochna?</summary><p>Join Telegram for complete Monday bulletins and urgent alerts. Follow Instagram for short explainers, polls and shareable updates.</p></details>
-        <details><summary>What if I need help?</summary><p>Email <a href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a>. Never send passwords, OTPs, complete bank details or identity documents.</p></details>
+        <details open><summary>What do you monitor?</summary><p>HSVP/HUDA, GDA, MDA, YEIDA and DDA residential opportunities, plus DDA public flats and TCP Haryana's official e-Draw private-builder flats.</p></details>
+        <details><summary>When is the bulletin published?</summary><p>Every Monday in India Standard Time, with urgent deadline, inventory and correction alerts between bulletins when needed.</p></details>
+        <details><summary>Is PropertySoochna a government service?</summary><p>No. It is an independent publication. Availability is labelled as live, announced or login-gated, and property payments must be made only through official portals.</p></details>
+        <details><summary>How does Early Access work?</summary><p>The first 100 members receive the Monday bulletin, urgent alerts and archive free through Telegram. For help, email <a href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a>.</p></details>
       </div>
     </section>
 

@@ -11,7 +11,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:linear-gradient(180deg,#eef8f6,var(--mist));font:16px/1.65 "Segoe UI",Arial,sans-serif}
 a{color:var(--teal)}.shell{width:min(980px,calc(100% - 28px));margin:28px auto;background:white;border:1px solid var(--line);border-radius:22px;box-shadow:0 22px 60px rgba(16,42,67,.1);overflow:hidden}
 header{padding:34px 42px;color:white;background:radial-gradient(circle at 92% 10%,rgba(20,184,166,.45),transparent 30%),var(--navy)}
-.brand{display:block;width:min(520px,100%);height:auto}.crumbs{margin-top:18px;color:#b9f0e8;font-size:13px}.crumbs a{color:white}
+.brand-home{display:block;width:min(520px,100%);border-radius:11px}.brand-home:focus-visible,.archive-title:focus-visible{outline:3px solid #f6ad55;outline-offset:4px}.brand{display:block;width:100%;height:auto;border-radius:11px;transition:transform .2s ease,box-shadow .2s ease}.brand-home:hover .brand{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18)}.crumbs{margin-top:18px;color:#b9f0e8;font-size:13px}.crumbs a{color:white}
 h1,h2{font-family:Georgia,Cambria,serif;line-height:1.2}h1{margin:12px 0 8px;font-size:clamp(34px,6vw,54px)}h2{margin:8px 0 16px;color:var(--navy);font-size:28px}
 .past{display:inline-flex;padding:6px 10px;border-radius:999px;color:#7c4a03;background:#fef3c7;font-size:11px;font-weight:900;letter-spacing:.7px;text-transform:uppercase}
 .date{color:#d9e2ec}.intro{max-width:780px;color:#d9e2ec;font-size:18px}main{padding:36px 42px 48px}.notice{padding:15px 18px;border-left:5px solid var(--amber);border-radius:8px;background:var(--cream);color:#7c4a03}
@@ -24,7 +24,9 @@ footer{padding:24px 42px;background:#081c2c;color:#9fb3c8;font-size:12px}footer 
 <body>
   <article class="shell">
     <header>
-      <img class="brand" src="../../assets/property-soochna-logo.svg" alt="PropertySoochna">
+      <a class="brand-home" href="../../" aria-label="PropertySoochna home">
+        <img class="brand" src="../../assets/property-soochna-logo.svg" alt="PropertySoochna">
+      </a>
       <div class="crumbs"><a href="../../">Home</a> · <a href="../">Bulletin archive</a></div>
       <p class="past">Past bulletin</p>
       <h1>MDA&#x27;s 67-property auction entered its urgent deadline window</h1>

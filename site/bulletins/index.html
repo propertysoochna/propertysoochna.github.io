@@ -9,8 +9,8 @@
   <style>
     :root{--navy:#102a43;--teal:#0f766e;--mint:#dff7f3;--amber:#d97706;--mist:#f5f7fa;--line:#d9e2ec;--text:#243b53;--muted:#627d98}
     *{box-sizing:border-box}body{margin:0;color:var(--text);background:linear-gradient(180deg,#eef8f6,var(--mist));font:16px/1.6 "Segoe UI",Arial,sans-serif}
-    header{padding:58px 24px;text-align:center;color:white;background:radial-gradient(circle at 85% 15%,rgba(20,184,166,.5),transparent 28%),var(--navy)}.brand{width:min(500px,85%);height:auto}
-    h1{margin:24px 0 10px;font:700 clamp(36px,7vw,60px)/1.15 Georgia,serif}header p{max-width:680px;margin:0 auto;color:#d9e2ec;font-size:18px}
+    header{padding:58px 24px;text-align:center;color:white;background:radial-gradient(circle at 85% 15%,rgba(20,184,166,.5),transparent 28%),var(--navy)}.brand-home{display:block;width:min(500px,85%);margin:0 auto;border-radius:11px}.brand-home:focus-visible,.archive-title:focus-visible{outline:3px solid #f6ad55;outline-offset:4px}.brand{display:block;width:100%;height:auto;border-radius:11px;transition:transform .2s ease,box-shadow .2s ease}.brand-home:hover .brand{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    h1{margin:24px 0 10px;font:700 clamp(36px,7vw,60px)/1.15 Georgia,serif}.archive-title{display:inline-block;color:white;text-decoration:none}.archive-title:hover{text-decoration:underline;text-decoration-color:#8fe3d7;text-underline-offset:7px}header p{max-width:680px;margin:0 auto;color:#d9e2ec;font-size:18px}
     main{width:min(1050px,calc(100% - 28px));margin:36px auto 70px}.back{color:var(--teal);font-weight:800;text-decoration:none}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}.card{display:block;padding:24px;border:1px solid var(--line);border-radius:16px;color:inherit;background:white;box-shadow:0 12px 30px rgba(16,42,67,.07);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
     .card:hover{transform:translateY(-5px);box-shadow:0 20px 42px rgba(16,42,67,.13)}.card span{display:inline-flex;padding:5px 9px;border-radius:999px;color:#7c4a03;background:#fef3c7;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.7px}.card.latest span{color:#075e54;background:var(--mint)}
@@ -20,8 +20,10 @@
 </head>
 <body>
   <header>
-    <img class="brand" src="../assets/property-soochna-logo.svg" alt="PropertySoochna">
-    <h1>Bulletin archive</h1>
+    <a class="brand-home" href="../" aria-label="PropertySoochna home">
+      <img class="brand" src="../assets/property-soochna-logo.svg" alt="PropertySoochna">
+    </a>
+    <h1><a class="archive-title" href="../">Bulletin archive</a></h1>
     <p>See the current bulletin and the earlier published record. Past bulletins are retained to show what was found, changed and verified over time.</p>
   </header>
   <main>

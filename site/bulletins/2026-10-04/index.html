@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    if (["tusharsk.github.io", "propertysoochna.github.io"].includes(window.location.hostname)) {
+    if (window.location.hostname === "tusharsk.github.io") {
       const path = window.location.pathname.replace(/^\/property-soochna-site/, "") || "/";
       window.location.replace("https://propertysoochna.in" + path + window.location.search + window.location.hash);
     }

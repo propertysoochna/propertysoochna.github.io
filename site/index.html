@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="theme-locked" data-theme="india" data-motion-level="expressive">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,20 +11,22 @@
       window.location.replace("https://propertysoochna.in" + path + window.location.search + window.location.hash);
     }
   </script>
-  <meta name="description" content="Property Soochna (PropertySoochna): independent Delhi NCR property bulletins covering official-source government plots, DDA flats and TCP Haryana updates.">
-  <meta name="theme-color" content="#0f766e">
+  <meta name="description" content="Discover Government property schemes with Property Soochna. Delhi NCR is free; other regional editions are Rs 9/month each.">
+  <meta name="theme-color" content="#087b67">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://propertysoochna.in/">
   <link rel="icon" href="./assets/logo-e-radar-roof.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/site.css">
+  <link rel="stylesheet" href="./assets/locked-theme.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PropertySoochna">
-  <meta property="og:title" content="Property Soochna | Delhi NCR Property Bulletins">
-  <meta property="og:description" content="Choose the property Edition relevant to you. Now publishing verified Delhi NCR residential opportunities every Monday.">
+  <meta property="og:title" content="Property Soochna | Property Opportunities, By Region">
+  <meta property="og:description" content="Government property schemes, tracked by region. Delhi NCR free. Other regional editions: Rs 9/month each.">
   <meta property="og:url" content="https://propertysoochna.in/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Property Soochna | Delhi NCR Property Bulletins">
-  <meta name="twitter:description" content="Weekly property Editions with verified official-source opportunities. Now publishing the Delhi NCR Residential Edition.">
-  <title>Property Soochna | Delhi NCR Property Bulletins</title>
+  <meta name="twitter:title" content="Property Soochna | Property Opportunities, By Region">
+  <meta name="twitter:description" content="Discover and track Government property schemes. Delhi NCR free. Other regional editions: Rs 9/month each.">
+  <title>Property Soochna | Property Opportunities, By Region</title>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -52,1541 +54,246 @@
       "publisher": {"@id": "https://propertysoochna.in/#organization"}
     }
   </script>
-  <script>document.documentElement.classList.add("js");</script>
-  <style>
-    :root {
-      --navy: #102a43;
-      --navy-2: #243b53;
-      --teal: #0f766e;
-      --teal-light: #dff7f3;
-      --amber: #d97706;
-      --amber-light: #fff8eb;
-      --red: #b91c1c;
-      --mist: #f5f7fa;
-      --line: #d9e2ec;
-      --text: #243b53;
-      --muted: #627d98;
-      --white: #ffffff;
-      --teal-bright: #14b8a6;
-      --sky: #e7f5ff;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body {
-      margin: 0;
-      color: var(--text);
-      background: var(--white);
-      font: 16px/1.6 "Segoe UI", Arial, sans-serif;
-      overflow-x: hidden;
-    }
-    a { color: inherit; }
-    section[id] { scroll-margin-top: 88px; }
-    .skip-link {
-      position: fixed;
-      top: 8px;
-      left: 8px;
-      z-index: 100;
-      padding: 10px 14px;
-      border-radius: 7px;
-      color: white;
-      background: var(--navy);
-      transform: translateY(-150%);
-      transition: transform .15s ease;
-    }
-    .skip-link:focus { transform: none; }
-    .container { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(217,226,236,.85);
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      transition: box-shadow .25s ease, background .25s ease;
-    }
-    .nav.scrolled { box-shadow: 0 9px 28px rgba(16,42,67,.1); background: rgba(255,255,255,.98); }
-    .scroll-progress {
-      position: absolute;
-      right: 0;
-      bottom: -1px;
-      left: 0;
-      height: 3px;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .scroll-progress span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--amber), var(--teal-bright), var(--teal));
-      box-shadow: 0 0 14px rgba(20,184,166,.5);
-      transform: scaleX(0);
-      transform-origin: left center;
-      will-change: transform;
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 70px;
-      gap: 24px;
-    }
-    .nav-logo { width: 270px; max-width: 55vw; height: auto; display: block; }
-    .nav-links { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 700; }
-    .nav-links a { text-decoration: none; }
-    .button {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border: 0;
-      border-radius: 8px;
-      color: white;
-      background: linear-gradient(135deg, var(--teal), #0b8f83);
-      box-shadow: 0 8px 20px rgba(15,118,110,.18);
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .button:not(.secondary)::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: -40%;
-      left: -35%;
-      width: 28%;
-      height: 180%;
-      background: rgba(255,255,255,.24);
-      transform: rotate(18deg) translateX(-280%);
-      transition: transform .55s ease;
-    }
-    .button:not(.secondary):hover::before { transform: rotate(18deg) translateX(620%); }
-    .button:hover { background: #0b625c; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(15,118,110,.25); }
-    .button:focus-visible, summary:focus-visible, .nav-links a:focus-visible {
-      outline: 3px solid #f6ad55;
-      outline-offset: 3px;
-    }
-    .button.secondary {
-      color: var(--navy);
-      background: white;
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
-    .button.disabled { opacity: .68; cursor: not-allowed; }
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 32px 0 38px;
-      background:
-        radial-gradient(circle at 90% 12%, rgba(15,118,110,.18), transparent 32%),
-        radial-gradient(circle at 8% 80%, rgba(217,119,6,.1), transparent 27%),
-        linear-gradient(rgba(15,118,110,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15,118,110,.035) 1px, transparent 1px),
-        linear-gradient(180deg, #f9fbfd, #ffffff);
-      background-size: auto, auto, 38px 38px, 38px 38px, auto;
-    }
-    .hero::before, .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero::before {
-      width: 420px;
-      height: 420px;
-      right: -170px;
-      top: -190px;
-      border: 1px solid rgba(15,118,110,.14);
-      box-shadow:
-        0 0 0 46px rgba(15,118,110,.04),
-        0 0 0 92px rgba(15,118,110,.025);
-      animation: radarDrift 12s ease-in-out infinite alternate;
-    }
-    .hero::after {
-      width: 210px;
-      height: 210px;
-      left: -95px;
-      bottom: -120px;
-      background: rgba(217,119,6,.055);
-      filter: blur(2px);
-      animation: floatOrb 9s ease-in-out infinite alternate;
-    }
-    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; }
-    .hero-content { animation: fadeUp .75s cubic-bezier(.2,.7,.2,1) both; }
-    .live-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 5px;
-      padding: 7px 11px;
-      border: 1px solid #b8e2dc;
-      border-radius: 999px;
-      color: #075e54;
-      background: rgba(223,247,243,.82);
-      box-shadow: 0 8px 22px rgba(15,118,110,.08);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .75px;
-      text-transform: uppercase;
-      animation: chipFloat 3.6s ease-in-out infinite;
-    }
-    .live-chip::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--teal-bright);
-      box-shadow: 0 0 0 0 rgba(20,184,166,.4);
-      animation: livePulse 2s ease-out infinite;
-    }
-    .eyebrow {
-      color: var(--teal);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 1.25px;
-      text-transform: uppercase;
-    }
-    h1, h2, h3 { color: var(--navy); font-family: Georgia, Cambria, serif; line-height: 1.18; }
-    h1 {
-      max-width: 780px;
-      margin: 6px 0 12px;
-      font-size: clamp(40px, 4.7vw, 58px);
-      line-height: 1.06;
-      letter-spacing: -1.5px;
-    }
-    .accent-text {
-      color: transparent;
-      background: linear-gradient(120deg, var(--navy) 5%, var(--teal) 58%, #139d8f);
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
-    h2 { margin: 8px 0 16px; font-size: clamp(29px, 3.6vw, 44px); }
-    h3 { font-size: 21px; }
-    .hero-copy { max-width: 700px; margin: 20px 0 0; color: #486581; font-size: 19px; }
-    .hero-tagline {
-      margin: -6px 0 18px;
-      color: var(--teal);
-      font: 700 21px/1.35 Georgia, Cambria, serif;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-    .schedule-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 18px;
-      padding: 8px 12px;
-      border: 1px solid #b8e2dc;
-      border-radius: 999px;
-      color: #075e54;
-      background: var(--teal-light);
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .schedule-badge::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--amber);
-      box-shadow: 0 0 0 4px rgba(217,119,6,.14);
-      animation: signalPulse 2.4s ease-out infinite;
-    }
-    .trust-row { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 22px; color: var(--muted); font-size: 13px; }
-    .trust-row span::before { content: "✓"; margin-right: 7px; color: var(--teal); font-weight: 900; }
-    .price-card {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 26px;
-      border: 1px solid rgba(15,118,110,.18);
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 22px 60px rgba(16,42,67,.1);
-      animation: fadeUp .75s .12s cubic-bezier(.2,.7,.2,1) both;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .price-card::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      top: -130px;
-      right: -110px;
-      background: radial-gradient(circle, rgba(20,184,166,.22), rgba(20,184,166,0) 70%);
-      transform: translate3d(var(--glow-x, 0), var(--glow-y, 0), 0);
-      transition: transform .25s ease;
-    }
-    .price-card::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      right: 18px;
-      bottom: 17px;
-      width: 72px;
-      height: 72px;
-      border: 1px solid rgba(217,119,6,.24);
-      border-radius: 20px;
-      transform: rotate(14deg);
-      animation: cornerFloat 6s ease-in-out infinite alternate;
-    }
-    .price-card:hover { transform: translateY(-7px) scale(1.008); box-shadow: 0 30px 74px rgba(16,42,67,.16); }
-    .price-anchor {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 9px;
-      margin: 13px 0 9px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 800;
-    }
-    .price-anchor s {
-      color: var(--navy-2);
-      font-size: 22px;
-      text-decoration-color: var(--red);
-      text-decoration-thickness: 3px;
-    }
-    .price-anchor span {
-      padding: 4px 8px;
-      border-radius: 999px;
-      color: #075e54;
-      background: var(--teal-light);
-      font-size: 10px;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      animation: badgeGlow 2.8s ease-in-out infinite;
-    }
-    .price { color: var(--navy); font: 700 58px/1 Georgia, serif; }
-    .price small {
-      display: block;
-      margin-top: 10px;
-      color: var(--muted);
-      font: 700 16px/1.4 "Segoe UI", Arial, sans-serif;
-    }
-    .price-list { margin: 19px 0; padding: 0; list-style: none; }
-    .price-list li { padding: 6px 0 6px 27px; position: relative; }
-    .price-list li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 900; }
-    .micro { color: var(--muted); font-size: 12px; }
-    .offer-limit { margin-bottom: 0; color: #7c4a03; font-weight: 800; }
-    section { padding: 64px 0; }
-    section.alt { background: var(--mist); }
-    .section-head { max-width: 750px; margin-bottom: 35px; }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .card {
-      position: relative;
-      overflow: hidden;
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 13px;
-      background: white;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-    .card::after {
-      content: "";
-      position: absolute;
-      right: -38px;
-      bottom: -38px;
-      width: 92px;
-      height: 92px;
-      border-radius: 50%;
-      background: rgba(15,118,110,.045);
-      transition: transform .3s ease, background .3s ease;
-    }
-    .card:hover { transform: translateY(-7px); border-color: #b8e2dc; box-shadow: 0 18px 38px rgba(16,42,67,.11); }
-    .card:hover::after { transform: scale(1.35); background: rgba(15,118,110,.08); }
-    .card-icon {
-      display: grid;
-      place-items: center;
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      color: var(--teal);
-      background: var(--teal-light);
-      font-size: 21px;
-      font-weight: 900;
-    }
-    .card p { margin-bottom: 0; color: var(--muted); }
-    .streams { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .stream {
-      padding: 24px;
-      border-top: 5px solid var(--teal);
-      border-radius: 10px;
-      background: white;
-      box-shadow: 0 8px 24px rgba(16,42,67,.06);
-      transition: transform .22s ease, box-shadow .22s ease;
-    }
-    .stream:hover { transform: translateY(-7px) scale(1.01); box-shadow: 0 18px 40px rgba(16,42,67,.11); }
-    .stream:nth-child(2) { border-top-color: var(--amber); }
-    .stream:nth-child(3) { border-top-color: var(--navy); }
-    .stream small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; font-weight: 800; }
-    .location-browser {
-      background:
-        radial-gradient(circle at 94% 8%, rgba(20,184,166,.13), transparent 25%),
-        linear-gradient(180deg, #f7fbfc, #eef8f6);
-    }
-    .location-shell {
-      padding: 32px;
-      border: 1px solid #cfe5e1;
-      border-radius: 20px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 20px 55px rgba(16,42,67,.08);
-    }
-    .location-label {
-      display: block;
-      margin-bottom: 9px;
-      color: var(--navy);
-      font-weight: 900;
-    }
-    .location-search-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 10px;
-    }
-    .location-search {
-      width: 100%;
-      min-height: 52px;
-      padding: 0 17px;
-      border: 1px solid #b8cec9;
-      border-radius: 12px;
-      color: var(--text);
-      background: white;
-      font: inherit;
-      box-shadow: inset 0 1px 2px rgba(16,42,67,.04);
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-    .location-search:focus {
-      border-color: var(--teal);
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(15,118,110,.12);
-    }
-    .location-clear {
-      min-height: 52px;
-      padding: 0 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      color: var(--navy);
-      background: white;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .location-clear:disabled { opacity: .45; cursor: default; }
-    .location-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 15px 0 12px;
-    }
-    .location-chip {
-      padding: 7px 11px;
-      border: 1px solid #b8e2dc;
-      border-radius: 999px;
-      color: #075e54;
-      background: white;
-      font-size: 12px;
-      font-weight: 850;
-      cursor: pointer;
-      transition: transform .18s ease, color .18s ease, background .18s ease;
-    }
-    .location-chip:hover { transform: translateY(-2px); }
-    .location-chip[aria-pressed="true"] { color: white; background: var(--teal); }
-    .location-meta { min-height: 22px; color: var(--muted); font-size: 13px; }
-    .location-results {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .location-card {
-      position: relative;
-      overflow: hidden;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: white;
-      box-shadow: 0 9px 24px rgba(16,42,67,.06);
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-    .location-card:hover {
-      transform: translateY(-5px);
-      border-color: #9dd8cf;
-      box-shadow: 0 17px 36px rgba(16,42,67,.11);
-    }
-    .location-card[hidden] { display: none; }
-    .location-card-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .location-card-head small {
-      color: var(--muted);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-    .location-status {
-      padding: 4px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .55px;
-      text-transform: uppercase;
-    }
-    .location-status.open { color: #075e54; background: #dcfce7; }
-    .location-status.upcoming { color: #92400e; background: #fef3c7; }
-    .location-status.watch { color: #1e40af; background: #dbeafe; }
-    .location-status.none { color: #52606d; background: #e9eef3; }
-    .location-card h3 { margin: 15px 0 8px; }
-    .location-card p { margin: 0 0 15px; color: var(--muted); font-size: 14px; }
-    .location-card a { color: var(--teal); font-size: 13px; font-weight: 900; text-decoration: none; }
-    .location-empty {
-      margin: 18px 0 0;
-      padding: 16px;
-      border: 1px dashed #d4a75f;
-      border-radius: 10px;
-      color: #7c4a03;
-      background: var(--amber-light);
-    }
-    .location-disclaimer { margin: 17px 0 0; color: var(--muted); font-size: 12px; }
-    .authority-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 17px;
-    }
-    .authority-pills span {
-      padding: 5px 9px;
-      border: 1px solid #b8e2dc;
-      border-radius: 999px;
-      color: #075e54;
-      background: var(--teal-light);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .45px;
-      transition: transform .2s ease, background .2s ease;
-    }
-    .authority-pills span:hover { transform: translateY(-2px); background: #c9efe9; }
-    .authorities {
-      padding-top: 32px;
-      background: linear-gradient(180deg, #ffffff, #f5fbfa);
-    }
-    .coverage-ticker {
-      padding: 0;
-      border-top: 1px solid rgba(217,226,236,.8);
-      border-bottom: 1px solid rgba(217,226,236,.8);
-      background: linear-gradient(90deg, #ffffff, #f3fbfa, #ffffff);
-    }
-    .ticker-shell {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      align-items: center;
-      min-height: 64px;
-      gap: 20px;
-    }
-    .ticker-label {
-      position: relative;
-      z-index: 2;
-      padding-right: 20px;
-      color: var(--navy);
-      background: white;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .85px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .ticker-label::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 0;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--amber);
-      transform: translateY(-50%);
-      box-shadow: 0 0 0 5px rgba(217,119,6,.12);
-    }
-    .ticker-window { overflow: hidden; }
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: tickerMove 26s linear infinite;
-      will-change: transform;
-    }
-    .ticker-window:hover .ticker-track { animation-play-state: paused; }
-    .ticker-set { display: flex; align-items: center; gap: 10px; padding-right: 10px; }
-    .ticker-set span {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 11px;
-      border: 1px solid #cfe5e1;
-      border-radius: 999px;
-      color: #075e54;
-      background: rgba(255,255,255,.88);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-    .ticker-set span::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal-bright);
-    }
-    .authority-shell {
-      position: relative;
-      overflow: hidden;
-      padding: 34px;
-      border: 1px solid #cfe5e1;
-      border-radius: 20px;
-      background:
-        radial-gradient(circle at 95% 10%, rgba(15,118,110,.12), transparent 30%),
-        white;
-      box-shadow: 0 20px 55px rgba(16,42,67,.08);
-    }
-    .authority-shell::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -40%;
-      width: 32%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--teal), transparent);
-      animation: scanLine 7s linear infinite;
-    }
-    .authority-heading {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 28px;
-    }
-    .authority-heading p { max-width: 720px; margin-bottom: 0; color: var(--muted); }
-    .authority-count {
-      flex: 0 0 120px;
-      padding: 16px;
-      border-radius: 14px;
-      text-align: center;
-      color: white;
-      background: var(--navy);
-    }
-    .authority-count strong { display: block; font: 700 38px/1 Georgia, Cambria, serif; }
-    .authority-count span { display: block; margin-top: 6px; color: #d9e2ec; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; }
-    .authority-selector {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .authority-card {
-      appearance: none;
-      width: 100%;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      text-align: left;
-      color: var(--text);
-      background: white;
-      cursor: pointer;
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .authority-card:hover, .authority-card:focus-visible {
-      transform: translateY(-3px);
-      border-color: #8bcfc4;
-      box-shadow: 0 12px 26px rgba(16,42,67,.08);
-      outline: none;
-    }
-    .authority-card.active {
-      border-color: var(--teal);
-      background: linear-gradient(135deg, var(--teal-light), #edfdfa);
-      box-shadow: inset 0 0 0 1px var(--teal);
-    }
-    .authority-card strong { display: block; color: var(--navy); font-size: 16px; }
-    .authority-card span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
-    .authority-detail {
-      position: relative;
-      min-height: 128px;
-      margin-top: 16px;
-      padding: 22px;
-      border-radius: 13px;
-      background: var(--navy);
-      color: #d9e2ec;
-      transition: opacity .18s ease, transform .18s ease;
-    }
-    .authority-detail.changing { opacity: .35; transform: translateY(4px); }
-    .authority-detail small { color: #8fe3d7; font-weight: 900; letter-spacing: .8px; text-transform: uppercase; }
-    .authority-detail h3 { margin: 5px 0 8px; color: white; }
-    .authority-detail p { margin: 0; }
-    .coming-soon {
-      margin-top: 16px;
-      padding: 13px 16px;
-      border: 1px dashed #e5b468;
-      border-radius: 10px;
-      color: #7c4a03;
-      background: var(--amber-light);
-      font-size: 13px;
-    }
-    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: steps; }
-    .step { position: relative; padding: 22px; border: 1px solid var(--line); border-radius: 12px; }
-    .step { transition: transform .22s ease, box-shadow .22s ease; }
-    .step:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(16,42,67,.1); }
-    .step::before {
-      counter-increment: steps;
-      content: counter(steps);
-      display: grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 18px;
-      border-radius: 50%;
-      color: white;
-      background: var(--navy);
-      font-weight: 900;
-    }
-    .sample-panel {
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 40px;
-      align-items: center;
-      padding: 36px;
-      border-radius: 18px;
-      background:
-        radial-gradient(circle at 88% 15%, rgba(20,184,166,.32), transparent 28%),
-        linear-gradient(135deg, var(--navy), #173f5f);
-      color: #d9e2ec;
-    }
-    .sample-panel h2 { color: white; }
-    .sample-panel::after {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      right: -80px;
-      bottom: -90px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 50%;
-      box-shadow: 0 0 0 30px rgba(255,255,255,.035);
-      animation: floatOrb 8s ease-in-out infinite alternate;
-    }
-    .sample-box {
-      padding: 22px;
-      border-radius: 12px;
-      color: var(--text);
-      background: white;
-      box-shadow: 0 14px 34px rgba(0,0,0,.18);
-    }
-    .sample-box strong { color: var(--navy); }
-    .sample-note {
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-    }
-    .sample-stat { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-    .sample-stat:last-child { border-bottom: 0; }
-    .history-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 26px;
-    }
-    .history-card {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      color: inherit;
-      background: linear-gradient(145deg, #ffffff, #f8fbfc);
-      box-shadow: 0 10px 28px rgba(16,42,67,.06);
-      text-decoration: none;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-    .history-card::after {
-      content: "";
-      position: absolute;
-      right: -34px;
-      bottom: -34px;
-      width: 86px;
-      height: 86px;
-      border-radius: 50%;
-      background: rgba(15,118,110,.06);
-    }
-    .history-card:hover {
-      transform: translateY(-5px);
-      border-color: #9dd8cf;
-      box-shadow: 0 17px 38px rgba(16,42,67,.11);
-    }
-    .history-card span {
-      display: inline-flex;
-      padding: 4px 8px;
-      border-radius: 999px;
-      color: #7c4a03;
-      background: #fef3c7;
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-    }
-    .history-card strong {
-      display: block;
-      margin: 13px 0 8px;
-      color: var(--navy);
-      font: 700 20px/1.3 Georgia, Cambria, serif;
-    }
-    .history-card small { color: var(--teal); font-weight: 800; }
-    .history-card p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
-    .archive-action { margin-top: 24px; }
-    .faq { max-width: 860px; }
-    details {
-      margin: 10px 0;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: white;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-    }
-    details:hover { border-color: #b8e2dc; transform: translateY(-1px); }
-    details[open] { border-color: #9dd8cf; box-shadow: 0 12px 30px rgba(16,42,67,.07); }
-    summary {
-      position: relative;
-      padding: 17px 52px 17px 18px;
-      color: var(--navy);
-      font-weight: 800;
-      cursor: pointer;
-      list-style: none;
-    }
-    summary::-webkit-details-marker { display: none; }
-    summary::after {
-      content: "+";
-      position: absolute;
-      top: 50%;
-      right: 18px;
-      display: grid;
-      place-items: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      color: var(--teal);
-      background: var(--teal-light);
-      font-size: 19px;
-      line-height: 1;
-      transform: translateY(-50%);
-      transition: transform .2s ease, background .2s ease;
-    }
-    details[open] summary::after { content: "−"; background: #c9efe9; transform: translateY(-50%) rotate(180deg); }
-    details p { margin: 0; padding: 0 18px 18px; color: var(--muted); }
-    .join {
-      text-align: center;
-      color: white;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(20,184,166,.58), transparent 34%),
-        radial-gradient(circle at 86% 72%, rgba(217,119,6,.25), transparent 28%),
-        linear-gradient(120deg, var(--navy), #173f5f, #0d5f5a);
-      background-size: 120% 120%;
-      animation: joinGradient 12s ease-in-out infinite alternate;
-    }
-    .join h2 { color: white; }
-    .join p { max-width: 660px; margin: 0 auto 26px; color: #d9e2ec; }
-    .channel-note { min-height: 20px; margin-top: 12px; color: #f8c471; font-size: 13px; }
-    .js .reveal {
-      opacity: 1;
-      transform: translateY(22px);
-      transition: transform .65s cubic-bezier(.2,.7,.2,1);
-    }
-    .js .reveal.is-visible { opacity: 1; transform: none; }
-    .js .reveal .stream,
-    .js .reveal .card,
-    .js .reveal .step,
-    .js .reveal .authority-card,
-    .js .reveal .location-card {
-      transform: translateY(14px) scale(.985);
-      transition:
-        transform .55s cubic-bezier(.2,.7,.2,1),
-        box-shadow .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-    }
-    .js .reveal.is-visible .stream,
-    .js .reveal.is-visible .card,
-    .js .reveal.is-visible .step,
-    .js .reveal.is-visible .authority-card,
-    .js .reveal.is-visible .location-card { transform: none; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(2) { transition-delay: .06s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(3) { transition-delay: .12s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(4) { transition-delay: .18s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(5) { transition-delay: .24s; }
-    .js .reveal.is-visible :is(.stream, .card, .step, .authority-card, .location-card):nth-child(6) { transition-delay: .3s; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: none; }
-    }
-    @keyframes signalPulse {
-      0% { box-shadow: 0 0 0 0 rgba(217,119,6,.3); }
-      70%, 100% { box-shadow: 0 0 0 8px rgba(217,119,6,0); }
-    }
-    @keyframes livePulse {
-      0% { box-shadow: 0 0 0 0 rgba(20,184,166,.4); }
-      70%, 100% { box-shadow: 0 0 0 8px rgba(20,184,166,0); }
-    }
-    @keyframes chipFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
-    }
-    @keyframes badgeGlow {
-      0%, 100% { box-shadow: 0 0 0 rgba(15,118,110,0); }
-      50% { box-shadow: 0 0 22px rgba(15,118,110,.2); }
-    }
-    @keyframes cornerFloat {
-      from { transform: translate3d(0,0,0) rotate(14deg); }
-      to { transform: translate3d(-10px,-8px,0) rotate(22deg); }
-    }
-    @keyframes tickerMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @keyframes joinGradient {
-      from { background-position: 0% 50%; }
-      to { background-position: 100% 50%; }
-    }
-    @keyframes radarDrift {
-      from { transform: translate3d(0,0,0) scale(.96); }
-      to { transform: translate3d(-24px,20px,0) scale(1.04); }
-    }
-    @keyframes floatOrb {
-      from { transform: translate3d(0,0,0); }
-      to { transform: translate3d(32px,-18px,0); }
-    }
-    @keyframes scanLine {
-      from { transform: translateX(0); }
-      to { transform: translateX(440%); }
-    }
-    footer { padding: 36px 0; color: var(--muted); background: #081c2c; font-size: 12px; }
-    footer strong { color: white; }
-    footer a { color: #b9f0e8; }
-    @media (max-width: 850px) {
-      .hero-grid, .sample-panel { grid-template-columns: 1fr; }
-      .cards, .streams, .history-grid { grid-template-columns: 1fr; }
-      .location-results { grid-template-columns: repeat(2, 1fr); }
-      .authority-selector { grid-template-columns: repeat(2, 1fr); }
-      .process { grid-template-columns: repeat(2, 1fr); }
-      .nav-links a:not(.button) { display: none; }
-    }
-    @media (max-width: 520px) {
-      .container { width: min(100% - 24px, 1120px); }
-      .hero { padding: 30px 0 46px; }
-      .hero-content { display: flex; flex-direction: column; }
-      .hero-content > .live-chip { order: 1; align-self: flex-start; }
-      .hero-content > .eyebrow { order: 2; }
-      .hero-content > h1 { order: 3; }
-      .hero-content > .hero-tagline { order: 4; }
-      .hero-content > .hero-actions { order: 5; margin-top: 14px; }
-      .hero-content > .hero-copy { order: 6; margin: 20px 0 0; }
-      .hero-content > .schedule-badge { order: 7; }
-      .hero-content > .trust-row { order: 8; }
-      h1 { font-size: 32px; letter-spacing: -.8px; }
-      .hero-copy { font-size: 17px; }
-      .authority-shell { padding: 22px; }
-      .authority-heading { display: block; }
-      .authority-count { width: 110px; margin-top: 20px; }
-      .authority-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .authority-card { padding: 11px; }
-      .authority-card strong { font-size: 14px; }
-      .authority-card span { font-size: 10px; }
-      .location-shell { padding: 22px; }
-      .location-results { grid-template-columns: 1fr; }
-      .location-search-row { grid-template-columns: 1fr; }
-      .location-card { padding: 15px; }
-      .location-card h3 { margin: 9px 0 6px; font-size: 18px; }
-      .location-card p { display: none; }
-      .location-card a { font-size: 12px; }
-      .history-card { padding: 17px; }
-      .history-card strong { margin: 10px 0 6px; font-size: 18px; }
-      .history-card p { display: none; }
-      .price-card, .sample-panel { padding: 22px; }
-      .price { font-size: 52px; }
-      .nav-inner { gap: 8px; }
-      .nav-logo { max-width: 45vw; }
-      .nav .button { min-height: 40px; padding: 0 8px; font-size: 11px; white-space: nowrap; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-      .js .reveal { opacity: 1; transform: none; }
-      .ticker-track, .live-chip, .price-card::after, .sample-panel::after, .join {
-        animation: none !important;
-      }
-      .ticker-window { overflow-x: auto; scrollbar-width: none; }
-      .ticker-set:last-child { display: none; }
-    }
-  </style>
+<link rel="stylesheet" href="assets/india-layout.css">
+<link rel="stylesheet" href="assets/india-theme.css">
+<link rel="stylesheet" href="assets/india-publication.css">
+<link rel="stylesheet" href="assets/india-motion.css">
+<script src="assets/india-motion.js" defer></script>
 </head>
-<body id="top">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <nav class="nav" aria-label="Primary">
-    <div class="container nav-inner">
-      <a href="#top" aria-label="PropertySoochna home">
-        <img class="nav-logo" src="./assets/property-soochna-logo.svg" width="760" height="144" alt="PropertySoochna">
+<body id="top" data-view="home">
+
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="site-header"><div class="wrap nav-row">
+      <a class="brand" href="./" aria-label="PropertySoochna home">
+        <img class="brand-mark" src="./assets/brand-mark.svg" width="42" height="42" alt="">
+        <span class="brand-copy"><span class="brand-name">Property<span>Soochna</span></span>
+          <span class="brand-tagline">Track schemes. Stay ahead.</span></span>
       </a>
-      <div class="nav-links">
-        <a href="./latest/">Latest bulletin</a>
-        <a href="#locations">Browse cities</a>
-        <a href="#authorities">Authorities</a>
-        <a href="#why">Why us</a>
-        <a href="#history">Archive</a>
-        <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram</a>
-      </div>
-    </div>
-    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
-  </nav>
-
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="./regions/">Regions</a><a href="./bulletins/">Past bulletins</a><a href="./about/">About</a></nav>
+      <a class="nav-offer" href="./regions/">
+        <span class="nav-price"><span>Delhi NCR: Free</span><span>Others: Rs 9/month</span></span>
+        <strong>Choose region <span aria-hidden="true">&rarr;</span></strong>
+      </a>
+      <details class="mobile-nav"><summary aria-label="Open navigation">Menu <span class="menu-icon" aria-hidden="true"></span></summary>
+        <nav class="mobile-links" aria-label="Mobile navigation"><a href="./regions/">Regions</a><a href="./bulletins/">Past bulletins</a><a href="./about/">About</a>
+          <a class="mobile-join" href="./regions/">Explore editions <span aria-hidden="true">&rarr;</span></a>
+          <span class="mobile-offer-note">Delhi NCR free &middot; Other regions Rs 9/month each</span>
+        </nav>
+      </details>
+    </div></header>
   <main id="main-content">
-    <header class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="live-chip">First Edition · Delhi NCR Residential</div>
-          <h1>Government property bulletins, <span class="accent-text">in one place</span></h1>
-          <p class="hero-tagline">Find it early. Verify it officially.</p>
-          <div class="hero-actions">
-            <a class="button" href="./latest/">Read Delhi NCR bulletin</a>
-            <a class="button secondary telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join free alerts</a>
+    <section class="stage hero" aria-labelledby="hero-title">
+      <div class="hero-map-background" aria-hidden="true"><img src="./assets/india-background.svg" width="1000" height="1000" alt="" draggable="false"></div>
+      <div class="wrap">
+
+    <ul class="product-types" aria-label="Property types">
+      <li>Govt plots</li>
+      <li>Govt flats</li>
+    </ul>
+          <h1 id="hero-title">Looking to invest in <span>Government property?</span></h1>
+          <p class="summary">Discover upcoming schemes. Track openings, costs and deadlines.</p>
+          <div class="actions hero-actions">
+            <a class="button" href="./regions/"><span class="hero-action-label">Explore regions</span><span aria-hidden="true">&rarr;</span></a>
+            <a class="button secondary latest-bulletin" href="./bulletins/2026-10-19/" aria-label="Read latest Delhi NCR bulletin, 19 October 2026" title="Published 19 October 2026"><span class="hero-action-label">Read latest Delhi NCR</span><span aria-hidden="true">&rarr;</span></a>
+            <a class="button secondary instagram-button" aria-label="Follow on Instagram" href="https://www.instagram.com/propertysoochnaofficial/" target="_blank" rel="noopener noreferrer"><svg class="instagram-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg><span class="hero-action-label"><span class="instagram-follow">Follow on </span>Instagram</span></a>
           </div>
-          <p class="hero-copy">
-            Property Soochna (PropertySoochna) is an independent publication
-            covering official-source Delhi NCR residential property opportunities.
-            We find and verify notices scattered across websites, PDFs and portals,
-            then publish one clear weekly bulletin.
-          </p>
-          <div class="schedule-badge">New verified bulletin every Monday</div>
-          <div class="trust-row">
-            <span>Official-source links</span>
-            <span>Checked-at timestamps</span>
-            <span>Public corrections</span>
+
+    <div class="offer" role="group" aria-label="Edition pricing">
+      <div class="offer-copy">
+        <span class="offer-label">Regional editions</span>
+        <div class="offer-price">Delhi NCR: Free</div>
+        <span class="offer-note">Other regions: Rs 9/month each</span>
+      </div>
+      <a class="offer-join" href="./regions/">Choose region <span aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <div class="growth-strip" role="group" aria-label="Regional directory">
+      <span class="growth-label">Explore</span>
+      <div class="growth-stats"><span><strong>32</strong> regions</span><span class="growth-divider" aria-hidden="true"></span><span><strong>62</strong> authority sources</span></div>
+    </div>
+      </div>
+    </section>
+
+
+    <section class="ticker" aria-label="Examples from the authority directory">
+      <div class="wrap ticker-row"><span class="ticker-title">Authority sources</span>
+
+    <div class="ticker-window" tabindex="0" role="region" aria-label="Authority names; focus to pause movement">
+      <div class="ticker-track"><div class="ticker-set"><span>DDA</span><span>MHADA</span><span>CIDCO</span><span>KHB</span><span>LDA</span><span>HIMUDA</span><span>HMDA</span><span>UPAVP</span></div>
+        <div class="ticker-set" aria-hidden="true"><span>DDA</span><span>MHADA</span><span>CIDCO</span><span>KHB</span><span>LDA</span><span>HIMUDA</span><span>HMDA</span><span>UPAVP</span></div></div>
+    </div>
+      </div>
+    </section>
+
+    <section id="buyers" class="stage" aria-labelledby="buyers-title">
+      <div class="wrap buyers-grid">
+        <div><p class="eyebrow">From our readers</p>
+          <h2 id="buyers-title">A useful lead.<br>A real property purchase.</h2>
+          <div class="proof-stats">
+            <div><strong>100+</strong><span>bulletin reads</span></div>
+            <div><strong>10+</strong><span>purchases after discovery</span></div>
+
+    <div class="proof-rating" role="group" aria-label="5 out of 5 user rating">
+      <strong>5<span class="rating-star" aria-hidden="true">&#9733;</span></strong>
+      <span>User rating</span>
+    </div>
           </div>
         </div>
-        <aside class="price-card" aria-label="Early Access offer">
-          <div class="eyebrow">Delhi NCR Edition</div>
-          <div class="price-anchor"><s>Rs 9/month</s><span>Early Access offer</span></div>
-          <div class="price">Free</div>
-          <ul class="price-list">
-            <li>Complete Monday Bulletin</li>
-            <li>Urgent opening and deadline Alerts</li>
-            <li>Official links, corrections and archive</li>
-          </ul>
-          <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer" style="width:100%">Join Delhi NCR Edition free</a>
-          <p class="micro offer-limit">Early Access closes at 100 members.</p>
+        <div class="buyer-cards">
+          <article class="buyer-card"><div class="buyer-person"><span class="avatar" aria-hidden="true">S</span><div><div class="buyer-heading"><h3>Saral</h3><span class="buyer-rating" role="img" aria-label="Saral: 5 out of 5 stars"><span style="--star-index:0" aria-hidden="true">&#9733;</span><span style="--star-index:1" aria-hidden="true">&#9733;</span><span style="--star-index:2" aria-hidden="true">&#9733;</span><span style="--star-index:3" aria-hidden="true">&#9733;</span><span style="--star-index:4" aria-hidden="true">&#9733;</span></span></div><span>Property buyer</span></div></div>
+            <blockquote class="buyer-quote"><p>I've been reading PropertySoochna's newsletter for a while and have found several interesting government properties. I chose the one that suited me best. This was my first time investing in government property, and I wouldn't have found the opportunity without PropertySoochna.</p></blockquote></article>
+          <article class="buyer-card"><div class="buyer-person"><span class="avatar" aria-hidden="true">D</span><div><div class="buyer-heading"><h3>Diwakar</h3><span class="buyer-rating" role="img" aria-label="Diwakar: 5 out of 5 stars"><span style="--star-index:0" aria-hidden="true">&#9733;</span><span style="--star-index:1" aria-hidden="true">&#9733;</span><span style="--star-index:2" aria-hidden="true">&#9733;</span><span style="--star-index:3" aria-hidden="true">&#9733;</span><span style="--star-index:4" aria-hidden="true">&#9733;</span></span></div><span>Property buyer</span></div></div>
+            <blockquote class="buyer-quote"><p>Before PropertySoochna, I spent hours searching government portals and news, often finding schemes after they had closed. Now I get weekly updates without all that heavy lifting. I really enjoy the editions - they're clean, precise and verified. I'll keep reading.</p></blockquote></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="editions" class="stage" aria-labelledby="editions-title">
+      <div class="wrap">
+        <div class="section-head"><div>
+          <p class="eyebrow">Regional editions</p>
+          <h2 id="editions-title">Choose your region.</h2>
+          <p>Find authority sources and published updates by region.</p>
+        </div><a class="text-link" href="./regions/">Explore all 32 regions <span aria-hidden="true">&rarr;</span></a></div>
+
+    <div class="regions-grid home-regions featured-regions" tabindex="0" role="region" aria-label="Regional editions; swipe on mobile">
+    <article class="region-card" data-search="delhi ncr delhi ncr haryana uttar pradesh delhi delhi ncr haryana ghaziabad meerut yeida catchment hsvp haryana shehri vikas pradhikaran (legacy huda)  gda ghaziabad ghaziabad development authority  mda meerut meerut development authority  yeida yamuna expressway industrial development authority  dda delhi delhi development authority  tcp haryana tcp haryana official affordable-housing e-draw  gnida greater noida industrial development authority  noida new okhla industrial development authority  upavp uttar pradesh avas evam vikas parishad  gurgaon gurugram faridabad noida" data-region="delhi-ncr" data-geography="Haryana|Uttar Pradesh|Delhi">
+      <div class="card-top"><h3>Delhi NCR</h3></div>
+      <p class="region-caption">Delhi &middot; NCR Haryana &middot; Ghaziabad</p>
+      <div class="directory-card-meta"><span class="access-badge free">Free</span><span>9 authority sources</span></div>
+      <p class="small">TCP Haryana covers regulated-private flats.</p>
+      <div class="card-latest"><span>Latest bulletin</span><time datetime="2026-10-19">19 October 2026</time></div>
+      <div class="actions">
+        <a class="button small-button" href="./bulletins/2026-10-19/" aria-label="Read latest bulletin">Read latest bulletin <span aria-hidden="true">&rarr;</span></a><a class="text-link telegram-button" data-region-channel="delhi-ncr" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer"><svg class="telegram-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true" focusable="false"><path d="M21.5 3.6 3 10.7c-.8.3-.8.8-.1 1.1l4.7 1.5L18.4 6.5c.5-.3.9-.1.5.3l-8.8 8-.3 4.6c.4 0 .6-.2.8-.4l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.4-1.8-1-1.3Z"></path></svg>Join Telegram <span aria-hidden="true">&nearr;</span></a>
+      </div>
+      <div class="region-card-bottom">
+        <a class="region-details" href="./regions/delhi-ncr/">Region details <span aria-hidden="true">&rarr;</span></a>
+        <p class="region-price">Free edition</p>
+      </div>
+    </article>
+    <article class="region-card" data-search="central up lucknow central up uttar pradesh lucknow contiguous lucknow suburban schemes lda lucknow lucknow development authority  upavp uttar pradesh avas evam vikas parishad  " data-region="central-up" data-geography="Uttar Pradesh">
+      <div class="card-top"><h3>Central UP Lucknow</h3></div>
+      <p class="region-caption">Lucknow &middot; Contiguous Lucknow suburban schemes</p>
+      <div class="directory-card-meta"><span class="access-badge"><svg class="lock-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> Rs 9/month</span><span>2 authority sources</span></div>
+
+
+      <div class="actions">
+        <a class="button small-button" href="./regions/central-up/">View coverage <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="region-card-bottom">
+        <a class="region-details" href="./regions/central-up/">Region details <span aria-hidden="true">&rarr;</span></a>
+        <p class="region-price">Rs 9/month per region</p>
+      </div>
+    </article>
+    <article class="region-card" data-search="mumbai mmr mumbai mmr maharashtra mumbai thane navi mumbai panvel mhada maharashtra housing and area development authority mumbai board cidco city and industrial development corporation of maharashtra  mhada maharashtra housing and area development authority konkan board - mmr properties only " data-region="mumbai-mmr" data-geography="Maharashtra">
+      <div class="card-top"><h3>Mumbai MMR</h3></div>
+      <p class="region-caption">Mumbai &middot; Thane &middot; Navi Mumbai</p>
+      <div class="directory-card-meta"><span class="access-badge"><svg class="lock-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> Rs 9/month</span><span>2 authority sources</span></div>
+
+
+      <div class="actions">
+        <a class="button small-button" href="./regions/mumbai-mmr/">View coverage <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="region-card-bottom">
+        <a class="region-details" href="./regions/mumbai-mmr/">Region details <span aria-hidden="true">&rarr;</span></a>
+        <p class="region-price">Rs 9/month per region</p>
+      </div>
+    </article>
+    <article class="region-card" data-search="bengaluru bengaluru karnataka bengaluru metro suryanagar khb karnataka housing board  bda bengaluru bangalore development authority  " data-region="bengaluru" data-geography="Karnataka">
+      <div class="card-top"><h3>Bengaluru</h3></div>
+      <p class="region-caption">Bengaluru metro &middot; Suryanagar</p>
+      <div class="directory-card-meta"><span class="access-badge"><svg class="lock-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> Rs 9/month</span><span>2 authority sources</span></div>
+
+
+      <div class="actions">
+        <a class="button small-button" href="./regions/bengaluru/">View coverage <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="region-card-bottom">
+        <a class="region-details" href="./regions/bengaluru/">Region details <span aria-hidden="true">&rarr;</span></a>
+        <p class="region-price">Rs 9/month per region</p>
+      </div>
+    </article></div><p class="swipe-note">Swipe between regions &harr;</p>
+      </div>
+    </section>
+
+    <section id="method" class="stage method" aria-labelledby="method-title">
+      <div class="wrap">
+        <p class="eyebrow">How it works</p>
+        <h2 id="method-title">We track. You decide.</h2>
+        <div class="method-grid">
+          <article class="method-card"><span class="method-icon" aria-hidden="true">&#9906;</span>
+            <h3>Find the scheme.</h3>
+            <p>AI-assisted research follows notices, brochures and authority portals.</p>
+          </article>
+          <article class="method-card"><span class="method-icon" aria-hidden="true">&#10003;</span>
+            <h3>Check the details.</h3>
+            <p>Understand eligibility, costs, deadlines and what needs a closer look.</p>
+          </article>
+          <article class="method-card"><span class="method-icon" aria-hidden="true">&#8599;</span>
+            <h3>Take the next step.</h3>
+            <p>Read your regional bulletin. Apply through the official source.</p>
+          </article>
+        </div>
+        <a class="text-link" href="./about/">More about PropertySoochna <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+
+
+    <section id="questions" class="stage faq-stage" aria-labelledby="faq-title">
+      <div class="wrap faq-layout">
+        <div><h2 id="faq-title">Before you join.</h2>
+          <div class="faq-list"><details><summary>What does Rs 9 include?</summary><p>One paid region&#x27;s scheme discoveries, monitoring and updates for a month. Each paid region is a separate subscription.</p></details><details><summary>How do I get the updates?</summary><p>Read Delhi NCR bulletins and join its free Telegram channel. For another region, request access from that edition&#x27;s page.</p></details><details><summary>Which edition is free?</summary><p>Delhi NCR is free. Other regional editions are Rs 9/month per region.</p></details><details><summary>Are you a government service?</summary><p>No. We are an independent information service. We do not sell property or process applications. Use the official authority portal to apply.</p></details></div>
+        </div>
+        <aside class="join-card" id="join"><h2>Find the right investment for your money.</h2>
+          <p>Start with the latest bulletin for your region.</p>
+
+    <div class="offer" role="group" aria-label="Edition pricing">
+      <div class="offer-copy">
+        <span class="offer-label">Regional editions</span>
+        <div class="offer-price">Delhi NCR: Free</div>
+        <span class="offer-note">Other regions: Rs 9/month each</span>
+      </div>
+      <a class="offer-join" href="./regions/">Choose region <span aria-hidden="true">&rarr;</span></a>
+    </div>
         </aside>
-      </div>
-    </header>
-
-    <section id="latest" class="alt">
-      <div class="container reveal">
-        <div class="sample-panel">
-          <div>
-            <div class="eyebrow" style="color:#8fe3d7">Delhi NCR Edition · Latest Monday Bulletin</div>
-            <h2>See what's available this week.</h2>
-            <p>This week's Bulletin covers DDA Awas Nivesh booking, four open DDA flat schemes, two open TCP projects, Project 230 results and GDA's cancelled auction.</p>
-            <a class="button" href="./latest/">Read this week's bulletin</a>
-          </div>
-          <div class="sample-box">
-            <div class="sample-note">Weekly Bulletin 003 · Checked 19 Oct 2026 · Recheck live availability</div>
-            <div class="sample-stat"><strong>Government plots</strong><span>0 open</span></div>
-            <div class="sample-stat"><strong>DDA public flats</strong><span>4 open + 1 next</span></div>
-            <div class="sample-stat"><strong>TCP Haryana private flats</strong><span>2 open</span></div>
-            <div class="sample-stat"><strong>Evidence</strong><span>Official circulars</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="coverage-ticker" aria-label="Authorities currently monitored">
-      <div class="container ticker-shell">
-        <div class="ticker-label">Monitoring now</div>
-        <div class="ticker-window">
-          <div class="ticker-track">
-            <div class="ticker-set">
-              <span>HSVP / HUDA</span>
-              <span>GDA Ghaziabad</span>
-              <span>MDA Meerut</span>
-              <span>YEIDA</span>
-              <span>DDA plots</span>
-              <span>DDA public flats</span>
-              <span>TCP Haryana e-Draw</span>
-            </div>
-            <div class="ticker-set" aria-hidden="true">
-              <span>HSVP / HUDA</span>
-              <span>GDA Ghaziabad</span>
-              <span>MDA Meerut</span>
-              <span>YEIDA</span>
-              <span>DDA plots</span>
-              <span>DDA public flats</span>
-              <span>TCP Haryana e-Draw</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="coverage">
-      <div class="container reveal">
-        <div class="section-head">
-          <div class="eyebrow">First live Edition · Delhi NCR Residential</div>
-          <h2>Residential opportunities, kept in the correct category</h2>
-          <p>We do not mix private-builder e-Draw projects with government plots. Each stream has its own availability count and evidence.</p>
-        </div>
-        <div class="streams">
-          <article class="stream">
-            <small>Stream 1</small>
-            <h3>Government residential plots</h3>
-            <p>HSVP, GDA, MDA, YEIDA and DDA schemes, auctions and public results.</p>
-            <div class="authority-pills" aria-label="Government plot authorities monitored">
-              <span>HSVP</span>
-              <span>GDA</span>
-              <span>MDA</span>
-              <span>YEIDA</span>
-              <span>DDA</span>
-            </div>
-          </article>
-          <article class="stream">
-            <small>Stream 2</small>
-            <h3>DDA public flats</h3>
-            <p>FCFS launches, new blocks, booking dates, extensions and availability evidence.</p>
-          </article>
-          <article class="stream">
-            <small>Stream 3</small>
-            <h3>TCP Haryana e-Draw private-builder flats</h3>
-            <p>All official e-Draw opportunities and outcomes we can verify, with TCP licence/RERA checks, results, waitlists and refunds. The portal currently covers Affordable Group Housing projects. These are not government-owned flats.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="locations" class="location-browser">
-      <div class="container reveal">
-        <div class="location-shell">
-          <div class="section-head">
-            <div class="eyebrow">Browse by location</div>
-            <h2>Search the latest Delhi NCR Edition</h2>
-            <p>Search by city, authority, sector or project name. Results below reflect the latest published Bulletin—not a live property inventory.</p>
-          </div>
-          <label class="location-label" for="city-search">Search city, authority or sector</label>
-          <div class="location-search-row">
-            <input
-              id="city-search"
-              class="location-search"
-              type="search"
-              autocomplete="off"
-              enterkeyhint="search"
-              placeholder="Try Delhi, Ghaziabad, MDA, Narela or Faridabad"
-            >
-            <button id="city-clear" class="location-clear" type="button" disabled>Clear</button>
-          </div>
-          <div class="location-chips" role="group" aria-label="Filter by location">
-            <button class="location-chip" type="button" data-filter="" aria-pressed="true">All NCR</button>
-            <button class="location-chip" type="button" data-filter="delhi" aria-pressed="false">Delhi</button>
-            <button class="location-chip" type="button" data-filter="ghaziabad" aria-pressed="false">Ghaziabad</button>
-            <button class="location-chip" type="button" data-filter="meerut" aria-pressed="false">Meerut</button>
-            <button class="location-chip" type="button" data-filter="faridabad" aria-pressed="false">Faridabad</button>
-            <button class="location-chip" type="button" data-filter="haryana" aria-pressed="false">Haryana</button>
-            <button class="location-chip" type="button" data-filter="yamuna" aria-pressed="false">Yamuna Expressway</button>
-          </div>
-          <div id="location-meta" class="location-meta" role="status" aria-live="polite">6 monitored location cards in the latest bulletin.</div>
-          <div id="location-results" class="location-results">
-            <article class="location-card" data-search="delhi new delhi narela dda awas nivesh sector g2 g6 pocket 3 pocket 6 karmajeevi pocket 11 block x lig 1 bhk public flats">
-              <div class="location-card-head">
-                <small>Delhi · DDA</small>
-                <span class="location-status upcoming">4 open + 1 next</span>
-              </div>
-              <h3>Narela</h3>
-              <p>Awas Nivesh booking opens 20 October at noon; its brochure and payment terms are now published.</p>
-              <a href="./latest/#dda-awas-nivesh">See latest DDA finding →</a>
-            </article>
-            <article class="location-card" data-search="ghaziabad indirapuram gda notice 888 government residential plots">
-              <div class="location-card-head">
-                <small>Ghaziabad · GDA</small>
-                <span class="location-status none">Auction cancelled</span>
-              </div>
-              <h3>Indirapuram</h3>
-              <p>GDA cancelled the 16 October auction. Deposits and brochure fees are refundable; no new date is published.</p>
-              <a href="./latest/#status-board">See latest GDA finding →</a>
-            </article>
-            <article class="location-card" data-search="meerut mda residential plots auction result">
-              <div class="location-card-head">
-                <small>Meerut · MDA</small>
-                <span class="location-status none">None open</span>
-              </div>
-              <h3>Meerut</h3>
-              <p>No new residential application or auction window was found in the latest Bulletin.</p>
-              <a href="./latest/#status-board">See latest MDA finding →</a>
-            </article>
-            <article class="location-card" data-search="faridabad sector 119 tcp haryana e draw project 232 adore legend private builder flats">
-              <div class="location-card-head">
-                <small>Faridabad · TCP Haryana</small>
-                <span class="location-status open">816 open</span>
-              </div>
-              <h3>Faridabad</h3>
-              <p>Project 232 Adore Legend-II is open for 816 privately built, TCP-regulated flats through 1 November.</p>
-              <a href="./latest/#tcp-232">See latest e-Draw finding →</a>
-            </article>
-            <article class="location-card" data-search="haryana hsvp huda gurugram gurgaon faridabad panchkula panipat rohtak urban estates residential plots">
-              <div class="location-card-head">
-                <small>Haryana · HSVP/HUDA</small>
-                <span class="location-status none">None open</span>
-              </div>
-              <h3>Haryana urban estates</h3>
-              <p>No qualifying general-public residential plot auction was found in the latest bulletin.</p>
-              <a href="./latest/#status-board">See latest HSVP finding →</a>
-            </article>
-            <article class="location-card" data-search="yamuna expressway greater noida noida yeida residential plots">
-              <div class="location-card-head">
-                <small>Yamuna Expressway · YEIDA</small>
-                <span class="location-status none">None open</span>
-              </div>
-              <h3>Yamuna Expressway</h3>
-              <p>YEIDA's official residential surfaces showed no active qualifying scheme.</p>
-              <a href="./latest/#status-board">See latest YEIDA finding →</a>
-            </article>
-          </div>
-          <p id="location-empty" class="location-empty" hidden>No monitored location matches that search. Try a city, authority or sector such as Delhi, GDA, Meerut, Narela or Faridabad.</p>
-          <p class="location-disclaimer">Availability can change after publication. Open the linked bulletin and recheck the official authority portal before acting.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="authorities" class="authorities">
-      <div class="container reveal">
-        <div class="authority-shell">
-          <div class="authority-heading">
-            <div>
-              <div class="eyebrow">Currently monitored</div>
-              <h2>The first Edition monitors six authority systems.</h2>
-              <p>Choose an authority to see exactly what the Delhi NCR Residential Edition monitors today.</p>
-            </div>
-            <div class="authority-count" aria-label="Six authority systems currently monitored">
-              <strong>6</strong>
-              <span>authority systems</span>
-            </div>
-          </div>
-          <div class="authority-selector" role="group" aria-label="Currently monitored authorities">
-            <button class="authority-card active" type="button" aria-pressed="true"
-              data-name="HSVP / HUDA"
-              data-stream="Haryana government residential plots"
-              data-description="Residential plot auctions, authority notices, deadlines, closed events and upcoming public opportunities across Haryana urban estates.">
-              <strong>HSVP / HUDA</strong>
-              <span>Haryana urban estates</span>
-            </button>
-            <button class="authority-card" type="button" aria-pressed="false"
-              data-name="GDA"
-              data-stream="Ghaziabad government residential plots"
-              data-description="Individual residential plot auctions, corrigenda, brochure terms, registration deadlines and official auction outcomes.">
-              <strong>GDA</strong>
-              <span>Ghaziabad</span>
-            </button>
-            <button class="authority-card" type="button" aria-pressed="false"
-              data-name="MDA"
-              data-stream="Meerut government residential plots"
-              data-description="Residential auction inventory, EMD and payment windows, auction results, refunds and authority notices.">
-              <strong>MDA</strong>
-              <span>Meerut</span>
-            </button>
-            <button class="authority-card" type="button" aria-pressed="false"
-              data-name="YEIDA"
-              data-stream="Yamuna Expressway residential plots"
-              data-description="New and live residential plot schemes, application windows, draw or auction results and official linked portals.">
-              <strong>YEIDA</strong>
-              <span>Yamuna Expressway</span>
-            </button>
-            <button class="authority-card" type="button" aria-pressed="false"
-              data-name="DDA"
-              data-stream="Delhi plots and public flats"
-              data-description="Residential land disposal and e-auctions, plus separate tracking of DDA public-flat launches, new inventory and FCFS booking changes.">
-              <strong>DDA</strong>
-              <span>Delhi</span>
-            </button>
-            <button class="authority-card" type="button" aria-pressed="false"
-              data-name="TCP Haryana"
-              data-stream="Private-builder flats via official e-Draw"
-              data-description="All official TCP Haryana e-Draw applications and outcomes we can verify, with TCP licence and Haryana RERA checks. The portal currently carries Affordable Group Housing projects; these are private-builder, not government-owned flats.">
-              <strong>TCP Haryana</strong>
-              <span>Official e-Draw</span>
-            </button>
-          </div>
-          <div class="authority-detail" aria-live="polite">
-            <small id="authority-stream">Haryana government residential plots</small>
-            <h3 id="authority-name">HSVP / HUDA</h3>
-            <p id="authority-description">Residential plot auctions, authority notices, deadlines, closed events and upcoming public opportunities across Haryana urban estates.</p>
-          </div>
-          <div class="coming-soon"><strong>Next:</strong> more Regional Editions. Local Watchlists such as Faridabad come later, after validation.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why" class="alt">
-      <div class="container reveal">
-        <div class="section-head">
-          <div class="eyebrow">Why PropertySoochna</div>
-          <h2>Find it. Verify it. Know the next step.</h2>
-        </div>
-        <div class="cards">
-          <article class="card"><div class="card-icon">1</div><h3>Choose an Edition</h3><p>Subscribe to the geography and opportunity scope relevant to you. Delhi NCR Residential is the first live Edition.</p></article>
-          <article class="card"><div class="card-icon">✓</div><h3>Official and current</h3><p>Every actionable fact links to an official source, with safe deadlines and unknowns clearly labelled.</p></article>
-          <article class="card"><div class="card-icon">₹</div><h3>Decision-ready</h3><p>Understand eligibility, application steps, complete cost factors and the clearest next action.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="history">
-      <div class="container reveal">
-        <div class="section-head">
-          <div class="eyebrow">Published history</div>
-          <h2>Past bulletins. Visible track record.</h2>
-          <p>See what PropertySoochna found, changed and verified in earlier scans. Past bulletins are clearly marked so expired opportunities are never presented as current.</p>
-        </div>
-        <div class="history-grid">
-          <a class="history-card" href="./bulletins/2026-10-12/">
-            <span>Past bulletin</span>
-            <strong>New DDA LIG scheme; two TCP projects open or opening</strong>
-            <small>12 October 2026</small>
-            <p>DDA announced 2,516 Narela LIG flats while TCP Projects 232 and 229 entered the weekly watch.</p>
-          </a>
-          <a class="history-card" href="./bulletins/2026-10-04/">
-            <span>Past bulletin</span>
-            <strong>26 GDA plots open; 384 DDA flats upcoming</strong>
-            <small>4 October 2026</small>
-            <p>GDA Notice 888 opened in Indirapuram while DDA prepared Block X.</p>
-          </a>
-          <a class="history-card" href="./bulletins/2026-09-25/">
-            <span>Past bulletin</span>
-            <strong>No government plot open; one TCP project closing soon</strong>
-            <small>25 September 2026</small>
-            <p>Mansha Evernest entered its closing window while MDA's auction had completed.</p>
-          </a>
-          <a class="history-card" href="./bulletins/2026-09-08/">
-            <span>Past bulletin</span>
-            <strong>MDA's 67-property auction became urgent</strong>
-            <small>8 September 2026</small>
-            <p>The earlier noon deadline was used safely, while Anantya remained open.</p>
-          </a>
-        </div>
-        <div class="archive-action">
-          <a class="button secondary" href="./bulletins/">View all bulletins</a>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container faq reveal">
-        <div class="eyebrow">Questions</div>
-        <h2>Before you join</h2>
-        <details open><summary>What is a PropertySoochna Edition?</summary><p>An Edition is the coverage publication you subscribe to. Each Edition declares its geography, property scope, monitored official systems, weekly Bulletin and urgent Alert policy.</p></details>
-        <details><summary>Which Edition is available now?</summary><p>The Delhi NCR Residential Edition is live now. It monitors HSVP/HUDA, GDA, MDA, YEIDA and DDA residential opportunities, plus DDA public flats and TCP Haryana's official e-Draw private-builder flats.</p></details>
-        <details><summary>When is the Bulletin published?</summary><p>Every Monday in India Standard Time, with urgent deadline, inventory and correction Alerts between issues when needed.</p></details>
-        <details><summary>Is PropertySoochna a government service?</summary><p>No. It is an independent publication. Availability is labelled as live, announced or login-gated, and property payments must be made only through official portals.</p></details>
-      </div>
-    </section>
-
-    <section id="join" class="join">
-      <div class="container reveal">
-        <div class="eyebrow" style="color:#8fe3d7">Free Early Access</div>
-        <h2>Join the Delhi NCR Edition Early Access.</h2>
-        <p>Get the Monday Bulletin and urgent Alerts for the Delhi NCR Residential Edition. Future Editions will remain separate choices.</p>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="button telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Join Telegram free</a>
-          <a class="button secondary instagram-link" href="https://www.instagram.com/propertysoochnaofficial/" target="_blank" rel="noopener noreferrer">Follow on Instagram</a>
-        </div>
-        <div id="channel-note" class="channel-note" role="status" aria-live="polite"></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p><strong>PropertySoochna</strong> is an independent property-opportunity publication. The first live publication is the Delhi NCR Residential Edition. PropertySoochna is not affiliated with DDA, HSVP, GDA, MDA, YEIDA, TCP Haryana, or any other authority.</p>
-      <p>Verify availability and make application or booking payments only through official authority links. Nothing published promises allotment, appreciation or profit.</p>
-      <p>Contact: <a id="support-link" href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a> · <a class="telegram-link" href="https://t.me/propertysoochna" target="_blank" rel="noopener noreferrer">Telegram</a> · <a class="instagram-link" href="https://www.instagram.com/propertysoochnaofficial/" target="_blank" rel="noopener noreferrer">Instagram</a> · <a href="./latest/">Latest bulletin</a></p>
-      <p><a href="./about/">About Property Soochna</a> · <a href="./editorial-policy/">Editorial policy</a> · <a href="./corrections/">Corrections</a> · <a href="./contact/">Contact</a></p>
-    </div>
-  </footer>
-
-  <script src="./site-config.js"></script>
-  <script>
-    (function () {
-      const config = window.PROPERTY_SOOCHNA_CONFIG || {};
-      const telegramLinks = document.querySelectorAll(".telegram-link");
-      const instagramLinks = document.querySelectorAll(".instagram-link");
-      const note = document.getElementById("channel-note");
-      const nav = document.querySelector(".nav");
-      const scrollProgress = document.getElementById("scroll-progress-bar");
-      const priceCard = document.querySelector(".price-card");
-      const authorityCards = document.querySelectorAll(".authority-card");
-      const authorityDetail = document.querySelector(".authority-detail");
-      const authorityStream = document.getElementById("authority-stream");
-      const authorityName = document.getElementById("authority-name");
-      const authorityDescription = document.getElementById("authority-description");
-      const citySearch = document.getElementById("city-search");
-      const cityClear = document.getElementById("city-clear");
-      const locationCards = document.querySelectorAll(".location-card");
-      const locationChips = document.querySelectorAll(".location-chip");
-      const locationMeta = document.getElementById("location-meta");
-      const locationEmpty = document.getElementById("location-empty");
-
-      telegramLinks.forEach((link) => {
-        if (config.freeTelegramUrl) {
-          link.href = config.freeTelegramUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-        } else {
-          link.classList.add("disabled");
-          link.addEventListener("click", (event) => {
-            event.preventDefault();
-            document.getElementById("join").scrollIntoView();
-            if (note) {
-              note.textContent = "The Telegram link is temporarily unavailable. Please email " + (config.supportEmail || "propertysoochna@gmail.com") + ".";
-            }
-          });
-        }
-      });
-
-      instagramLinks.forEach((link) => {
-        if (config.instagramUrl) {
-          link.href = config.instagramUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-        }
-      });
-
-      const support = document.getElementById("support-link");
-      if (support && config.supportEmail) {
-        support.href = "mailto:" + config.supportEmail;
-      }
-
-      const applyLocationFilter = (value, selectedChip) => {
-        const query = value.trim().toLowerCase();
-        let visibleCount = 0;
-
-        locationCards.forEach((card) => {
-          const matches = !query || card.dataset.search.toLowerCase().includes(query);
-          card.hidden = !matches;
-          if (matches) {
-            visibleCount += 1;
-          }
-        });
-
-        locationChips.forEach((chip) => {
-          chip.setAttribute("aria-pressed", chip === selectedChip ? "true" : "false");
-        });
-        if (!selectedChip && !query && locationChips.length) {
-          locationChips[0].setAttribute("aria-pressed", "true");
-        }
-
-        if (locationMeta) {
-          locationMeta.textContent = query
-            ? visibleCount + (visibleCount === 1 ? " matching location." : " matching locations.")
-            : locationCards.length + " monitored location cards in the latest bulletin.";
-        }
-        if (locationEmpty) {
-          locationEmpty.hidden = visibleCount !== 0;
-        }
-        if (cityClear) {
-          cityClear.disabled = !query;
-        }
-      };
-
-      if (citySearch && cityClear) {
-        citySearch.addEventListener("input", () => {
-          applyLocationFilter(citySearch.value, null);
-        });
-        citySearch.addEventListener("search", () => {
-          applyLocationFilter(citySearch.value, null);
-        });
-        cityClear.addEventListener("click", () => {
-          citySearch.value = "";
-          applyLocationFilter("", locationChips[0]);
-          citySearch.focus();
-        });
-        locationChips.forEach((chip) => {
-          chip.addEventListener("click", () => {
-            citySearch.value = chip.dataset.filter;
-            applyLocationFilter(chip.dataset.filter, chip);
-          });
-        });
-      }
-
-      authorityCards.forEach((card) => {
-        card.addEventListener("click", () => {
-          authorityCards.forEach((item) => {
-            item.classList.remove("active");
-            item.setAttribute("aria-pressed", "false");
-          });
-          card.classList.add("active");
-          card.setAttribute("aria-pressed", "true");
-          authorityDetail.classList.add("changing");
-          window.setTimeout(() => {
-            authorityStream.textContent = card.dataset.stream;
-            authorityName.textContent = card.dataset.name;
-            authorityDescription.textContent = card.dataset.description;
-            authorityDetail.classList.remove("changing");
-          }, 130);
-        });
-      });
-
-      const revealElements = document.querySelectorAll(".reveal");
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12 });
-
-        revealElements.forEach((element) => observer.observe(element));
-      } else {
-        revealElements.forEach((element) => element.classList.add("is-visible"));
-      }
-
-      if (priceCard && window.matchMedia("(pointer: fine)").matches) {
-        priceCard.addEventListener("pointermove", (event) => {
-          const bounds = priceCard.getBoundingClientRect();
-          const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 18;
-          const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 18;
-          priceCard.style.setProperty("--glow-x", x.toFixed(1) + "px");
-          priceCard.style.setProperty("--glow-y", y.toFixed(1) + "px");
-        });
-        priceCard.addEventListener("pointerleave", () => {
-          priceCard.style.removeProperty("--glow-x");
-          priceCard.style.removeProperty("--glow-y");
-        });
-      }
-
-      const updateScrollEffects = () => {
-        nav.classList.toggle("scrolled", window.scrollY > 8);
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
-        scrollProgress.style.transform = "scaleX(" + progress + ")";
-      };
-      updateScrollEffects();
-      window.addEventListener("scroll", updateScrollEffects, { passive: true });
-      window.addEventListener("resize", updateScrollEffects, { passive: true });
-    }());
-  </script>
+    <footer class="site-footer"><div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-identity">
+          <a class="footer-brand" href="./">Property<span>Soochna</span></a>
+          <p class="footer-tagline">Track schemes. Stay ahead.</p>
+          <p class="footer-description">Official-source property updates.<br>Organized around your region.</p>
+          <a class="footer-social" href="https://www.instagram.com/propertysoochnaofficial/" target="_blank" rel="noopener noreferrer">Follow on Instagram <span aria-hidden="true">&nearr;</span></a>
+        </div>
+        <nav class="footer-column" aria-label="Explore PropertySoochna">
+          <h2>Explore</h2>
+          <a href="./regions/">Explore all 32 regions</a>
+          <a href="./bulletins/">Past bulletins</a>
+          <a href="./about/">About</a>
+          <a href="./regions/delhi-ncr/">Delhi NCR edition</a>
+          <a href="./regions/central-up/">Central UP edition</a>
+        </nav>
+        <nav class="footer-column" aria-label="Help and editorial standards">
+          <h2>Support</h2>
+          <a href="./contact/">Contact</a>
+          <a href="./editorial-policy/">Editorial policy</a>
+          <a href="./corrections/">Corrections</a>
+          <a class="footer-email" href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>Independent of government authorities. Apply and pay for property through official portals.
+        Availability can change; no allotment or investment return is guaranteed.</p>
+        <div class="footer-meta"><span>&copy; 2026 PropertySoochna</span>
+          <a href="#">Back to top <span aria-hidden="true">&uarr;</span></a></div>
+      </div>
+    </div></footer>
+    <script src="./site-config.js"></script>
+    <script src="./assets/site.js"></script>
+    <script src="./assets/card-motion.js"></script>
 </body>
 </html>

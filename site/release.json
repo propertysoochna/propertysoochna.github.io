@@ -1,0 +1,16 @@
+{
+  "brand": "PropertySoochna",
+  "site": "https://propertysoochna.in/",
+  "theme": "India-inspired diagonal",
+  "font": "Manrope",
+  "motion": "Expressive entrances and scroll flow",
+  "latestBulletin": "2026-10-19",
+  "directoryRegions": 32,
+  "directoryAuthoritySources": 62,
+  "freeRegions": [
+    "delhi-ncr"
+  ],
+  "paidMonthlyRegionPrice": 9,
+  "accessMode": "Manual access enquiries; no checkout or membership backend",
+  "generatedAt": "2026-10-21T18:35:07.473726+00:00"
+}

@@ -40,7 +40,7 @@ html.theme-locked :is(.hero h1 span,.brand-name>span,.eyebrow,.fact strong,.proo
 html.theme-locked .proof-stats .proof-rating strong { color:#916710; }
 html.theme-locked :is(.hero .summary,.fact .label,.brand-tagline,.region-details) { color:var(--text); }
 html.theme-locked :is(.method,.faq-stage,.desktop-nav,.search-area,.coverage-box,.answer-box,.workflow-grid article,.contact-band) { background:var(--soft); border-color:var(--line); }
-html.theme-locked :is(.button:not(.secondary),.nav-offer>strong,.mobile-links .mobile-join,.filters button[aria-pressed="true"],.filter-chips button[aria-pressed="true"]) { background:linear-gradient(135deg,var(--accent),var(--accent-end)); border-color:var(--accent-end); color:#fff; box-shadow:0 8px 22px var(--accent-glow); }
+html.theme-locked :is(.button:not(.secondary),.nav-offer>.nav-join,.mobile-links .mobile-join,.filters button[aria-pressed="true"],.filter-chips button[aria-pressed="true"]) { background:linear-gradient(135deg,var(--accent),var(--accent-end)); border-color:var(--accent-end); color:#fff; box-shadow:0 8px 22px var(--accent-glow); }
 html.theme-locked .button.secondary { color:var(--ink); border-color:var(--line); background:var(--surface); }
 html.theme-locked :is(.signal,.pills li,.badge,.tag,.method-icon,.avatar,.mobile-nav summary,.source-result) { color:var(--green); background:var(--accent-soft); border-color:var(--chip-line); }
 html.theme-locked .signal::before { background:var(--green); }
@@ -77,11 +77,11 @@ html.theme-locked .hero h1 span {
 html.theme-locked .site-footer { background:var(--deep); border-top-color:var(--accent); }
 html.theme-locked :is(.footer-column h2,.footer-brand>span,.footer-description,.footer-bottom p,.footer-meta) { color:var(--dark-muted); }
 html.theme-locked .join-card { background:var(--dark); }
-html.theme-locked body :is(.nav-offer>strong,.mobile-links .mobile-join) {
+html.theme-locked body :is(.nav-offer>.nav-join,.mobile-links .mobile-join) {
   color:#fff; background:linear-gradient(135deg,var(--signup),var(--signup-end));
   border-color:var(--signup-end); box-shadow:0 8px 22px var(--signup-glow);
 }
-html.theme-locked body :is(.nav-offer:hover>strong,.mobile-links .mobile-join:hover) { background:var(--signup-end); }
+html.theme-locked body :is(.nav-offer>.nav-join:hover,.mobile-links .mobile-join:hover) { background:var(--signup-end); }
 html.theme-locked body .offer .offer-join { color:#fff; background:var(--signup); border-color:var(--signup-end); }
 html.theme-locked body .offer .offer-join:hover { background:var(--signup-end); }
 html.theme-locked .join-card .offer .offer-join { color:var(--signup); background:#fff8e9; border-color:#fff8e9; }
@@ -92,7 +92,8 @@ html.theme-locked[data-motion="flow"]:not([data-reduced-motion="true"]) [data-mo
   transform-origin:50% 60%;
 }
 /* Responsive text labels keep their breakpoint visibility; only decorative spans animate. */
-html.theme-locked[data-motion="flow"]:not([data-reduced-motion="true"]) :is(.button,.text-link)>span[aria-hidden="true"]:not(.button-label-full,.button-label-short) { display:inline-block; transition:transform .2s ease; }
+html.theme-locked :is(.button,.text-link)>span[aria-hidden="true"]:not(.button-label-full,.button-label-short) { display:inline-block; }
+html.theme-locked[data-motion="flow"]:not([data-reduced-motion="true"]) :is(.button,.text-link)>span[aria-hidden="true"]:not(.button-label-full,.button-label-short) { transition:transform .2s ease; }
 html.theme-locked[data-motion="flow"]:not([data-reduced-motion="true"]) :is(.button,.text-link):hover>span[aria-hidden="true"]:not(.button-label-full,.button-label-short) { transform:translateX(3px); }
 html.theme-locked [data-motion-card]:focus-within { --scroll-y:0px!important; --hover-y:0px!important; --card-scale:1!important; }
 @media(hover:hover) and (pointer:fine) {

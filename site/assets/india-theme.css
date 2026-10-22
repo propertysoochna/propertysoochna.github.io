@@ -15,14 +15,14 @@ html.theme-locked[data-theme="india"] {
   --offer-surface:#fff2de; --offer-line:#dda666; --offer-accent:#93430d;
 }
 html.theme-locked[data-theme="india"] :is(h1,h2,h3) { overflow-wrap:anywhere; }
-html.theme-locked[data-theme="india"] .telegram-button {
+html.theme-locked[data-theme="india"] :is(.telegram-button,.offer .telegram-button,.nav-offer .telegram-button,.mobile-links .telegram-button) {
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   min-height:44px; max-width:100%; padding:9px 13px; border:1px solid #086b9a;
   border-radius:999px; color:#fff; background:linear-gradient(135deg,#0879ad,#086696);
   box-shadow:0 5px 14px #0879ad1c; font-size:13px; line-height:1.4;
   font-weight:700; text-decoration:none;
 }
-html.theme-locked[data-theme="india"] .telegram-button:hover { background:linear-gradient(135deg,#086b9a,#075984); }
+html.theme-locked[data-theme="india"] :is(.telegram-button,.offer .telegram-button,.nav-offer .telegram-button,.mobile-links .telegram-button):hover { background:linear-gradient(135deg,#086b9a,#075984); }
 html.theme-locked[data-theme="india"] .telegram-button.telegram-pending { color:#17668e; background:#eaf6fc; border-color:#a8cde1; box-shadow:none; }
 html.theme-locked[data-theme="india"] .telegram-button.telegram-pending:hover { background:#deeff8; }
 .telegram-icon { display:inline-block; vertical-align:middle; width:18px; height:18px; flex-shrink:0; }
@@ -59,6 +59,6 @@ html.theme-locked[data-theme="india"] .hero .product-types li:first-child { colo
 }
 @media(forced-colors:active) {
   html.theme-locked[data-theme="india"] .hero h1 span { background:none; color:CanvasText; }
-  html.theme-locked[data-theme="india"] :is(.telegram-button,.telegram-button.telegram-pending) { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
+  html.theme-locked[data-theme="india"] :is(.telegram-button,.telegram-button.telegram-pending,.offer .telegram-button,.nav-offer .telegram-button,.mobile-links .telegram-button) { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
   html.theme-locked[data-theme="india"] .telegram-link { color:LinkText; }
 }

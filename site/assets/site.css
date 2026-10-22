@@ -42,8 +42,8 @@ p { margin-bottom:18px; color:var(--text); }
 .nav-offer { display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--ink); white-space:nowrap; }
 .nav-price { display:grid; text-align:right; color:var(--muted); font-size:10px; line-height:1.4; }
 .nav-price s { font-size:12px; text-decoration-thickness:1px; }
-.nav-offer > strong { display:flex; align-items:center; gap:13px; padding:11px 18px; border:1px solid #087461; border-radius:999px; color:white; background:linear-gradient(135deg,#0c8b73,#086b5b); font-size:13px; box-shadow:0 4px 12px #147e6e1a; }
-.nav-offer:hover > strong { background:#076b5a; box-shadow:0 6px 16px #147e6e26; }
+.nav-offer > .nav-join { display:flex; align-items:center; gap:13px; min-height:44px; padding:11px 18px; border:1px solid #087461; border-radius:999px; color:white; background:linear-gradient(135deg,#0c8b73,#086b5b); font-size:13px; font-weight:700; text-decoration:none; box-shadow:0 4px 12px #147e6e1a; }
+.nav-offer > .nav-join:hover { background:#076b5a; box-shadow:0 6px 16px #147e6e26; }
 .mobile-nav { display:none; position:relative; margin-left:auto; }
 .mobile-nav summary { list-style:none; min-height:44px; display:flex; align-items:center; gap:11px; padding:9px 13px; border:1px solid #d4e3dc; border-radius:10px; color:#315452; background:#f7faf8; font-size:13px; font-weight:600; }
 .mobile-nav summary::-webkit-details-marker { display:none; }

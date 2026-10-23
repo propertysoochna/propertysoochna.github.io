@@ -5,6 +5,7 @@
   "font": "Manrope",
   "motion": "Expressive entrances and scroll flow",
   "latestBulletin": "2026-10-19",
+  "publishedEditionFormat": "open-digest-v1",
   "directoryRegions": 32,
   "directoryAuthoritySources": 62,
   "freeRegions": [
@@ -12,5 +13,5 @@
   ],
   "paidMonthlyRegionPrice": 9,
   "accessMode": "Manual access enquiries; no checkout or membership backend",
-  "generatedAt": "2026-10-23T09:15:07.680023+00:00"
+  "generatedAt": "2026-10-23T09:24:35.134538+00:00"
 }

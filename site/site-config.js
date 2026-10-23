@@ -3,6 +3,8 @@ window.PROPERTY_SOOCHNA_CONFIG = {
   "supportEmail": "propertysoochna@gmail.com",
   "whatsappByRegion": {
     "delhi-ncr": "https://chat.whatsapp.com/EyVMmvXyiE12PpyiDT8GWs",
+    "gurugram": null,
+    "noida": null,
     "central-up": null,
     "mumbai-mmr": null,
     "bengaluru": null,

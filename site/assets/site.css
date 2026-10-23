@@ -151,7 +151,7 @@ p { margin-bottom:18px; color:var(--text); }
 .edition-access-action p { color:var(--muted); font-size:12px; margin-top:6px; }
 @media(min-width:1101px) {
   .directory-regions { grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .featured-regions { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+  .featured-regions { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
   .featured-regions .region-card { padding:20px; }
 }
 .method { background:#f3f7f4; }

@@ -6,12 +6,14 @@
   "motion": "Expressive entrances and scroll flow",
   "latestBulletin": "2026-10-19",
   "publishedEditionFormat": "open-digest-v1",
-  "directoryRegions": 32,
+  "directoryRegions": 34,
   "directoryAuthoritySources": 62,
   "freeRegions": [
-    "delhi-ncr"
+    "delhi-ncr",
+    "gurugram",
+    "noida"
   ],
   "paidMonthlyRegionPrice": 9,
   "accessMode": "Manual access enquiries; no checkout or membership backend",
-  "generatedAt": "2026-10-23T14:34:17.618165+00:00"
+  "generatedAt": "2026-10-23T18:14:08.991025+00:00"
 }

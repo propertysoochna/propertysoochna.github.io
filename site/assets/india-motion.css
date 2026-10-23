@@ -3,14 +3,15 @@
   html[data-motion-level="expressive"] .hero h1 span { animation:expressive-shine 1.6s .25s ease-in-out both; }
   html[data-motion-level="expressive"] .hero .product-types { animation:expressive-arrive .65s cubic-bezier(.16,1,.3,1) backwards; }
   html[data-motion-level="expressive"] .hero .summary { animation:expressive-arrive .8s .12s cubic-bezier(.16,1,.3,1) backwards; }
-  html[data-motion-level="expressive"] .hero .hero-actions > a { animation:expressive-arrive .7s .24s cubic-bezier(.16,1,.3,1) backwards; }
-  html[data-motion-level="expressive"] .hero .hero-actions > a:nth-child(2) { animation-delay:.34s; }
-  html[data-motion-level="expressive"] .hero .hero-actions > a:nth-child(3) { animation-delay:.44s; }
+  html[data-motion-level="expressive"] .hero .hero-actions > a { animation:expressive-arrive .7s .24s cubic-bezier(.16,1,.3,1) backwards,hero-button-breathe 6s 1.6s ease-in-out infinite; }
+  html[data-motion-level="expressive"] .hero .hero-actions > a:nth-child(2) { animation-delay:.34s,2.3s; }
+  html[data-motion-level="expressive"] .hero .hero-actions > a:nth-child(3) { animation-delay:.44s,3s; }
   html[data-motion-level="expressive"] .hero .offer { animation:expressive-arrive .8s .38s cubic-bezier(.16,1,.3,1) backwards; }
   html[data-motion-level="expressive"] .hero .growth-strip { animation:expressive-arrive .8s .48s cubic-bezier(.16,1,.3,1) backwards; }
   html[data-motion-level="expressive"] .hero-map-background img { animation:expressive-map 1.8s cubic-bezier(.16,1,.3,1) backwards; }
   html[data-motion-level="expressive"] [data-heading-revealed] { animation:expressive-arrive .85s cubic-bezier(.16,1,.3,1) backwards; }
-  html[data-motion-level="expressive"] .hero .hero-actions:focus-within > a { animation:none; }
+  /* Settle the whole row while interacting without restarting its entrance. */
+  html[data-motion-level="expressive"] .hero .hero-actions:is(:hover,:focus-within,:active) > a { animation-play-state:paused; transform:none!important; scale:1!important; translate:0 0!important; }
   html[data-motion-level="expressive"] :is(.offer,.growth-strip):focus-within { animation:none; }
   html[data-motion-level="expressive"] .button:active { transform:translateY(1px) scale(.98); }
 }
@@ -30,12 +31,16 @@
   from { background-position:100% 50%; }
   to { background-position:0 50%; }
 }
+@keyframes hero-button-breathe {
+  0%,36%,100% { scale:1; translate:0 0; }
+  18% { scale:1.035; translate:0 -3px; }
+}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
   html[data-motion-level="expressive"] .button:hover { transform:translateY(-4px); }
 }
 @media(prefers-reduced-motion:reduce), (forced-colors:active) {
-  html[data-motion-level="expressive"] :is(.hero h1,.hero h1 span,.product-types,.hero .summary,.hero-actions>a,.hero .offer,.growth-strip,.hero-map-background img,[data-heading-revealed]) { animation:none; transform:none; }
+  html[data-motion-level="expressive"] :is(.hero h1,.hero h1 span,.product-types,.hero .summary,.hero .hero-actions>a,.hero .offer,.growth-strip,.hero-map-background img,[data-heading-revealed]) { animation:none; transform:none; scale:none; translate:none; }
 }
 @media print {
-  html[data-motion-level="expressive"] * { animation:none!important; transform:none!important; }
+  html[data-motion-level="expressive"] * { animation:none!important; transform:none!important; scale:none!important; translate:none!important; }
 }

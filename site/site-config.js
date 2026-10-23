@@ -1,8 +1,8 @@
 window.PROPERTY_SOOCHNA_CONFIG = {
   "instagramUrl": "https://www.instagram.com/propertysoochnaofficial/",
   "supportEmail": "propertysoochna@gmail.com",
-  "telegramByRegion": {
-    "delhi-ncr": "https://t.me/propertysoochna",
+  "whatsappByRegion": {
+    "delhi-ncr": "https://chat.whatsapp.com/EyVMmvXyiE12PpyiDT8GWs",
     "central-up": null,
     "mumbai-mmr": null,
     "bengaluru": null,

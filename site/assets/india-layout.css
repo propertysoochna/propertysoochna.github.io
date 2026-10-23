@@ -2,6 +2,8 @@ html.theme-locked .hero {
   position:relative;
   isolation:isolate;
   overflow:hidden;
+  /* Animated hero content is not a stable anchor for reload scroll restoration. */
+  overflow-anchor:none;
   padding-block:28px;
   background:radial-gradient(ellipse at 15% 8%,#edf4eb,transparent 62%),radial-gradient(ellipse at 94% 94%,#f9f2e6,transparent 62%),var(--canvas);
 }

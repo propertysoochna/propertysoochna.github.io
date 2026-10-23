@@ -18,11 +18,11 @@ html.theme-locked[data-theme="india"] :is(h1,h2,h3) { overflow-wrap:anywhere; }
 html.theme-locked[data-theme="india"] :is(.whatsapp-button,.offer .whatsapp-button,.nav-offer .whatsapp-button,.mobile-links .whatsapp-button) {
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   min-height:44px; max-width:100%; padding:9px 13px; border:1px solid #096938;
-  border-radius:999px; color:#fff; background:linear-gradient(135deg,#08783e,#075e32);
-  box-shadow:0 5px 14px #08783e1c; font-size:13px; line-height:1.4;
+  border-radius:999px; color:#08783e; background:#fff;
+  box-shadow:none; font-size:13px; line-height:1.4;
   font-weight:700; text-decoration:none;
 }
-html.theme-locked[data-theme="india"] :is(.whatsapp-button,.offer .whatsapp-button,.nav-offer .whatsapp-button,.mobile-links .whatsapp-button):hover { background:linear-gradient(135deg,#075e32,#064b29); }
+html.theme-locked[data-theme="india"] :is(.whatsapp-button,.offer .whatsapp-button,.nav-offer .whatsapp-button,.mobile-links .whatsapp-button):is(:hover,:focus-visible) { color:#075e32; background:#eef8f1; border-color:#075e32; }
 .whatsapp-icon { display:inline-block; vertical-align:middle; width:18px; height:18px; flex-shrink:0; }
 html.theme-locked[data-theme="india"] :is(body,main,.stage,.site-header,.mobile-links,.site-footer,.about-intro,.about-section) { background:var(--canvas); }
 html.theme-locked[data-theme="india"] .hero-map-background::after { background:radial-gradient(ellipse at 50% 48%,var(--wash-strong) 0%,var(--wash-medium) 28%,var(--wash-edge) 64%,transparent 84%); }
@@ -55,5 +55,6 @@ html.theme-locked[data-theme="india"] .hero .product-types li:first-child { colo
 }
 @media(forced-colors:active) {
   html.theme-locked[data-theme="india"] .hero h1 span { background:none; color:CanvasText; }
-  html.theme-locked[data-theme="india"] :is(.whatsapp-button,.offer .whatsapp-button,.nav-offer .whatsapp-button,.mobile-links .whatsapp-button) { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
+  html.theme-locked[data-theme="india"] :is(.whatsapp-button,.offer .whatsapp-button,.nav-offer .whatsapp-button,.mobile-links .whatsapp-button),
+  html.theme-locked[data-theme="india"] :is(.whatsapp-button,.offer .whatsapp-button,.nav-offer .whatsapp-button,.mobile-links .whatsapp-button):is(:hover,:focus-visible) { color:ButtonText; background:ButtonFace; border-color:ButtonText; box-shadow:none; }
 }

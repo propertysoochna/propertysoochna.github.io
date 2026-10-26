@@ -7,7 +7,7 @@
   "latestBulletin": "2026-10-26",
   "latestCityBulletins": {
     "gurugram": "2026-10-26-weekly",
-    "noida": "2026-10-26"
+    "noida": "2026-10-26-weekly"
   },
   "publishedEditionFormat": "open-digest-v1",
   "directoryRegions": 34,
@@ -19,5 +19,5 @@
   ],
   "paidMonthlyRegionPrice": 9,
   "accessMode": "Manual access enquiries; no checkout or membership backend",
-  "generatedAt": "2026-10-26T18:22:11.029051+00:00"
+  "generatedAt": "2026-10-26T18:27:49.941477+00:00"
 }

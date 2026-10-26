@@ -6,7 +6,7 @@
   "motion": "Expressive entrances and scroll flow",
   "latestBulletin": "2026-10-26",
   "latestCityBulletins": {
-    "gurugram": "2026-10-26",
+    "gurugram": "2026-10-26-weekly",
     "noida": "2026-10-26"
   },
   "publishedEditionFormat": "open-digest-v1",
@@ -19,5 +19,5 @@
   ],
   "paidMonthlyRegionPrice": 9,
   "accessMode": "Manual access enquiries; no checkout or membership backend",
-  "generatedAt": "2026-10-26T18:14:54.631754+00:00"
+  "generatedAt": "2026-10-26T18:22:11.029051+00:00"
 }

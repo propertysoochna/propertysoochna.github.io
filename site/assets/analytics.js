@@ -184,9 +184,7 @@
       applyChoice(button.dataset.analyticsChoice);
       if (status.textContent) showPanel(true);
       else {
-        confirmChoice(choice === "accepted"
-          ? "Thanks"
-          : "Preference saved. Analytics is off. Your visits and clicks will not be tracked in this browser.");
+        confirmChoice("Thank you!");
       }
     });
   });

@@ -438,3 +438,8 @@ dialog form { margin:0 0 0 auto; }
   .home-regions { grid-template-columns:1fr 1fr; grid-auto-flow:row; overflow:visible; }
   .wrap { width:100%; }
 }
+body[data-view="authority-guide"] .subpage { overflow-wrap:anywhere; }
+body[data-view="authority-guide"] .coverage-box { min-width:0; }
+body[data-view="authority-guide"] .coverage-box h2 { font-size:24px; }
+body[data-view="authority-guide"] .coverage-box p { font-size:16px; margin-bottom:12px; }
+body[data-view="authority-guide"] li { margin-bottom:8px; }

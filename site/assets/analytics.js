@@ -8,7 +8,9 @@
   const panel = document.getElementById("analytics-consent");
   const settings = document.getElementById("analytics-settings");
   const status = document.getElementById("analytics-status");
-  if (!panel || !settings || !status) throw new Error("Incomplete analytics consent controls");
+  const footer = document.querySelector(".footer-meta");
+  if (!panel || !settings || !status || !footer) throw new Error("Incomplete analytics consent controls");
+  if (settings.parentElement !== footer) footer.appendChild(settings);
   let feedback = document.getElementById("analytics-feedback");
   // Earlier cached pages do not yet include the confirmation region.
   if (!feedback) {
@@ -18,7 +20,7 @@
     feedback.setAttribute("role", "status");
     feedback.setAttribute("aria-live", "polite");
     feedback.setAttribute("aria-atomic", "true");
-    settings.before(feedback);
+    panel.after(feedback);
   }
   const storageKey = "propertysoochna.analytics-consent.v1";
   const disableKey = `ga-disable-${measurementId}`;
@@ -38,8 +40,7 @@
     feedbackTimer = setTimeout(clearFeedback, 8000);
   };
   const updateControls = () => {
-    const state = choice === "accepted" ? "on" : choice === "rejected" ? "off" : "";
-    settings.textContent = state ? `Analytics settings: ${state}` : "Analytics settings";
+    settings.textContent = "Cookie settings";
     panel.querySelectorAll("[data-analytics-choice]").forEach(button => {
       button.setAttribute("aria-pressed", String(button.dataset.analyticsChoice === choice));
     });
@@ -142,7 +143,7 @@
   panel.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       showPanel(false);
-      settings.focus();
+      settings.focus({ preventScroll: true });
     }
   });
   panel.querySelectorAll("[data-analytics-choice]").forEach(button => {
@@ -159,7 +160,7 @@
         confirmChoice(choice === "accepted"
           ? "Preference saved. Analytics is on for this browser."
           : "Preference saved. Analytics is off. Your visits and clicks will not be tracked in this browser.");
-        settings.focus();
+        settings.focus({ preventScroll: true });
       }
     });
   });

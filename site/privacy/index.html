@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../assets/india-publication.css">
 <link rel="stylesheet" href="../assets/india-motion.css">
 <script src="../assets/india-motion.js" defer></script>
-<link rel="stylesheet" href="../assets/analytics.css?v=20261028-feedback">
+<link rel="stylesheet" href="../assets/analytics.css?v=20261028-cookies">
 </head>
 <body data-view="">
 
@@ -45,13 +45,13 @@
         <p>When configured, we use Google Analytics 4 to understand website visits,
         popular pages, traffic sources and clicks on our WhatsApp join buttons.
         A button click does not tell us whether someone joined the group.</p>
-        <p>Google Analytics loads only after you select Accept analytics.
+        <p>Google Analytics loads only after you select Accept cookies.
         Rejecting analytics does not restrict access to the website.
         No Google Analytics requests or cookies are made by this integration
         before you accept. Analytics is not used for advertising personalization.</p>
         <h2>Your choice and cookies</h2>
-        <p>When analytics is configured, use Analytics settings on any page to
-        accept or reject it at any time. We remember your choice in this
+        <p>When analytics is configured, use Cookie settings in the footer on
+        any page to accept or reject it at any time. We remember your choice in this
         browser's local storage. Clearing site data resets the choice.
         If browser storage is blocked, the choice applies only to the current page.</p>
         <p>After acceptance, Google can use first-party _ga cookies to distinguish
@@ -114,7 +114,9 @@
       <div class="footer-bottom">
         <p>Independent of government authorities. Apply and pay for property through official portals.
         Availability can change; no allotment or investment return is guaranteed.</p>
-        <div class="footer-meta"><span>&copy; 2026 PropertySoochna</span>
+        <div class="footer-meta">
+<button id="analytics-settings" class="analytics-settings" type="button"
+  aria-controls="analytics-consent" aria-expanded="false" hidden>Cookie settings</button><span>&copy; 2026 PropertySoochna</span>
           <a href="#">Back to top <span aria-hidden="true">&uarr;</span></a></div>
       </div>
     </div></footer>
@@ -122,20 +124,18 @@
     <script src="../assets/site.js"></script>
     <script src="../assets/card-motion.js"></script>
 
-<section id="analytics-consent" class="analytics-consent" aria-label="Optional analytics" hidden>
-  <h2>Help us improve PropertySoochna</h2>
-  <p>Allow Google Analytics cookies to measure visits and WhatsApp-button clicks?
-  Analytics is optional. <a href="../privacy/">Privacy notice</a>.</p>
+<section id="analytics-consent" class="analytics-consent" aria-label="Optional cookies" hidden>
+  <h2>Optional cookies</h2>
+  <p>Allow Google Analytics cookies to help us understand visits and improve
+  PropertySoochna? Your choice. <a href="../privacy/">Privacy notice</a>.</p>
   <div class="analytics-actions">
-    <button type="button" data-analytics-choice="accepted" aria-pressed="false">Accept analytics</button>
-    <button type="button" data-analytics-choice="rejected" aria-pressed="false">Reject analytics</button>
+    <button type="button" data-analytics-choice="accepted" aria-pressed="false">Accept cookies</button>
+    <button type="button" data-analytics-choice="rejected" aria-pressed="false">Reject cookies</button>
   </div>
   <p id="analytics-status" role="status"></p>
 </section>
 <p id="analytics-feedback" class="analytics-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
-<button id="analytics-settings" class="analytics-settings" type="button"
-  aria-controls="analytics-consent" aria-expanded="false" hidden>Analytics settings</button>
-<script src="../assets/analytics.js?v=20261028-feedback" data-measurement-id="G-2F93C87ZT6"
+<script src="../assets/analytics.js?v=20261028-cookies" data-measurement-id="G-2F93C87ZT6"
   data-site-origin="https://propertysoochna.in" defer></script>
 </body>
 </html>

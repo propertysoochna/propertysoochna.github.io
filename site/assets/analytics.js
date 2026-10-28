@@ -5,11 +5,28 @@
   if (!/^G-[A-Z0-9]{10}$/.test(measurementId || "")) {
     throw new Error("Invalid Google Analytics Measurement ID");
   }
-  const panel = document.getElementById("analytics-consent");
+  let panel = document.getElementById("analytics-consent");
   const settings = document.getElementById("analytics-settings");
   const status = document.getElementById("analytics-status");
   const footer = document.querySelector(".footer-meta");
   if (!panel || !settings || !status || !footer) throw new Error("Incomplete analytics consent controls");
+  // Upgrade cached corner notices when they load the new dialog runtime.
+  if (!(panel instanceof HTMLDialogElement)) {
+    const dialog = document.createElement("dialog");
+    for (const attribute of panel.attributes) dialog.setAttribute(attribute.name, attribute.value);
+    dialog.append(...panel.childNodes);
+    panel.replaceWith(dialog);
+    panel = dialog;
+    const heading = panel.querySelector("h2");
+    const description = panel.querySelector("p");
+    if (!heading || !description) throw new Error("Incomplete cookie dialog description");
+    heading.id = "analytics-consent-title";
+    heading.tabIndex = -1;
+    description.id = "analytics-consent-description";
+    panel.removeAttribute("aria-label");
+    panel.setAttribute("aria-labelledby", heading.id);
+    panel.setAttribute("aria-describedby", description.id);
+  }
   if (settings.parentElement !== footer) footer.appendChild(settings);
   let feedback = document.getElementById("analytics-feedback");
   // Earlier cached pages do not yet include the confirmation region.
@@ -60,7 +77,16 @@
     }
   };
   const showPanel = visible => {
-    panel.hidden = !visible;
+    if (visible) {
+      panel.hidden = false;
+      if (!panel.open) {
+        panel.showModal();
+        panel.querySelector("h2").focus({ preventScroll: true });
+      }
+    } else {
+      if (panel.open) panel.close();
+      panel.hidden = true;
+    }
     settings.setAttribute("aria-expanded", String(visible));
   };
   const stopAnalytics = () => {
@@ -138,13 +164,14 @@
   settings.addEventListener("click", () => {
     clearFeedback();
     showPanel(panel.hidden);
-    if (!panel.hidden) panel.querySelector("button").focus();
   });
+  const dismissPanel = event => {
+    event.preventDefault();
+    showPanel(false);
+  };
+  panel.addEventListener("cancel", dismissPanel);
   panel.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      showPanel(false);
-      settings.focus({ preventScroll: true });
-    }
+    if (event.key === "Escape") dismissPanel(event);
   });
   panel.querySelectorAll("[data-analytics-choice]").forEach(button => {
     button.addEventListener("click", () => {
@@ -158,9 +185,8 @@
       if (status.textContent) showPanel(true);
       else {
         confirmChoice(choice === "accepted"
-          ? "Preference saved. Analytics is on for this browser."
+          ? "Thanks"
           : "Preference saved. Analytics is off. Your visits and clicks will not be tracked in this browser.");
-        settings.focus({ preventScroll: true });
       }
     });
   });

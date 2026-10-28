@@ -53,6 +53,10 @@ html:has(.analytics-consent[open]) {
   font: 700 20px/1.3 system-ui, sans-serif;
 }
 
+.analytics-consent h2:focus {
+  outline: none;
+}
+
 .analytics-consent p {
   margin: 8px 0;
 }

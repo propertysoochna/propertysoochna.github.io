@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="../../../assets/india-publication.css">
 <link rel="stylesheet" href="../../../assets/india-motion.css">
 <script src="../../../assets/india-motion.js" defer></script>
-<link rel="stylesheet" href="../../../assets/analytics.css">
+<link rel="stylesheet" href="../../../assets/analytics.css?v=20261028-feedback">
 </head>
 <body data-view="city-bulletin">
 
@@ -117,14 +117,15 @@
   <p>Allow Google Analytics cookies to measure visits and WhatsApp-button clicks?
   Analytics is optional. <a href="../../../privacy/">Privacy notice</a>.</p>
   <div class="analytics-actions">
-    <button type="button" data-analytics-choice="accepted">Accept analytics</button>
-    <button type="button" data-analytics-choice="rejected">Reject analytics</button>
+    <button type="button" data-analytics-choice="accepted" aria-pressed="false">Accept analytics</button>
+    <button type="button" data-analytics-choice="rejected" aria-pressed="false">Reject analytics</button>
   </div>
   <p id="analytics-status" role="status"></p>
 </section>
+<p id="analytics-feedback" class="analytics-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
 <button id="analytics-settings" class="analytics-settings" type="button"
   aria-controls="analytics-consent" aria-expanded="false" hidden>Analytics settings</button>
-<script src="../../../assets/analytics.js" data-measurement-id="G-2F93C87ZT6"
+<script src="../../../assets/analytics.js?v=20261028-feedback" data-measurement-id="G-2F93C87ZT6"
   data-site-origin="https://propertysoochna.in" defer></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 .analytics-consent,
-.analytics-settings {
+.analytics-settings,
+.analytics-feedback {
   position: fixed;
   z-index: 1000;
   color: #17352e;
@@ -23,6 +24,20 @@
   box-sizing: border-box;
   padding: 18px;
   border-radius: 12px;
+}
+
+.analytics-feedback {
+  right: 16px;
+  bottom: 64px;
+  width: min(440px, calc(100vw - 32px));
+  box-sizing: border-box;
+  margin: 0;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.analytics-feedback:empty {
+  display: none;
 }
 
 .analytics-consent h2 {
@@ -64,9 +79,36 @@
   outline-offset: 3px;
 }
 
+.analytics-actions button:hover,
+.analytics-settings:hover {
+  background: #eaf5f0;
+}
+
+.analytics-actions button:active,
+.analytics-settings:active {
+  background: #d3eade;
+  box-shadow: inset 0 2px 4px #0002;
+}
+
+.analytics-actions button[aria-pressed="true"] {
+  color: #fff;
+  background: #075e50;
+  border-color: #075e50;
+}
+
 .analytics-settings {
   right: 16px;
   bottom: 12px;
+  max-width: calc(100vw - 32px);
+}
+
+@media (forced-colors: active) {
+  .analytics-actions button[aria-pressed="true"] {
+    color: HighlightText;
+    background: Highlight;
+    border-color: Highlight;
+    forced-color-adjust: none;
+  }
 }
 
 #analytics-status:empty {
@@ -75,7 +117,8 @@
 
 @media print {
   .analytics-consent,
-  .analytics-settings {
+  .analytics-settings,
+  .analytics-feedback {
     display: none !important;
   }
 }

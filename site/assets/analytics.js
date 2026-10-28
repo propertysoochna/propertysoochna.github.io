@@ -9,11 +9,41 @@
   const settings = document.getElementById("analytics-settings");
   const status = document.getElementById("analytics-status");
   if (!panel || !settings || !status) throw new Error("Incomplete analytics consent controls");
+  let feedback = document.getElementById("analytics-feedback");
+  // Earlier cached pages do not yet include the confirmation region.
+  if (!feedback) {
+    feedback = document.createElement("p");
+    feedback.id = "analytics-feedback";
+    feedback.className = "analytics-feedback";
+    feedback.setAttribute("role", "status");
+    feedback.setAttribute("aria-live", "polite");
+    feedback.setAttribute("aria-atomic", "true");
+    settings.before(feedback);
+  }
   const storageKey = "propertysoochna.analytics-consent.v1";
   const disableKey = `ga-disable-${measurementId}`;
   let choice = null;
   let initialized = false;
+  let feedbackTimer;
+  let loadFailed = false;
+  const loadFailureMessage = "Analytics is allowed but could not load. Refresh to retry. You can continue using the website.";
 
+  const clearFeedback = () => {
+    clearTimeout(feedbackTimer);
+    feedback.textContent = "";
+  };
+  const confirmChoice = message => {
+    clearFeedback();
+    feedback.textContent = message;
+    feedbackTimer = setTimeout(clearFeedback, 8000);
+  };
+  const updateControls = () => {
+    const state = choice === "accepted" ? "on" : choice === "rejected" ? "off" : "";
+    settings.textContent = state ? `Analytics settings: ${state}` : "Analytics settings";
+    panel.querySelectorAll("[data-analytics-choice]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.analyticsChoice === choice));
+    });
+  };
   const storageFailure = error => {
     if (!(error instanceof DOMException)
       || !["SecurityError", "QuotaExceededError"].includes(error.name)) throw error;
@@ -80,7 +110,12 @@
       tag.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
       tag.addEventListener("error", () => {
         console.error("Google Analytics could not load; website access is unaffected.");
-        status.textContent = "Analytics could not load. You can continue using the website.";
+        loadFailed = true;
+        if (choice === "accepted") {
+          clearFeedback();
+          status.textContent = loadFailureMessage;
+          showPanel(true);
+        }
       });
       document.head.appendChild(tag);
       initialized = true;
@@ -91,12 +126,24 @@
     choice = value;
     if (choice === "accepted") startAnalytics();
     else stopAnalytics();
+    updateControls();
     showPanel(choice !== "accepted" && choice !== "rejected");
+    if (choice === "accepted" && loadFailed) {
+      status.textContent = loadFailureMessage;
+      showPanel(true);
+    }
   };
   settings.hidden = false;
   settings.addEventListener("click", () => {
+    clearFeedback();
     showPanel(panel.hidden);
     if (!panel.hidden) panel.querySelector("button").focus();
+  });
+  panel.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      showPanel(false);
+      settings.focus();
+    }
   });
   panel.querySelectorAll("[data-analytics-choice]").forEach(button => {
     button.addEventListener("click", () => {
@@ -108,11 +155,21 @@
       }
       applyChoice(button.dataset.analyticsChoice);
       if (status.textContent) showPanel(true);
-      else settings.focus();
+      else {
+        confirmChoice(choice === "accepted"
+          ? "Preference saved. Analytics is on for this browser."
+          : "Preference saved. Analytics is off. Your visits and clicks will not be tracked in this browser.");
+        settings.focus();
+      }
     });
   });
   window.addEventListener("storage", event => {
-    if (event.key === storageKey || event.key === null) applyChoice(readChoice());
+    if (event.key === storageKey || event.key === null) {
+      clearFeedback();
+      status.textContent = "";
+      applyChoice(readChoice());
+      if (status.textContent) showPanel(true);
+    }
   });
   document.addEventListener("click", event => {
     if (choice !== "accepted" || !(event.target instanceof Element)) return;

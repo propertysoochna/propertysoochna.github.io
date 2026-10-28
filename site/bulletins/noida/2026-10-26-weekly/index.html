@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="../../../assets/india-publication.css">
 <link rel="stylesheet" href="../../../assets/india-motion.css">
 <script src="../../../assets/india-motion.js" defer></script>
+<link rel="stylesheet" href="../../../assets/analytics.css">
 </head>
 <body data-view="city-bulletin">
 
@@ -91,6 +92,7 @@
           <a href="../../../contact/">Contact</a>
           <a href="../../../editorial-policy/">Editorial policy</a>
           <a href="../../../corrections/">Corrections</a>
+          <a href="../../../privacy/">Privacy</a>
           <a class="footer-email" href="mailto:propertysoochna@gmail.com">propertysoochna@gmail.com</a>
         </nav>
       </div>
@@ -104,5 +106,20 @@
     <script src="../../../site-config.js"></script>
     <script src="../../../assets/site.js"></script>
     <script src="../../../assets/card-motion.js"></script>
+
+<section id="analytics-consent" class="analytics-consent" aria-label="Optional analytics" hidden>
+  <h2>Help us improve PropertySoochna</h2>
+  <p>Allow Google Analytics cookies to measure visits and WhatsApp-button clicks?
+  Analytics is optional. <a href="../../../privacy/">Privacy notice</a>.</p>
+  <div class="analytics-actions">
+    <button type="button" data-analytics-choice="accepted">Accept analytics</button>
+    <button type="button" data-analytics-choice="rejected">Reject analytics</button>
+  </div>
+  <p id="analytics-status" role="status"></p>
+</section>
+<button id="analytics-settings" class="analytics-settings" type="button"
+  aria-controls="analytics-consent" aria-expanded="false" hidden>Analytics settings</button>
+<script src="../../../assets/analytics.js" data-measurement-id="G-2F93C87ZT6"
+  data-site-origin="https://propertysoochna.in" defer></script>
 </body>
 </html>

@@ -41,6 +41,15 @@
   }
   const storageKey = "propertysoochna.analytics-consent.v1";
   const disableKey = `ga-disable-${measurementId}`;
+  const bulletinDetails = reference => {
+    const url = new URL(reference, location.href);
+    if (url.origin !== script.dataset.siteOrigin) return null;
+    const match = url.pathname.match(/^\/bulletins\/(?:(gurugram|noida)\/)?(\d{4}-\d{2}-\d{2}(?:-[a-z0-9]+)*)\/$/);
+    if (!match) return null;
+    return { region_id: match[1] || "delhi-ncr", bulletin_id: match[2] };
+  };
+  const canonical = document.querySelector('link[rel="canonical"]');
+  const currentBulletin = canonical ? bulletinDetails(canonical.href) : null;
   let choice = null;
   let initialized = false;
   let feedbackTimer;
@@ -147,6 +156,12 @@
       document.head.appendChild(tag);
       initialized = true;
       window.gtag("event", "page_view", { send_to: measurementId });
+      if (currentBulletin) {
+        window.gtag("event", "bulletin_view", {
+          send_to: measurementId,
+          ...currentBulletin
+        });
+      }
     }
   };
   const applyChoice = value => {
@@ -198,13 +213,25 @@
   });
   document.addEventListener("click", event => {
     if (choice !== "accepted" || !(event.target instanceof Element)) return;
-    const anchor = event.target.closest("a[data-region-channel]");
-    if (!anchor || new URL(anchor.href).hostname !== "chat.whatsapp.com") return;
+    const anchor = event.target.closest("a[href]");
+    if (!anchor) return;
+    const target = new URL(anchor.href);
+    const bulletin = bulletinDetails(target.href)
+      || (target.origin === script.dataset.siteOrigin && target.pathname === "/latest/"
+        ? { region_id: "delhi-ncr", bulletin_id: "latest" } : null);
+    if (bulletin && target.pathname !== location.pathname) {
+      window.gtag("event", "bulletin_open_click", {
+        send_to: measurementId,
+        ...bulletin
+      });
+    }
+    if (!anchor.hasAttribute("data-region-channel") || target.hostname !== "chat.whatsapp.com") return;
     const region = anchor.dataset.regionChannel;
     if (!/^[a-z0-9-]+$/.test(region || "")) return;
     window.gtag("event", "whatsapp_join_click", {
       send_to: measurementId,
-      region_id: region
+      region_id: region,
+      source_page_type: currentBulletin ? "bulletin" : "other"
     });
   });
   applyChoice(readChoice());

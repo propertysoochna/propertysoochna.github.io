@@ -225,6 +225,16 @@
         ...bulletin
       });
     }
+    if (anchor.hasAttribute("data-access-request") && target.protocol === "mailto:") {
+      const region = anchor.dataset.accessRequest;
+      if (/^[a-z0-9-]+$/.test(region || "")) {
+        window.gtag("event", "edition_access_request_click", {
+          send_to: measurementId,
+          region_id: region,
+          source_page_type: currentBulletin ? "bulletin" : "other"
+        });
+      }
+    }
     if (!anchor.hasAttribute("data-region-channel") || target.hostname !== "chat.whatsapp.com") return;
     const region = anchor.dataset.regionChannel;
     if (!/^[a-z0-9-]+$/.test(region || "")) return;

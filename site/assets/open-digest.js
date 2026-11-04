@@ -11,18 +11,67 @@
   if (!content || !closeButton || !official || !title || !authority || !location || !sourceButton) throw new Error("Incomplete scheme dialog");
   let opener = null;
   let details = null;
+  let panelAnimation = null;
+  let closing = false;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce), (forced-colors: active)");
+  const stopPanelAnimation = () => {
+    if (panelAnimation) panelAnimation.cancel();
+    panelAnimation = null;
+  };
 
   const restore = () => {
+    stopPanelAnimation();
+    closing = false;
+    dialog.classList.remove("is-closing");
     if (!details) return;
     details.append(content.firstElementChild);
     document.documentElement.classList.remove("digest-modal-open");
     opener.focus({ preventScroll: true });
     details = null;
   };
-  const close = () => {
+  const finishClose = () => {
     dialog.close();
     restore();
   };
+  const close = () => {
+    if (!dialog.open || closing) return;
+    if (reducedMotion.matches || typeof dialog.animate !== "function") {
+      finishClose();
+      return;
+    }
+    const style = getComputedStyle(dialog);
+    const from = { transform: style.transform, opacity: style.opacity };
+    stopPanelAnimation();
+    closing = true;
+    dialog.classList.add("is-closing");
+    panelAnimation = dialog.animate(
+      [from, { transform: "translateX(100%)", opacity: 0 }],
+      { duration: 280, easing: "ease-in", fill: "both" }
+    );
+    panelAnimation.addEventListener("finish", finishClose, { once: true });
+  };
+  let arrivalObserver = null;
+  if (!reducedMotion.matches && typeof window.IntersectionObserver === "function") {
+    arrivalObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        if (!reducedMotion.matches) entry.target.dataset.readerArrived = "";
+        arrivalObserver.unobserve(entry.target);
+      });
+    }, { threshold: .06 });
+    document.querySelectorAll('.open-digest[data-presentation="compact-v1"] .digest-stat, .open-digest[data-presentation="compact-v1"] .digest-scheme').forEach(element => {
+      arrivalObserver.observe(element);
+    });
+  }
+  reducedMotion.addEventListener("change", () => {
+    if (!reducedMotion.matches) return;
+    if (arrivalObserver) arrivalObserver.disconnect();
+    document.querySelectorAll("[data-reader-arrived]").forEach(element => {
+      element.removeAttribute("data-reader-arrived");
+    });
+    if (closing) finishClose();
+    else stopPanelAnimation();
+  });
 
   document.querySelectorAll('.open-digest[data-presentation="compact-v1"] .digest-matrix tbody tr').forEach(row => {
     const link = row.querySelector('th a[href^="#"]');
@@ -63,6 +112,12 @@
       document.documentElement.classList.add("digest-modal-open");
       content.scrollTop = 0;
       closeButton.focus();
+      if (!reducedMotion.matches && typeof dialog.animate === "function") {
+        panelAnimation = dialog.animate(
+          [{ transform: "translateX(100%)", opacity: .75 }, { transform: "translateX(0)", opacity: 1 }],
+          { duration: 420, easing: "cubic-bezier(.2,.7,.2,1)" }
+        );
+      }
     });
     if (scheme.matches(".digest-scheme")) {
       scheme.addEventListener("click", event => {
@@ -95,9 +150,11 @@
   });
   closeButton.addEventListener("click", close);
   dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
-  dialog.addEventListener("close", restore);
+  dialog.addEventListener("close", () => {
+    if (!dialog.open) restore();
+  });
   window.addEventListener("beforeprint", () => {
-    if (dialog.open) close();
+    if (dialog.open) finishClose();
   });
   dialog.addEventListener("click", event => {
     const bounds = dialog.getBoundingClientRect();

@@ -14,6 +14,7 @@
 .open-digest[data-presentation="compact-v1"] .digest-stat:nth-child(3) strong { color:#805307; }
 .open-digest[data-presentation="compact-v1"] .digest-matrix { font-size:12px; }
 .open-digest[data-presentation="compact-v1"] .digest-matrix :is(th,td) { padding:10px 14px; }
+.open-digest[data-presentation="compact-v1"] .digest-matrix td.digest-count-positive { color:#142d34; font-weight:750; }
 .open-digest[data-presentation="compact-v1"] .digest-matrix thead th { font-size:11px; font-weight:600; }
 .open-digest[data-presentation="compact-v1"] .digest-detail-layout:has(> .digest-authority-index) { grid-template-columns:130px minmax(0,1fr); gap:24px; }
 .open-digest[data-presentation="compact-v1"] .digest-authority-index { padding-left:13px; gap:4px; }

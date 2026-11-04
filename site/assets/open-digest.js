@@ -24,6 +24,20 @@
     restore();
   };
 
+  document.querySelectorAll('.open-digest[data-presentation="compact-v1"] .digest-matrix tbody tr').forEach(row => {
+    const link = row.querySelector('th a[href^="#"]');
+    if (!link) return;
+    if (!document.getElementById(link.hash.slice(1))) throw new Error("Authority row has no details target");
+    row.addEventListener("click", event => {
+      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (!(event.target instanceof Element) || event.target.closest("a, button, input, select, textarea, label, [contenteditable]")) return;
+      const selection = window.getSelection();
+      if (selection && !selection.isCollapsed && (row.contains(selection.anchorNode) || row.contains(selection.focusNode))) return;
+      link.click();
+    });
+    row.dataset.clickable = "true";
+  });
+
   document.querySelectorAll(".digest-scheme-details > summary").forEach(summary => {
     const scheme = summary.closest(".digest-scheme, .digest-results");
     if (!scheme) throw new Error("Scheme details control has no container");

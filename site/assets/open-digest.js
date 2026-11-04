@@ -1,0 +1,106 @@
+(() => {
+  const dialog = document.getElementById("digest-dialog");
+  if (!dialog) return;
+  const content = dialog.querySelector(".digest-dialog-content");
+  const closeButton = dialog.querySelector(".digest-dialog-close");
+  const official = dialog.querySelector(".digest-dialog-official");
+  const title = document.getElementById("digest-dialog-title");
+  const authority = dialog.querySelector(".digest-dialog-authority");
+  const location = dialog.querySelector(".digest-dialog-location");
+  const sourceButton = dialog.querySelector(".source-shortcut");
+  if (!content || !closeButton || !official || !title || !authority || !location || !sourceButton) throw new Error("Incomplete scheme dialog");
+  let opener = null;
+  let details = null;
+
+  const restore = () => {
+    if (!details) return;
+    details.append(content.firstElementChild);
+    document.documentElement.classList.remove("digest-modal-open");
+    opener.focus({ preventScroll: true });
+    details = null;
+  };
+  const close = () => {
+    dialog.close();
+    restore();
+  };
+
+  document.querySelectorAll(".digest-scheme-details > summary").forEach(summary => {
+    const scheme = summary.closest(".digest-scheme, .digest-results");
+    if (!scheme) throw new Error("Scheme details control has no container");
+    summary.addEventListener("click", event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const body = scheme.querySelector(".digest-detail-body");
+      if (!body) throw new Error("Scheme details are missing");
+      const sourceUrl = scheme.querySelector(".digest-official-link")?.href || scheme.dataset.officialUrl;
+      if (!sourceUrl) throw new Error("Scheme official source is missing");
+      event.preventDefault();
+      opener = summary;
+      details = summary.parentElement;
+      title.textContent = scheme.querySelector("h4").textContent;
+      authority.textContent = scheme.dataset.owner || scheme.closest(".digest-authority").querySelector("h3").textContent;
+      location.replaceChildren(document.createTextNode(scheme.dataset.location || ""));
+      const status = scheme.querySelector(".digest-status");
+      if (status) location.append(document.createTextNode(" "), status.cloneNode(true));
+      official.href = sourceUrl;
+      sourceButton.hidden = !body.querySelector(".source-record");
+      body.querySelectorAll(".deeper").forEach(section => { section.open = false; });
+      content.replaceChildren(body);
+      dialog.showModal();
+      document.documentElement.classList.add("digest-modal-open");
+      content.scrollTop = 0;
+      closeButton.focus();
+    });
+    if (scheme.matches(".digest-scheme")) {
+      scheme.addEventListener("click", event => {
+        if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        if (!(event.target instanceof Element) || event.target.closest("a, button, summary, input, select, textarea, label, [contenteditable], .digest-detail-body")) return;
+        const selection = window.getSelection();
+        if (selection && !selection.isCollapsed && (scheme.contains(selection.anchorNode) || scheme.contains(selection.focusNode))) return;
+        summary.click();
+      });
+      scheme.dataset.clickable = "true";
+    }
+  });
+  sourceButton.addEventListener("click", () => {
+    const sources = content.querySelector(".source-record");
+    if (!sources) throw new Error("Scheme source documents are missing");
+    sources.open = true;
+    sources.querySelector("summary").focus();
+    sources.scrollIntoView({ block: "start" });
+  });
+  content.addEventListener("click", event => {
+    if (!(event.target instanceof Element)) return;
+    const shortcut = event.target.closest("[data-open-section]");
+    if (!shortcut || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const section = document.getElementById(shortcut.hash.slice(1));
+    if (!section || !content.contains(section)) throw new Error("Missing application steps section");
+    event.preventDefault();
+    section.open = true;
+    section.querySelector("summary").focus();
+    section.scrollIntoView({ block: "start" });
+  });
+  closeButton.addEventListener("click", close);
+  dialog.addEventListener("cancel", event => { event.preventDefault(); close(); });
+  dialog.addEventListener("close", restore);
+  window.addEventListener("beforeprint", () => {
+    if (dialog.open) close();
+  });
+  dialog.addEventListener("click", event => {
+    const bounds = dialog.getBoundingClientRect();
+    if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) close();
+  });
+  dialog.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      close();
+    } else if (event.key === "Tab") {
+      if (event.shiftKey && document.activeElement === closeButton) {
+        event.preventDefault();
+        official.focus();
+      } else if (!event.shiftKey && document.activeElement === official) {
+        event.preventDefault();
+        closeButton.focus();
+      }
+    }
+  });
+})();

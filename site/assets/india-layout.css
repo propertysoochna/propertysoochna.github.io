@@ -45,9 +45,14 @@ html.theme-locked .hero .hero-actions .instagram-button {
   background:linear-gradient(115deg,#7739a7,#bd255f 55%,#b8472c);
   border-color:#a52b6b;
   box-shadow:0 7px 18px #a52b6b1f;
-  gap:9px;
+  width:58px;
+  height:58px;
+  padding:0;
+  border-radius:50%;
+  flex:0 0 58px;
 }
 .instagram-icon { width:20px; height:20px; flex:0 0 auto; }
+.hero .hero-actions .instagram-icon { width:24px; height:24px; }
 .growth-strip {
   display:flex;
   flex-wrap:wrap;
@@ -75,12 +80,11 @@ html.theme-locked .hero .hero-actions .instagram-button {
   .hero-map-background img { opacity:.28; }
   .hero-map-background::after { background:radial-gradient(ellipse at 50% 43%,#fcfcf8c9 0%,#fcfcf880 30%,transparent 78%); }
   html.theme-locked .hero .summary { max-width:340px; }
-  .hero .hero-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); width:min(100%,520px); margin-inline:auto; gap:8px; align-items:stretch; }
+  .hero .hero-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)) 60px; width:min(100%,520px); margin-inline:auto; gap:8px; align-items:stretch; }
   html.theme-locked .hero .hero-actions .button { min-width:0; min-height:60px; padding:12px 8px; gap:0; font-size:13px; line-height:1.5; white-space:normal; }
   html.theme-locked body .hero .hero-actions > .button > span[aria-hidden="true"] { display:none; }
-  html.theme-locked .hero .hero-actions .instagram-button { flex-direction:column; padding-block:10px; gap:4px; }
+  html.theme-locked .hero .hero-actions .instagram-button { width:60px; height:60px; padding:0; }
   .instagram-icon { width:18px; height:18px; }
-  .instagram-follow { display:none; }
   .growth-strip { gap:7px 10px; }
   .growth-stats { gap:12px; }
   .growth-stats strong { font-size:21px; }
@@ -93,8 +97,7 @@ html.theme-locked .hero .hero-actions .instagram-button {
 }
 @media(max-width:360px) {
   .hero .hero-actions { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  html.theme-locked .hero .hero-actions .instagram-button { grid-column:1 / -1; flex-direction:row; gap:8px; }
-  .instagram-follow { display:inline; }
+  html.theme-locked .hero .hero-actions .instagram-button { grid-column:1 / -1; justify-self:center; }
   html.theme-locked .hero .offer { display:grid; justify-items:center; gap:10px; text-align:center; }
   .hero .offer-copy { justify-items:center; }
   .hero .offer-price { justify-content:center; }

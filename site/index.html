@@ -18,6 +18,8 @@
   <link rel="icon" href="./assets/logo-e-radar-roof.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/site.css">
   <link rel="stylesheet" href="./assets/locked-theme.css">
+  <link rel="stylesheet" href="./assets/diwali.css?v=20261108">
+  <script src="./assets/diwali.js?v=20261108" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PropertySoochna">
   <meta property="og:title" content="Property Soochna | Government Property Schemes &amp; Updates">
@@ -84,8 +86,60 @@
     </div></header>
   <main id="main-content">
     <section class="stage hero" aria-labelledby="hero-title">
+      <div class="diwali-decor" aria-hidden="true">
+        <svg class="diwali-symbols" width="0" height="0" focusable="false">
+          <defs>
+            <radialGradient id="diwali-glow"><stop stop-color="#ffd270" stop-opacity=".7"/><stop offset="1" stop-color="#ffd270" stop-opacity="0"/></radialGradient>
+            <linearGradient id="diwali-clay" x2="0" y2="1"><stop stop-color="#d98138"/><stop offset="1" stop-color="#8b361e"/></linearGradient>
+            <linearGradient id="diwali-flame" x2="0" y2="1"><stop stop-color="#fffde5"/><stop offset=".5" stop-color="#ffe18a"/><stop offset="1" stop-color="#ef8e24"/></linearGradient>
+            <g id="diwali-ray"><path d="M0-26 0-70 M0-83 0-111"/><circle cy="-122" r="1.8" fill="currentColor" stroke="none"/></g>
+            <g id="diwali-firework">
+              <circle cx="160" cy="160" r="138" fill="url(#diwali-glow)" opacity=".45"/>
+              <g class="diwali-rays" transform="translate(160 160)" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <use href="#diwali-ray"/><use href="#diwali-ray" transform="rotate(22.5)"/><use href="#diwali-ray" transform="rotate(45)"/><use href="#diwali-ray" transform="rotate(67.5)"/>
+                <use href="#diwali-ray" transform="rotate(90)"/><use href="#diwali-ray" transform="rotate(112.5)"/><use href="#diwali-ray" transform="rotate(135)"/><use href="#diwali-ray" transform="rotate(157.5)"/>
+                <use href="#diwali-ray" transform="rotate(180)"/><use href="#diwali-ray" transform="rotate(202.5)"/><use href="#diwali-ray" transform="rotate(225)"/><use href="#diwali-ray" transform="rotate(247.5)"/>
+                <use href="#diwali-ray" transform="rotate(270)"/><use href="#diwali-ray" transform="rotate(292.5)"/><use href="#diwali-ray" transform="rotate(315)"/><use href="#diwali-ray" transform="rotate(337.5)"/>
+                <g stroke="#b46b74" opacity=".65" transform="rotate(11.25) scale(.8)"><use href="#diwali-ray"/><use href="#diwali-ray" transform="rotate(45)"/><use href="#diwali-ray" transform="rotate(90)"/><use href="#diwali-ray" transform="rotate(135)"/><use href="#diwali-ray" transform="rotate(180)"/><use href="#diwali-ray" transform="rotate(225)"/><use href="#diwali-ray" transform="rotate(270)"/><use href="#diwali-ray" transform="rotate(315)"/></g>
+                <g stroke="#258b79" opacity=".55" transform="rotate(33.75) scale(.66)"><use href="#diwali-ray"/><use href="#diwali-ray" transform="rotate(90)"/><use href="#diwali-ray" transform="rotate(180)"/><use href="#diwali-ray" transform="rotate(270)"/></g>
+              </g>
+            </g>
+            <g id="diwali-light-strand">
+              <path d="M0 4 Q90 54 180 4" fill="none" stroke="#c79543" stroke-width="1"/>
+              <g class="diwali-bulbs" fill="#fff0b3" stroke="#d99a37" stroke-width=".6">
+                <circle cx="15" cy="16" r="3"/><circle cx="45" cy="29" r="3"/><circle cx="75" cy="35" r="3"/><circle cx="105" cy="35" r="3"/><circle cx="135" cy="29" r="3"/><circle cx="165" cy="16" r="3"/>
+              </g>
+            </g>
+            <g id="diwali-diya">
+              <ellipse cx="100" cy="134" rx="82" ry="15" fill="#d79239" opacity=".12"/>
+              <path d="M24 97 Q100 185 176 97Z" fill="url(#diwali-clay)" stroke="#8b3e21" stroke-width="2"/>
+              <ellipse cx="100" cy="97" rx="76" ry="15" fill="#edab58" stroke="#a74d24" stroke-width="2"/>
+              <ellipse cx="100" cy="98" rx="63" ry="9" fill="#824421"/>
+              <path d="M46 117 Q100 145 154 117 M64 130 Q100 145 136 130" fill="none" stroke="#edb365" stroke-width="2" stroke-linecap="round"/>
+              <path d="M98 99 103 91" stroke="#3b2919" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </defs>
+        </svg>
+        <svg class="diwali-lights" viewBox="0 0 1440 60" preserveAspectRatio="none" focusable="false">
+          <use href="#diwali-light-strand"/><use href="#diwali-light-strand" x="180"/><use href="#diwali-light-strand" x="360"/><use href="#diwali-light-strand" x="540"/><use href="#diwali-light-strand" x="720"/><use href="#diwali-light-strand" x="900"/><use href="#diwali-light-strand" x="1080"/><use href="#diwali-light-strand" x="1260"/>
+        </svg>
+        <div class="diwali-firework diwali-firework-one"><span class="diwali-rocket"></span><svg class="diwali-burst" viewBox="0 0 320 320" focusable="false"><use href="#diwali-firework"/></svg></div>
+        <div class="diwali-firework diwali-firework-two"><span class="diwali-rocket"></span><svg class="diwali-burst" viewBox="0 0 320 320" focusable="false"><use href="#diwali-firework"/></svg></div>
+        <div class="diwali-firework diwali-firework-three"><span class="diwali-rocket"></span><svg class="diwali-burst" viewBox="0 0 320 320" focusable="false"><use href="#diwali-firework"/></svg></div>
+        <div class="diwali-firework diwali-firework-four"><span class="diwali-rocket"></span><svg class="diwali-burst" viewBox="0 0 320 320" focusable="false"><use href="#diwali-firework"/></svg></div>
+        <div class="diwali-diyas diwali-diyas-left">
+          <svg class="diwali-lamp" viewBox="0 0 200 160" focusable="false"><use href="#diwali-diya"/></svg><span class="diwali-flame"></span>
+          <svg class="diwali-lamp diwali-lamp-small" viewBox="0 0 200 160" focusable="false"><use href="#diwali-diya"/></svg><span class="diwali-flame diwali-flame-small"></span>
+        </div>
+        <div class="diwali-diyas diwali-diyas-right">
+          <svg class="diwali-lamp" viewBox="0 0 200 160" focusable="false"><use href="#diwali-diya"/></svg><span class="diwali-flame"></span>
+          <svg class="diwali-lamp diwali-lamp-small" viewBox="0 0 200 160" focusable="false"><use href="#diwali-diya"/></svg><span class="diwali-flame diwali-flame-small"></span>
+        </div>
+      </div>
       <div class="hero-map-background" aria-hidden="true"><img src="./assets/india-background.svg" width="1000" height="1000" alt="" draggable="false"></div>
       <div class="wrap">
+          <div class="diwali-greeting"><span aria-hidden="true">&#10022;</span> Happy Diwali <span aria-hidden="true">&#10022;</span></div>
+          <button class="diwali-toggle" type="button" aria-pressed="false" hidden>Pause festive lights</button>
 
     <ul class="product-types" aria-label="Property types">
       <li>Govt plots</li>

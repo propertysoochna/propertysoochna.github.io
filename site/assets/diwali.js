@@ -1,9 +1,8 @@
 (() => {
   const hero = document.querySelector(".hero:has(.diwali-decor)");
   if (!hero) return;
-  const button = hero.querySelector(".diwali-toggle");
   const canvas = hero.querySelector(".diwali-canvas");
-  if (!button || !canvas) throw new Error("Diwali hero is missing its canvas or pause control.");
+  if (!canvas) throw new Error("Diwali hero is missing its canvas.");
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Diwali fireworks require a 2D canvas context.");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -12,7 +11,6 @@
     element, image: element.querySelector("img"), offset: [1.4, 1.7, 3.3, 3.7][index],
     x: 0, y: 0, width: 0, height: 0, visible: true,
   }));
-  let paused = false;
   let inView = true;
   let frame = 0;
   let previousTime = 0;
@@ -113,13 +111,9 @@
 
   function update() {
     const animated = ready && !reducedMotion.matches && !forcedColors.matches;
-    const stopped = paused || document.hidden || !inView;
+    const stopped = document.hidden || !inView;
     hero.classList.toggle("diwali-animated", animated);
     hero.classList.toggle("diwali-paused", stopped);
-    button.hidden = !animated;
-    button.setAttribute("aria-pressed", String(paused));
-    button.setAttribute("aria-label", paused ? "Resume festive lights" : "Pause festive lights");
-    button.innerHTML = paused ? '<span aria-hidden="true">&#9654;</span>' : '<span aria-hidden="true">&#10074;&#10074;</span>';
     if (animated && !stopped && !frame) {
       previousTime = 0;
       frame = requestAnimationFrame(animate);
@@ -130,7 +124,6 @@
     }
   }
 
-  button.addEventListener("click", () => { paused = !paused; update(); });
   reducedMotion.addEventListener("change", update);
   forcedColors.addEventListener("change", update);
   document.addEventListener("visibilitychange", update);

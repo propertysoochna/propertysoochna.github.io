@@ -115,7 +115,6 @@ html.theme-locked body[data-view="home"] .hero .hero-actions .home-join > span[a
   gap:12px;
   z-index:3;
 }
-.home-follow { color:#5f6e70; font-size:10px; letter-spacing:.07em; }
 .home-instagram, .home-x > summary {
   display:flex;
   align-items:center;
@@ -219,16 +218,31 @@ html.theme-locked body[data-view="home"] .hero .hero-actions .home-join > span[a
   html.theme-locked body[data-view="home"] .hero { padding-block:24px; }
 }
 @media(prefers-reduced-motion:no-preference) {
+  .home-edition-link { transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease; }
+  .home-edition-link > * { animation:home-edition-enter .54s cubic-bezier(.2,.65,.3,1) both; }
+  .home-edition-link:nth-child(2) > * { animation-delay:.09s; }
+  .home-edition-link:nth-child(3) > * { animation-delay:.18s; }
+  .home-edition-top > span[aria-hidden="true"] { transition:translate .18s ease; }
+  .home-edition-link:is(:hover,:focus-visible) .home-edition-top > span[aria-hidden="true"] { translate:3px 0; }
   .home-instagram { animation:hero-button-breathe 6s ease-in-out infinite; }
   .home-instagram:is(:hover,:focus-visible,:active) { animation-play-state:paused; scale:1!important; translate:0 0!important; }
 }
+@keyframes home-edition-enter {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:none; }
+}
 @media(prefers-reduced-motion:reduce), (forced-colors:active) {
   .home-instagram { animation:none; }
+  .home-edition-link { transition:none; }
+  .home-edition-link > * { animation:none; opacity:1; transform:none; }
+  .home-edition-top > span[aria-hidden="true"] { transition:none; translate:none; }
+  .home-edition-link:is(:hover,:focus-visible) .home-edition-top > span[aria-hidden="true"] { translate:none; }
 }
 @media(forced-colors:active) {
   .home-edition-link,.home-instagram,.home-x>summary,.home-x-note { border:1px solid ButtonText; }
 }
 @media print {
+  .home-edition-link > * { animation:none!important; opacity:1; transform:none; }
   .home-socials { display:none; }
   .home-editions { position:static; transform:none; width:100%; }
   body[data-view="home"] .hero > .home-layout { width:100%; }
